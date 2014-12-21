@@ -1,10 +1,10 @@
 package client.app.system.init;
 
-import client.core.Main;
+import client.core.MainClient;
 
-public class Start {
+public class Main {
 	
 	public static void main(String[] args) {
-		Main.main(args);
+		MainClient.main(args);
 	}
 }
