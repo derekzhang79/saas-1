@@ -1,9 +1,8 @@
 package client.app.brands.tasks;
 
 import java.awt.Color;
-
 import client.app.brands.gui.def.GUIEditBrand;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseBrand<ResultType> extends OptionTask<ResultType> {
 	

@@ -1,9 +1,8 @@
 package client.app.sections.tasks;
 
 import java.awt.Color;
-
 import client.app.sections.gui.def.GUIEditSection;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseSection<ResultType> extends OptionTask<ResultType> {
 	

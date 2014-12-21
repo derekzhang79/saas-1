@@ -1,11 +1,10 @@
 package client.app.workshop.tasks;
 
 import java.awt.Color;
-
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.tasks.SearchClient;
 import client.app.workshop.gui.def.GUIEditFixOrder;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseFixOrder<ResultType> extends OptionTask<ResultType> {
 	

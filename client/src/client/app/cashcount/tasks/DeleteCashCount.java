@@ -3,7 +3,7 @@ package client.app.cashcount.tasks;
 import share.app.cashcount.CashCount;
 import client.app.cashcount.gui.def.GUIDeleteCashCount;
 import client.app.cashcount.operations.OperationsCashCount;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteCashCount extends OptionTask<Boolean> {
 	

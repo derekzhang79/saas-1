@@ -4,7 +4,7 @@ import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;
 import client.app.invoices.gui.def.GUIBrowseInvoiceDetail;
 import client.app.invoices.operations.OperationsInvoices;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseInvoiceDetail extends OptionTask<Void> {
 	

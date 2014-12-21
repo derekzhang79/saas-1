@@ -3,7 +3,7 @@ package client.app.configuration.usergroups.tasks;
 import share.core.objects.UserGroup;
 import client.app.configuration.usergroups.gui.def.GUIDeleteUserGroup;
 import client.app.configuration.usergroups.operations.OperationsUserGroups;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteUserGroup extends OptionTask<Boolean> {
 	

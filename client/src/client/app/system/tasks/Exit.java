@@ -1,7 +1,7 @@
 package client.app.system.tasks;
 
 import client.app.system.gui.def.GUIExit;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class Exit extends OptionTask<Void> {
 	

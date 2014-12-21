@@ -3,7 +3,7 @@ package client.app.products.tasks;
 import share.app.products.Product;
 import client.app.products.gui.def.GUIDeleteProduct;
 import client.app.products.operations.OperationsProducts;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteProduct extends OptionTask<Boolean> {
 	

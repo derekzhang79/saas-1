@@ -3,7 +3,7 @@ package client.app.contacts.suppliers.tasks;
 import share.app.contacts.suppliers.Supplier;
 import client.app.contacts.suppliers.gui.def.GUIDeleteSupplier;
 import client.app.contacts.suppliers.operations.OperationsSuppliers;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteSupplier extends OptionTask<Boolean> {
 	

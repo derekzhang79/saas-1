@@ -7,7 +7,7 @@ import client.app.brands.tasks.SearchBrand;
 import client.app.products.gui.def.GUISearchProduct;
 import client.app.products.operations.OperationsProducts;
 import client.app.sections.tasks.SearchSection;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class SearchProduct extends OptionTask<Product> {
 	

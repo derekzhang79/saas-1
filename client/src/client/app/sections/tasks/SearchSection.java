@@ -3,7 +3,7 @@ package client.app.sections.tasks;
 import share.app.sections.Section;
 import client.app.sections.gui.def.GUISearchSection;
 import client.app.sections.operations.OperationsSections;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class SearchSection extends OptionTask<Section> {
 	

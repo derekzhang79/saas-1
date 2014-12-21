@@ -1,11 +1,10 @@
 package client.app.cashcount.tasks;
 
 import java.awt.Color;
-
 import share.core.Constants;
 import client.app.cashcount.gui.def.GUIEditCashCount;
-import client.core.gui.DataFormatter;
-import client.core.gui.OptionTask;
+import client.core.gui.format.DataFormatter;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseCashCount extends OptionTask<Boolean> {
 	

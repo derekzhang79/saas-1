@@ -1,9 +1,8 @@
 package client.app.contacts.clients.tasks;
 
 import java.awt.Color;
-
 import client.app.contacts.clients.gui.def.GUIEditClient;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseClient<ResultType> extends OptionTask<ResultType> {
 	

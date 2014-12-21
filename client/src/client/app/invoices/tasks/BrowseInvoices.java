@@ -10,7 +10,7 @@ import client.app.invoices.gui.def.GUIBrowseInvoices;
 import client.app.invoices.operations.OperationsInvoices;
 import client.app.invoices.reports.PrintInvoice;
 import client.app.taxes.operations.OperationsTaxes;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseInvoices extends OptionTask<Void> {
 	

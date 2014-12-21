@@ -1,9 +1,8 @@
 package client.app.contacts.suppliers.tasks;
 
 import java.awt.Color;
-
 import client.app.contacts.suppliers.gui.def.GUIEditSupplier;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseSupplier extends OptionTask<Boolean> {
 	

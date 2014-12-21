@@ -3,7 +3,7 @@ package client.app.system.tasks;
 import share.core.Environment;
 import client.app.system.gui.def.GUILogInfo;
 import client.core.debug.Debug;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class LogInfo extends OptionTask<Void> {
 	

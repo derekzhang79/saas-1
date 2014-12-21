@@ -9,7 +9,7 @@ import share.core.objects.Task;
 import share.core.objects.UserGroup;
 import client.app.configuration.usergroups.gui.def.GUIEditUserGroupPermissions;
 import client.app.configuration.usergroups.operations.OperationsPermissions;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class EditUserGroupPermissions extends OptionTask<Void>
 {

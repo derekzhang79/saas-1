@@ -1,11 +1,10 @@
 package client.app.invoices.tasks;
 
 import java.awt.Color;
-
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.tasks.SearchClient;
 import client.app.invoices.gui.def.GUIEditInvoice;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseInvoice<ResultType> extends OptionTask<ResultType> {
 	

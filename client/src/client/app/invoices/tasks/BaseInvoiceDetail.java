@@ -1,13 +1,12 @@
 package client.app.invoices.tasks;
 
 import java.awt.Color;
-
 import share.app.products.Product;
 import share.core.Constants;
 import client.app.invoices.gui.def.GUIEditInvoiceDetail;
 import client.app.products.tasks.SearchProduct;
-import client.core.gui.DataFormatter;
-import client.core.gui.OptionTask;
+import client.core.gui.format.DataFormatter;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseInvoiceDetail extends OptionTask<Boolean> {
 	

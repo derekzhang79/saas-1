@@ -3,7 +3,7 @@ package client.app.contacts.clients.tasks;
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.gui.def.GUIBrowseClients;
 import client.app.contacts.clients.operations.OperationsClients;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseClients extends OptionTask<Void> {
 	

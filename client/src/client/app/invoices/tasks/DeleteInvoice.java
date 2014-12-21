@@ -3,7 +3,7 @@ package client.app.invoices.tasks;
 import share.app.invoices.Invoice;
 import client.app.invoices.gui.def.GUIDeleteInvoice;
 import client.app.invoices.operations.OperationsInvoices;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteInvoice extends OptionTask<Boolean> {
 	

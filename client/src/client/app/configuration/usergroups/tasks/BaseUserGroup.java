@@ -1,9 +1,8 @@
 package client.app.configuration.usergroups.tasks;
 
 import java.awt.Color;
-
 import client.app.configuration.usergroups.gui.def.GUIEditUserGroup;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseUserGroup<ResultType> extends OptionTask<ResultType> {
 	

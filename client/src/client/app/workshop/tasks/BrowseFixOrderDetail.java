@@ -4,7 +4,7 @@ import share.app.workshop.FixOrder;
 import share.app.workshop.FixOrderDetail;
 import client.app.workshop.gui.def.GUIBrowseFixOrderDetail;
 import client.app.workshop.operations.OperationsWorkshop;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseFixOrderDetail extends OptionTask<Void> {
 	

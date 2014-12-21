@@ -1,9 +1,8 @@
 package client.app.taxes.tasks;
 
 import java.awt.Color;
-
 import client.app.taxes.gui.def.GUIEditTax;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseTax extends OptionTask<Boolean> {
 	

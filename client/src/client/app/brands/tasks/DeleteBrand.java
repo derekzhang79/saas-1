@@ -3,7 +3,7 @@ package client.app.brands.tasks;
 import share.app.brands.Brand;
 import client.app.brands.gui.def.GUIDeleteBrand;
 import client.app.brands.operations.OperationsBrands;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteBrand extends OptionTask<Boolean> {
 	

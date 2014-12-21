@@ -1,9 +1,8 @@
 package client.app.workshop.tasks;
 
 import java.awt.Color;
-
 import client.app.workshop.gui.def.GUIEditFixOrderDetail;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseFixOrderDetail extends OptionTask<Boolean> {
 	

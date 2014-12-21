@@ -1,7 +1,6 @@
 package client.app.journals.tasks;
 
 import java.util.Calendar;
-
 import share.app.dictionary.Category.Categories;
 import share.app.journals.Journal;
 import share.core.Constants;
@@ -9,8 +8,8 @@ import share.core.Environment;
 import client.app.journals.gui.def.GUIBrowseJournals;
 import client.app.journals.operations.OperationsJournals;
 import client.app.system.dictionary.DictionaryManager;
-import client.core.gui.DataFormatter;
-import client.core.gui.OptionTask;
+import client.core.gui.format.DataFormatter;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseJournals extends OptionTask<Void> {
 	

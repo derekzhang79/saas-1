@@ -1,14 +1,13 @@
 package client.app.configuration.users.tasks;
 
 import java.awt.Color;
-
 import share.core.Encoding;
 import share.core.objects.User;
 import share.core.objects.UserGroup;
 import client.app.configuration.usergroups.tasks.SearchUserGroup;
 import client.app.configuration.users.gui.def.GUIAddUser;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class AddUser extends OptionTask<Boolean> {
 	

@@ -1,9 +1,8 @@
 package client.app.support.tasks;
 
 import java.awt.Color;
-
 import client.app.support.gui.def.GUIEditSupport;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseSupport extends OptionTask<Boolean> {
 	

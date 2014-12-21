@@ -3,7 +3,7 @@ package client.app.workshop.tasks;
 import share.app.workshop.FixOrderDetail;
 import client.app.workshop.gui.def.GUIDeleteFixOrderDetail;
 import client.app.workshop.operations.OperationsWorkshop;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteFixOrderDetail extends OptionTask<Boolean> {
 	

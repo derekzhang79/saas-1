@@ -4,7 +4,7 @@ import share.app.journals.Journal;
 import share.app.journals.JournalDetail;
 import client.app.journals.gui.def.GUIBrowseJournalDetail;
 import client.app.journals.operations.OperationsJournals;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseJournalDetail extends OptionTask<Void> {
 	

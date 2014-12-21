@@ -3,7 +3,7 @@ package client.app.configuration.users.tasks;
 import share.core.objects.User;
 import client.app.configuration.users.gui.def.GUIDeleteUser;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteUser extends OptionTask<Boolean> {
 	

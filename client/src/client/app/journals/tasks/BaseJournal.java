@@ -1,9 +1,8 @@
 package client.app.journals.tasks;
 
 import java.awt.Color;
-
 import client.app.journals.gui.def.GUIEditJournal;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseJournal<ResultType> extends OptionTask<ResultType> {
 	

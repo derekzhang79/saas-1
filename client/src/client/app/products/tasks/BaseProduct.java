@@ -1,13 +1,12 @@
 package client.app.products.tasks;
 
 import java.awt.Color;
-
 import share.app.brands.Brand;
 import share.app.sections.Section;
 import client.app.brands.tasks.SearchBrand;
 import client.app.products.gui.def.GUIEditProduct;
 import client.app.sections.tasks.SearchSection;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public abstract class BaseProduct<ResultType> extends OptionTask<ResultType> {
 	

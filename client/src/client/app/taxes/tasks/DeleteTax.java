@@ -3,8 +3,8 @@ package client.app.taxes.tasks;
 import share.app.taxes.Tax;
 import client.app.taxes.gui.def.GUIDeleteTax;
 import client.app.taxes.operations.OperationsTaxes;
-import client.core.gui.DataFormatter;
-import client.core.gui.OptionTask;
+import client.core.gui.format.DataFormatter;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteTax extends OptionTask<Boolean> {
 	

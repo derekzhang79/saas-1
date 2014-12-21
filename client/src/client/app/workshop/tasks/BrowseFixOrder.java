@@ -11,7 +11,7 @@ import client.app.system.dictionary.DictionaryManager;
 import client.app.workshop.gui.def.GUIBrowseFixOrder;
 import client.app.workshop.operations.OperationsWorkshop;
 import client.app.workshop.reports.PrintFixOrder;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseFixOrder extends OptionTask<Void> {
 	

@@ -5,7 +5,7 @@ import share.app.workshop.FixOrder;
 import share.app.workshop.FixOrderDetail;
 import share.core.Constants;
 import share.core.objects.Company;
-import client.core.gui.DataFormatter;
+import client.core.gui.format.DataFormatter;
 import client.core.gui.reports.Report;
 import client.core.gui.reports.ReportParameter;
 import client.core.profile.Profile;

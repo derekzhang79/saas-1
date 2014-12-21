@@ -3,7 +3,7 @@ package client.app.journals.tasks;
 import share.app.journals.Journal;
 import client.app.journals.gui.def.GUIDeleteJournal;
 import client.app.journals.operations.OperationsJournals;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class DeleteJournal extends OptionTask<Boolean> {
 	

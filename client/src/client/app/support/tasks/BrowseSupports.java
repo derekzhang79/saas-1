@@ -6,7 +6,7 @@ import share.app.support.Support;
 import client.app.support.gui.def.GUIBrowseSupports;
 import client.app.support.operations.OperationsSupports;
 import client.app.system.dictionary.DictionaryManager;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class BrowseSupports extends OptionTask<Void> {
 	
