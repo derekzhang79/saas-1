@@ -21,7 +21,7 @@ public class Parameters implements Serializable
 	private final String method;
 
 	private String ip = "";
-	private final String dbEnvironment;
+	private final String databaseEnvironment;
 
 	private final String javaVendor;
 	private final String javaVersion;
@@ -34,7 +34,7 @@ public class Parameters implements Serializable
 	private byte[] key = new byte[0];
 	private final List<Object> list = new ArrayList<Object>();
 
-	public Parameters(String target, String user, String pass, int clientID, String sessionId, String ticket, String dbEnvironment, Object[] parameters)
+	public Parameters(String target, String user, String pass, int clientID, String sessionId, String ticket, String databaseEnvironment, Object[] parameters)
 	{
 		if (!target.isEmpty())
 		{
@@ -48,7 +48,7 @@ public class Parameters implements Serializable
 			this.method = "";
 		}
 
-		this.dbEnvironment = dbEnvironment;
+		this.databaseEnvironment = databaseEnvironment;
 
 		this.javaVendor = System.getProperty("java.vendor");
 		this.javaVersion = System.getProperty("java.version");
@@ -117,7 +117,7 @@ public class Parameters implements Serializable
 
 	public String getDBEnvironment()
 	{
-		return this.dbEnvironment;
+		return this.databaseEnvironment;
 	}
 
 	public void setKey(byte[] value)
