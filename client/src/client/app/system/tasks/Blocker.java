@@ -9,29 +9,29 @@ import client.core.profile.Profile;
 public class Blocker extends OptionTask<Void>
 {
 	private final GUIBlocker gui = new GUIBlocker();
-	
+
 	public Blocker()
 	{
 		super(GUIBlocker.PATH, TaskType.SPECIAL, true);
 	}
-	
+
 	@Override
 	public void start()
 	{
 		setGUI(this.gui);
 		addTitle(Profile.getUserName());
 	}
-	
+
 	@Override
 	public void closing()
 	{
 	}
-	
+
 	private void checkPassword(String pass)
 	{
 		if (validate())
 		{
-			if (Profile.getUserPassword().equals(Encoding.md5(pass)))
+			if (Profile.getUserPassword().equals(Encoding.getSHA256(pass)))
 			{
 				close();
 			}
@@ -43,13 +43,13 @@ public class Blocker extends OptionTask<Void>
 			}
 		}
 	}
-	
+
 	private boolean validate()
 	{
 		boolean valid = false;
-		
+
 		clearInputsBorders();
-		
+
 		if (this.gui.pass.isEmpty())
 		{
 			showWarning(GUIBlocker.Literals.PASS_REQUIRED);
@@ -60,10 +60,10 @@ public class Blocker extends OptionTask<Void>
 		{
 			valid = true;
 		}
-		
+
 		return valid;
 	}
-	
+
 	@Override
 	public void event(Event event)
 	{
@@ -72,13 +72,13 @@ public class Blocker extends OptionTask<Void>
 			case ACCEPT:
 				checkPassword(this.gui.pass.get());
 				break;
-			
+
 			case EXIT:
 				Exit exit = new Exit();
 				exit.run();
 				this.gui.pass.focus();
 				break;
-			
+
 			default:
 				break;
 		}

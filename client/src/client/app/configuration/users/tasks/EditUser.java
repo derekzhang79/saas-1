@@ -42,7 +42,7 @@ public class EditUser extends OptionTask<Boolean>
 			
 			if (!newPassword.isEmpty())
 			{
-				newPassword = Encoding.md5(newPassword);
+				newPassword = Encoding.getSHA256(newPassword);
 			}
 			
 			User newUser = new User(0, this.gui.name.get(), newPassword, this.userGroupID);
@@ -53,7 +53,7 @@ public class EditUser extends OptionTask<Boolean>
 				if (this.original.id == Profile.getUserID())
 				{
 					Profile.setUserName(this.gui.name.get());
-					Profile.setUserPassword(Encoding.md5(this.gui.password.get()));
+					Profile.setUserPassword(Encoding.getSHA256(this.gui.password.get()));
 					Profile.setAdministrator(this.isGroupAdministrator);
 				}
 				
