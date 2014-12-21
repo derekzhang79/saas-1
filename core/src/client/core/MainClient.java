@@ -22,7 +22,7 @@ public class MainClient
 		{
 			AppLocation location = AppLocation.valueOf(args[0].toUpperCase());
 			AppEnvironment environment = AppEnvironment.valueOf(args[1].toUpperCase());
-			
+
 			MainClient mainClient = new MainClient();
 			mainClient.start(location, environment);
 		}
@@ -31,22 +31,22 @@ public class MainClient
 			System.out.println("Usage: client.jar [local|remote] [test|real]");
 		}
 	}
-	
+
 	private void start(AppLocation location, AppEnvironment environment)
 	{
 		configure(location, environment);
 		startDesktop();
 	}
-
+	
 	private void configure(AppLocation location, AppEnvironment environment)
 	{
 		Environment.createApplicationPath();
 		Communication.configure(location, environment);
 		FontStore.configure();
-		
+
 		String url = Configurator.getDesktop().shortcut.base_url + environment.toString().toLowerCase() + Configurator.getDesktop().shortcut.file_url;
 		Environment.setApplicationShortcut(Configurator.getDesktop().shortcut.name, Configurator.getDesktop().shortcut.icone, url);
-		
+
 		try
 		{
 			UIManager.setLookAndFeel(Configurator.getDesktop().laf);
@@ -55,7 +55,7 @@ public class MainClient
 		{
 		}
 	}
-	
+
 	private void startDesktop()
 	{
 		SwingUtilities.invokeLater(new Runnable()
@@ -69,7 +69,7 @@ public class MainClient
 				frame.setIconImage(ImageStore.getImage(Configurator.getDesktop().icon));
 				frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
-				
+
 				frame.addWindowListener(new WindowAdapter()
 				{
 					@Override

@@ -3,8 +3,8 @@
 	
 	<information>
 		<title>Saas System</title>
-		<vendor>Company</vendor>
-		<description>Saas System</description>
+		<vendor>Company Name</vendor>
+		<description>SaaS System</description>
     	<icon kind="splash" href="splash.png" />
 	</information>
 	
@@ -28,4 +28,5 @@
 		<argument>remote</argument>
 		<argument>real</argument>
 	</application-desc>
+	
 </jnlp>

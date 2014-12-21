@@ -156,7 +156,7 @@
 					   **/*.key,
 					   **/*.xml">
 			<manifest>
-				<attribute name="Main-Class" value="server.app.connection.Main" />
+				<attribute name="Main-Class" value="server.app.init.Main" />
 				<attribute name="Class-Path" value="mysql-connector-java-5.1.34.jar jdom-2.0.2.jar" />
 			</manifest>
 		</jar>
