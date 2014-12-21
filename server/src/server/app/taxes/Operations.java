@@ -1,8 +1,8 @@
 package server.app.taxes;
 
 import java.sql.Connection;
-import server.app.db.tables.TableTax;
-import server.core.ServerOperation;
+import server.app.database.tables.TableTax;
+import server.core.connection.ServerOperation;
 import share.app.taxes.IOperations;
 import share.app.taxes.Tax;
 import share.core.Date;

@@ -1,8 +1,8 @@
 package server.app.sections;
 
 import java.sql.Connection;
-import server.app.db.tables.TableSection;
-import server.core.ServerOperation;
+import server.app.database.tables.TableSection;
+import server.core.connection.ServerOperation;
 import share.app.sections.IOperations;
 import share.app.sections.Section;
 

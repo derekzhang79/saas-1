@@ -1,9 +1,9 @@
 package server.app.invoices;
 
 import java.sql.Connection;
-import server.app.db.tables.TableInvoice;
-import server.app.db.tables.TableInvoiceDetail;
-import server.core.ServerOperation;
+import server.app.database.tables.TableInvoice;
+import server.app.database.tables.TableInvoiceDetail;
+import server.core.connection.ServerOperation;
 import share.app.invoices.IOperations;
 import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;

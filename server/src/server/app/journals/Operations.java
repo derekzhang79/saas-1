@@ -1,9 +1,9 @@
 package server.app.journals;
 
 import java.sql.Connection;
-import server.app.db.tables.TableJournal;
-import server.app.db.tables.TableJournalDetail;
-import server.core.ServerOperation;
+import server.app.database.tables.TableJournal;
+import server.app.database.tables.TableJournalDetail;
+import server.core.connection.ServerOperation;
 import share.app.journals.IOperations;
 import share.app.journals.Journal;
 import share.app.journals.JournalDetail;

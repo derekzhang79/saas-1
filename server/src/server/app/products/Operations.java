@@ -1,8 +1,8 @@
 package server.app.products;
 
 import java.sql.Connection;
-import server.app.db.tables.TableProduct;
-import server.core.ServerOperation;
+import server.app.database.tables.TableProduct;
+import server.core.connection.ServerOperation;
 import share.app.products.IOperations;
 import share.app.products.Product;
 

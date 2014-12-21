@@ -1,9 +1,9 @@
 package server.app.workshop;
 
 import java.sql.Connection;
-import server.app.db.tables.TableFixOrder;
-import server.app.db.tables.TableFixOrderDetail;
-import server.core.ServerOperation;
+import server.app.database.tables.TableFixOrder;
+import server.app.database.tables.TableFixOrderDetail;
+import server.core.connection.ServerOperation;
 import share.app.workshop.FixOrder;
 import share.app.workshop.FixOrderDetail;
 import share.app.workshop.IOperations;
