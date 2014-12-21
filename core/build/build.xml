@@ -11,10 +11,10 @@
 			   defaultvalue = "test" />
 		
 		<!-- SET PROJECTS PROPERTIES -->
-		<property name="appclient.dir" location="${basedir}/AppClient" />
-		<property name="appserver.dir" location="${basedir}/AppServer" />
-		<property name="appcore.dir"   location="${basedir}/AppCore" />
-		<property name="appshare.dir"  location="${basedir}/AppShare" />
+		<property name="appclient.dir" location="${basedir}/Client" />
+		<property name="appserver.dir" location="${basedir}/Server" />
+		<property name="appcore.dir"   location="${basedir}/Core" />
+		<property name="appshare.dir"  location="${basedir}/Share" />
 		<property name="dist.dir"      location="${appcore.dir}/build/dist" />
 		
 		<!-- SET DIST PROPERTIES -->
@@ -122,9 +122,9 @@
 		</ftp>-->
 		
 		<!-- UPDATE CURRENT VERSION -->
-		<ftp server="${ftp.ip}" remotedir="${ftp.dir}${environment}/" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
+		<!--<ftp server="${ftp.ip}" remotedir="${ftp.dir}${environment}/" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
 			<fileset dir="${dist.client.final}" />
-		</ftp>
+		</ftp>-->
 		
 	</target>
 	
@@ -173,20 +173,18 @@
 		</ftp>-->
 		
 		<!-- UPDATE CURRENT VERSION -->
-		<ftp server="${ftp.ip}" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
+		<!--<ftp server="${ftp.ip}" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
 			<fileset dir="${dist.server.final}" />
-		</ftp>
+		</ftp>-->
 		
 	</target>
 	
 	<target name="main" depends="begin, build_client, upload_client, build_server, upload_server">
 		
 		<!-- DELETE DIST FOLDER -->
-		<!--
-		<delete dir="${dist.client}" />
+		<!--<delete dir="${dist.client}" />
 		<delete dir="${dist.server}" />
-		<delete dir="${dist.dir}" />
-		-->
+		<delete dir="${dist.dir}" />-->
 		
 	</target>
 	

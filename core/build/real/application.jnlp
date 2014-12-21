@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jnlp codebase="http://IP_DEL_SERVIDOR/store/real/" href="application.jnlp">
+<jnlp codebase="http://SERVER/real/" href="application.jnlp">
 	
 	<information>
-		<title>Gestión de Mercería</title>
+		<title>Saas System</title>
 		<vendor>Company</vendor>
-		<description>Gestión de Mercería</description>
+		<description>Saas System</description>
     	<icon kind="splash" href="splash.png" />
 	</information>
 	
@@ -24,7 +24,7 @@
 		<jar href="media.jar" />
 	</resources>
 	
-	<application-desc main-class="client.app.system.init.Start">
+	<application-desc main-class="client.app.init.Main">
 		<argument>remote</argument>
 		<argument>real</argument>
 	</application-desc>
