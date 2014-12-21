@@ -1,10 +1,9 @@
 package client.core.gui.export;
 
 import java.lang.reflect.Field;
-
 import share.core.Constants;
 import share.core.Date;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.DataFormatter;
 import client.core.gui.Message;
 import client.core.gui.components.ColumnType;

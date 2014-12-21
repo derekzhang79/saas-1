@@ -3,7 +3,7 @@ package client.core.gui.window;
 import javax.swing.JInternalFrame;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
-import client.core.Debug;
+import client.core.debug.Debug;
 
 public class ExtendedWindow extends JInternalFrame implements InternalFrameListener
 {

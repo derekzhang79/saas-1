@@ -2,7 +2,7 @@ package client.core.connection;
 
 import javax.swing.SwingWorker;
 import share.core.connection.Parameters;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.Message;
 
 public class BackgroundWorker extends SwingWorker<String, String>

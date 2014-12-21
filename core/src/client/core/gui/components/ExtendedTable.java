@@ -34,7 +34,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableRowSorter;
 import share.core.Constants;
 import share.core.Date;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.DataFormatter;
 import client.core.gui.FontStore;
 import client.core.gui.Message;

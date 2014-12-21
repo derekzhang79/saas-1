@@ -3,7 +3,6 @@ package client.core.gui.export;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.hssf.usermodel.HSSFFont;
@@ -14,12 +13,11 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
-
 import share.core.Constants;
 import share.core.Date;
 import share.core.Environment;
 import share.core.Resource;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.DataFormatter;
 import client.core.gui.Message;
 import client.core.gui.components.ColumnType;

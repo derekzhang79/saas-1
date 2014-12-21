@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import share.core.Constants;
-import client.core.Debug;
+import client.core.debug.Debug;
 
 public class ImageCreator
 {

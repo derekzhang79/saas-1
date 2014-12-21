@@ -5,7 +5,7 @@ import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JDialog;
-import client.core.Desktop;
+import client.core.desktop.Desktop;
 
 public class ModalWindow extends JDialog implements ComponentListener, WindowListener
 {

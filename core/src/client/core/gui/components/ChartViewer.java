@@ -12,7 +12,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JDialog;
 import javax.swing.WindowConstants;
 import org.jfree.chart.ChartPanel;
-import client.core.Desktop;
+import client.core.desktop.Desktop;
 
 public class ChartViewer implements ComponentListener
 {

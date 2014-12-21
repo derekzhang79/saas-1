@@ -2,9 +2,8 @@ package client.core.gui;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import share.core.conf.Configurator;
-import client.core.Desktop;
+import client.core.desktop.Desktop;
 
 public class Message {
 	

@@ -1,4 +1,4 @@
-package client.core;
+package client.core.profile;
 
 import share.core.login.LoginResponse;
 import share.core.objects.Company;

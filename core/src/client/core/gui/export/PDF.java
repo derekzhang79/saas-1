@@ -1,11 +1,9 @@
 package client.core.gui.export;
 
 import java.lang.reflect.Field;
-
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.components.ColumnType;
 import client.core.gui.reports.Report;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;

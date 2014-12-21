@@ -2,10 +2,9 @@ package client.core.gui;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
-
 import share.core.Constants;
 import share.core.Resource;
-import client.core.Debug;
+import client.core.debug.Debug;
 
 public class FontStore {
 	

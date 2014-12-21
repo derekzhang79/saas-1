@@ -6,8 +6,8 @@ import share.core.Serializer;
 import share.core.conf.Configurator;
 import share.core.conf.communication.ConfCommunication;
 import share.core.connection.Response;
-import client.core.Debug;
-import client.core.Desktop;
+import client.core.debug.Debug;
+import client.core.desktop.Desktop;
 import client.core.gui.Message;
 
 public class Communication<ResponseClass>

@@ -1,6 +1,7 @@
-package client.core;
+package client.core.operations;
 
 import client.core.connection.Communication;
+import client.core.profile.Profile;
 
 public class Operation<ResponseClass>
 {

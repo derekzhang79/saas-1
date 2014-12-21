@@ -4,13 +4,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import share.core.MapTable;
 import share.core.conf.Configurator;
-import client.core.Debug;
-import client.core.Desktop;
-import client.core.Profile;
+import client.core.debug.Debug;
+import client.core.desktop.Desktop;
 import client.core.gui.components.ExtendedTable;
 import client.core.gui.export.Excel;
 import client.core.gui.export.PDF;
 import client.core.gui.window.WindowManager;
+import client.core.profile.Profile;
 
 public class OptionTask<T>
 {

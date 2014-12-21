@@ -11,7 +11,7 @@ import share.core.Environment;
 import share.core.MapTable;
 import share.core.Resource;
 import share.core.xml.XMLUtils;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.DataFormatter;
 import client.core.gui.window.NodeElement;
 import client.core.gui.window.WindowManager.Attribute;

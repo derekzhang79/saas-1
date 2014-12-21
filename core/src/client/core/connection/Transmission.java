@@ -12,7 +12,7 @@ import share.core.Crypt;
 import share.core.Encoding;
 import share.core.Resource;
 import share.core.connection.Parameters;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.Message;
 
 public class Transmission
