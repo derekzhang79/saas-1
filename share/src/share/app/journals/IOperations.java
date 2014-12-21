@@ -8,17 +8,17 @@ public interface IOperations
 	public static final String ADD_JOURNAL = IOperations.BASE_OPERATIONS + "addJournal";
 	public static final String EDIT_JOURNAL = IOperations.BASE_OPERATIONS + "editJournal";
 	public static final String EDIT_JOURNAL_DETAIL = IOperations.BASE_OPERATIONS + "editJournalDetail";
-	public static final String DELETE_JOURNAL = IOperations.BASE_OPERATIONS + "deleteJournal";;
-
+	public static final String DELETE_JOURNAL = IOperations.BASE_OPERATIONS + "deleteJournal";
+	
 	public Journal[] getJournals(Integer year, String month);
-
+	
 	public JournalDetail[] getJournalDetail(Integer journal);
-
+	
 	public Journal addJournal(Journal journal);
-
+	
 	public Boolean editJournal(Journal original, Journal newJournal);
-
+	
 	public Boolean editJournalDetail(JournalDetail original, JournalDetail newJournalDetail);
-
+	
 	public Boolean deleteJournal(Journal journal);
 }
