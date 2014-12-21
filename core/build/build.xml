@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<project name="AppBuild" default="main" basedir="../..">
+	
+	<target name="begin">
+		
+		<!-- SET ENVIRONMENT -->
+		<input message      = "Environment to deploy:"
+		       validargs    = "test,real"
+		       addproperty  = "environment"
+			   defaultvalue = "test" />
+		
+		<!-- SET PROJECTS PROPERTIES -->
+		<property name="appclient.dir" location="${basedir}/AppClient" />
+		<property name="appserver.dir" location="${basedir}/AppServer" />
+		<property name="appcore.dir"   location="${basedir}/AppCore" />
+		<property name="appshare.dir"  location="${basedir}/AppShare" />
+		<property name="dist.dir"      location="${appcore.dir}/build/dist" />
+		
+		<!-- SET DIST PROPERTIES -->
+		<property name="dist.client"       location="${appcore.dir}/build/dist/client" />
+		<property name="dist.client.class" location="${dist.client}/class" />
+		<property name="dist.client.final" location="${dist.client}/final" />
+		<property name="dist.server"       location="${appcore.dir}/build/dist/server" />
+		<property name="dist.server.class" location="${dist.server}/class" />
+		<property name="dist.server.final" location="${dist.server}/final" />
+		
+		<!-- LOAD PROPERTIES -->
+		<property file="${appcore.dir}/build/build.properties" />
+		
+		<!-- CREATE DIST FOLDER -->
+		<mkdir dir="${dist.dir}" />
+		
+		<!-- DELETE DIST FOLDER -->
+		<delete dir="${dist.client}" />
+		<delete dir="${dist.server}" />
+		
+		<!-- CREATE DIST CLIENT FOLDER -->
+		<mkdir dir="${dist.client}" />
+		<mkdir dir="${dist.client.final}" />
+		<mkdir dir="${dist.client.class}" />
+		
+		<!-- CREATE DIST CLIENT FOLDER -->
+		<mkdir dir="${dist.server}" />
+		<mkdir dir="${dist.server.final}" />
+		<mkdir dir="${dist.server.class}" />
+		
+		<!-- SET TIMESTAMP -->
+		<tstamp>
+			<format property="ftp.olddir" pattern="yyyy-MM-dd_hh-mm-ss" locale="en,UK" />
+		</tstamp>
+		
+	</target>
+	
+	<target name = "build_client">
+		
+		<!-- COPY JAR LIBRARIES -->
+		<!--<copy file="${appcore.dir}/lib/client/itextpdf-5.3.2.jar"    todir="${dist.client.final}" />-->
+		<!--<copy file="${appcore.dir}/lib/client/jcalendar-1.4.jar"     todir="${dist.client.final}" />-->
+		<!--<copy file="${appcore.dir}/lib/client/jcommon-1.0.17.jar"    todir="${dist.client.final}" />-->
+		<!--<copy file="${appcore.dir}/lib/client/jfreechart-1.0.14.jar" todir="${dist.client.final}" />-->
+		<!--<copy file="${appcore.dir}/lib/client/poi-3.8.jar"           todir="${dist.client.final}" />-->
+		<!--<copy file="${appcore.dir}/lib/share/jdom-2.0.2.jar"         todir="${dist.client.final}" />-->
+		
+		<!-- COPY CLIENT CLASSES -->
+		<copy todir="${dist.client.class}">
+			<fileset dir="${appclient.dir}/bin" />
+		</copy>
+		<copy todir="${dist.client.class}/client">
+			<fileset dir="${appcore.dir}/bin/client" />
+		</copy>
+		
+		<!-- COPY SHARE CLASSES -->
+		<copy todir="${dist.client.class}">
+			<fileset dir="${appshare.dir}/bin" />
+		</copy>
+		<copy todir="${dist.client.class}/share">
+			<fileset dir="${appcore.dir}/bin/share" />
+		</copy>
+		
+		<!-- COPY JNLP -->
+		<copy file="${appcore.dir}/build/${environment}/application.jnlp" todir="${dist.client.final}" />
+		
+		<!-- CREATE JAR CLIENT -->
+		<jar jarfile="${dist.client.final}/client.jar" basedir="${dist.client.class}" 
+			 includes="**/*.class,
+					   **/*.key,
+					   **/*.uil,
+					   **/*.prl,
+					   **/*.xml">
+			<manifest>
+				<attribute name="Main-Class" value="client.app.system.init.Start" />
+				<attribute name="Class-Path" value="jcalendar-1.4.jar jcommon-1.0.17.jar jdom-2.0.2.jar jfreechart-1.0.14.jar itextpdf-5.3.2.jar poi-3.8.jar media.jar" />
+			</manifest>
+		</jar>
+		
+		<!-- CREATE JAR MEDIA -->
+		<jar jarfile="${dist.client.final}/media.jar" basedir="${dist.client.class}" 
+			 includes="client/app/system/media/" />
+		
+		<!-- SIGN JARS -->
+		<signjar alias="${sign.alias}" storepass="${sign.pass}" keystore="${appcore.dir}${sign.keystore}">
+			<fileset dir="${dist.client.final}" casesensitive="yes">
+				<include name="*.jar" />
+			</fileset>
+		</signjar>
+		
+	</target>
+	
+	<target name="upload_client">
+		
+		<!-- CREATE OLD FOLDER -->
+		<!--<ftp action    = "mkdir"
+		     server    = "${ftp.ip}"
+		     userid    = "${ftp.user}"
+		     password  = "${ftp.pass}"
+		     remotedir = "${ftp.dir}${environment}/${ftp.olddir}" />-->
+		
+		<!-- UPDATE OLD FOLDER -->
+		<!--<ftp server="${ftp.ip}" remotedir="${ftp.dir}${environment}/${ftp.olddir}" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
+			<fileset dir="${dist.client.final}" />
+		</ftp>-->
+		
+		<!-- UPDATE CURRENT VERSION -->
+		<ftp server="${ftp.ip}" remotedir="${ftp.dir}${environment}/" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
+			<fileset dir="${dist.client.final}" />
+		</ftp>
+		
+	</target>
+	
+	<target name="build_server">
+		
+	    <!-- COPY JAR LIBRARIES -->
+		<!--<copy file="${appcore.dir}/lib/server/mysql-connector-java-5.1.34.jar" todir="${dist.server.final}" />-->
+		<!--<copy file="${appcore.dir}/lib/share/jdom-2.0.2.jar"                   todir="${dist.server.final}" />-->
+		
+		<!-- COPY SERVER CLASSES -->
+		<copy todir="${dist.server.class}">
+			<fileset dir="${appserver.dir}/bin" />
+		</copy>
+		<copy todir="${dist.server.class}/server">
+			<fileset dir="${appcore.dir}/bin/server" />
+		</copy>
+		
+		<!-- COPY SHARE CLASSES -->
+		<copy todir="${dist.server.class}">
+			<fileset dir="${appshare.dir}/bin" />
+		</copy>
+		<copy todir="${dist.server.class}/share">
+			<fileset dir="${appcore.dir}/bin/share" />
+		</copy>
+		
+		<!-- CREATE JAR CLIENT -->
+		<jar jarfile="${dist.server.final}/server.jar" basedir="${dist.server.class}" 
+			 includes="**/*.class,
+					   **/*.key,
+					   **/*.uil,
+					   **/*.prl,
+					   **/*.xml">
+			<manifest>
+				<attribute name="Main-Class" value="server.app.connection.Main" />
+				<attribute name="Class-Path" value="mysql-connector-java-5.1.34.jar jdom-2.0.2.jar" />
+			</manifest>
+		</jar>
+		
+	</target>
+	
+	<target name="upload_server">
+		
+		<!-- UPDATE OLD FOLDER -->
+		<!--<ftp server="${ftp.ip}" remotedir="${ftp.dir}${environment}/${ftp.olddir}" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
+			<fileset dir="${dist.server.final}" />
+		</ftp>-->
+		
+		<!-- UPDATE CURRENT VERSION -->
+		<ftp server="${ftp.ip}" verbose="yes" passive="yes" userid="${ftp.user}" password="${ftp.pass}">
+			<fileset dir="${dist.server.final}" />
+		</ftp>
+		
+	</target>
+	
+	<target name="main" depends="begin, build_client, upload_client, build_server, upload_server">
+		
+		<!-- DELETE DIST FOLDER -->
+		<!--
+		<delete dir="${dist.client}" />
+		<delete dir="${dist.server}" />
+		<delete dir="${dist.dir}" />
+		-->
+		
+	</target>
+	
+</project>

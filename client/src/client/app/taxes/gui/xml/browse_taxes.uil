@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Consultar impuestos" icon="taxes.png" status_bar="true">
+	
+	<menu_bar>
+		<menu name="MENU_1" text="Menú">
+			<item name="MENU_ITEM_1" text="Agregar"   action="ADD"    icon="add.png" />
+			<item name="MENU_ITEM_2" text="Modificar" action="EDIT"   icon="edit.png" />
+			<item name="MENU_ITEM_3" text="Eliminar"  action="DELETE" icon="delete.png" />
+		</menu>
+	</menu_bar>
+	
+	<components>
+		
+		<table name="list" x="0" y="0" width="350" height="286" row_span="3" margin_top="5" margin_right="5" margin_bottom="5" margin_left="5" action="EDIT">
+			<toolbar>
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EDIT"   icon="edit.png"   action="EDIT" />
+				<item name="LIST_DELETE" icon="delete.png" action="DELETE" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Tipo"  code="typeDescription" type="string"  width="140" />
+				<column name="Valor" code="value"           type="decimal" width="60" />
+				<column name="Desde" code="start"           type="date"    width="70" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_ADD"  text="Modificar" action="EDIT"   icon="edit.png" />
+				<item name="MENU_POPUP_EDIT" text="Eliminar"  action="DELETE" icon="delete.png" />
+			</popup_menu>
+		</table>
+		
+		<button name="add"    x="1" y="0" text="Agregar"   icon="add.png"    action="ADD"    width="130" margin_top="5" margin_right="5" tooltip="Agregar un impuesto" />
+		<button name="edit"   x="1" y="1" text="Modificar" icon="edit.png"   action="EDIT"   width="130" margin_top="5" margin_right="5" tooltip="Modificar un impuesto" />
+		<button name="delete" x="1" y="2" text="Eliminar"  icon="delete.png" action="DELETE" width="130" margin_top="5" margin_right="5" tooltip="Eliminar un impuesto" />
+		
+	</components>
+	
+	<literals>
+		<literal name="ROW_NOT_SELECTED" text="Debe seleccionar un impuesto" />
+		<literal name="LIST_PDF" text="Listado de Impuestos" />
+	</literals>
+	
+</gui>

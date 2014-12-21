@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="journal.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelDate" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Fecha:" />
+		<date_chooser name="date" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="DATE_REQUIRED" text="Debe indicar la fecha" />
+		<literal name="JOURNAL_NOT_CREATED" text="No se ha podido agregar el registro de ventas" />
+		<literal name="JOURNAL_NOT_EDITED" text="No se ha podido editar el registro de ventas" />
+		<literal name="TITLE_ADD_JOURNAL" text="Agregar registro de ventas" />
+		<literal name="TITLE_EDIT_JOURNAL" text="Editar registro de ventas" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

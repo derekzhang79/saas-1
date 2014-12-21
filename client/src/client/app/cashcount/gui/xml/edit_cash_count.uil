@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="cash_register.png" status_bar="true">
+	
+	<colors>
+		<color name="COLOR_MONEY" value="579D1C" />
+	</colors>
+	
+	<components>
+		
+	    <label name="labelDate" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Fecha:" />
+		<date_chooser name="date" x="1" y="0" margin_top="10" margin_right="5" margin_bottom="10" margin_left="-1" />
+	    
+	    <group_box name="groupBox" text="Efectivo" x="0" y="1" col_span="2" margin_left="5" margin_right="5">
+			
+			<label name="labelType_500"           x="0" y="0" border="true"  margin_left="5" margin_top="10" text="500,00 €:" />
+			<input name="type_500" type="integer" x="1" y="0" margin_top="10" margin_left="-1" margin_right="10" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 500 €" positive="true" />
+			<label name="labelType_500_sub"       x="2" y="0" border="false" margin_top="13" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_200"           x="0" y="1" border="true" margin_left="5" margin_top="8" text="200,00 €:" />
+			<input name="type_200" type="integer" x="1" y="1" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 200 €" positive="true" />
+			<label name="labelType_200_sub"       x="2" y="1" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_100"           x="0" y="2" border="true" margin_left="5" margin_top="8" text="100,00 €:" />
+			<input name="type_100" type="integer" x="1" y="2" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 100 €" positive="true" />
+			<label name="labelType_100_sub"       x="2" y="2" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_50"           x="0" y="3" border="true" margin_left="5" margin_top="8" text="50,00 €:" />
+			<input name="type_50" type="integer" x="1" y="3" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 50 €" positive="true" />
+			<label name="labelType_50_sub"       x="2" y="3" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_20"           x="0" y="4" border="true" margin_left="5" margin_top="8" text="20,00 €:" />
+			<input name="type_20" type="integer" x="1" y="4" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 20 €" positive="true" />
+			<label name="labelType_20_sub"       x="2" y="4" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_10"           x="0" y="5" border="true" margin_left="5" margin_top="8" text="10,00 €:" />
+			<input name="type_10" type="integer" x="1" y="5" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 10 €" positive="true" />
+			<label name="labelType_10_sub"       x="2" y="5" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_5"           x="0" y="6" border="true" margin_left="5" margin_top="8" text="5,00 €:" />
+			<input name="type_5" type="integer" x="1" y="6" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 5 €" positive="true" />
+			<label name="labelType_5_sub"       x="2" y="6" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_2"           x="0" y="7" border="true" margin_left="5" margin_top="8" text="2,00 €:" />
+			<input name="type_2" type="integer" x="1" y="7" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 2 €" positive="true" />
+			<label name="labelType_2_sub"       x="2" y="7" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_1"           x="0" y="8" border="true" margin_left="5" margin_top="8" text="1,00 €:" />
+			<input name="type_1" type="integer" x="1" y="8" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Billetes de 1 €" positive="true" />
+			<label name="labelType_1_sub"       x="2" y="8" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_0_5"           x="0" y="9" border="true" margin_left="5" margin_top="8" text="0,50 €:" />
+			<input name="type_0_5" type="integer" x="1" y="9" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Monedas de 50 céntimos" positive="true" />
+			<label name="labelType_0_5_sub"       x="2" y="9" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_0_2"           x="0" y="10" border="true" margin_left="5" margin_top="8" text="0,20 €:" />
+			<input name="type_0_2" type="integer" x="1" y="10" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Monedas de 20 céntimos" positive="true" />
+			<label name="labelType_0_2_sub"       x="2" y="10" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_0_1"           x="0" y="11" border="true" margin_left="5" margin_top="8" text="0,10 €:" />
+			<input name="type_0_1" type="integer" x="1" y="11" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Monedas de 10 céntimos" positive="true" />
+			<label name="labelType_0_1_sub"       x="2" y="11" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_0_05"           x="0" y="12" border="true" margin_left="5" margin_top="8" text="0,05 €:" />
+			<input name="type_0_05" type="integer" x="1" y="12" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Monedas de 5 céntimos" positive="true" />
+			<label name="labelType_0_05_sub"       x="2" y="12" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_0_02"           x="0" y="13" border="true" margin_left="5" margin_top="8" text="0,02 €:" />
+			<input name="type_0_02" type="integer" x="1" y="13" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Monedas de 2 céntimos" positive="true" />
+			<label name="labelType_0_02_sub"       x="2" y="13" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelType_0_01"           x="0" y="14" border="true" margin_left="5" margin_top="8" text="0,01 €:" />
+			<input name="type_0_01" type="integer" x="1" y="14" margin_top="8" margin_left="-1" width="50" action="SAVE" length="3" keypress="REFRESH" tooltip="Monedas de 1 céntimo" positive="true" />
+			<label name="labelType_0_01_sub"       x="2" y="14" border="false" margin_top="11" text="" color="COLOR_MONEY" bold="false" />
+			
+			<label name="labelTotalTitle" x="1" y="15" border="false" margin_top="10" margin_bottom="5" text="Total:" />
+			<label name="labelTotal"      x="2" y="15" border="false" width="75" height="15" margin_top="11" margin_bottom="5" margin_right="10" text="" color="COLOR_MONEY" />
+			
+		</group_box>
+	    
+	    <layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="DATE_REQUIRED" text="Debe indicar la fecha" />
+		<literal name="CASH_COUNT_NOT_CREATED" text="No se ha podido agregar el arqueo de caja" />
+		<literal name="CASH_COUNT_NOT_EDITED" text="No se ha podido editar el arqueo de caja" />
+		<literal name="TITLE_ADD_CASH_COUNT" text="Agregar arqueo de caja" />
+		<literal name="TITLE_EDIT_CASH_COUNT" text="Editar arqueo de caja" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

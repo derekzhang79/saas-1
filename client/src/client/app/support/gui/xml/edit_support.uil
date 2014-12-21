@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="support.png" status_bar="true">
+	
+	<components>
+		
+		<label name="labelName" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="390" action="SAVE" length="100" tooltip="Nombre de la incidencia" />
+		
+	    <label name="labelModule" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Módulo:" />
+		<combo_box name="module" x="1" y="1" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="160" />
+	    
+	    <label name="labelStatus" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Estado:" />
+		<combo_box name="status" x="1" y="2" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="160" editable="false" />
+		
+		<label name="labelDescription" x="0" y="3" border="true" bottom_padding="33" margin_top="10" margin_bottom="5" margin_left="10" text="Descripción:" />
+		<text_area name="description" editable="true" x="1" y="3" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="390" height="53" length="500" tooltip="Descripción de la incidencia" />
+		
+		<layout x="0" y="4" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="MODULE_REQUIRED" text="Debe indicar el módulo" />
+		<literal name="DESCRIPTION_REQUIRED" text="Debe indicar la descripción" />
+		<literal name="SUPPORT_NOT_CREATED" text="No se ha podido agregar la incidencia" />
+		<literal name="SUPPORT_NOT_EDITED" text="No se ha podido editar la incidencia" />
+		<literal name="TITLE_ADD_SUPPORT" text="Agregar incidencia" />
+		<literal name="TITLE_EDIT_SUPPORT" text="Editar incidencia" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

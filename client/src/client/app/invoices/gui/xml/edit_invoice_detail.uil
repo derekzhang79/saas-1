@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="billing.png" status_bar="true">
+	
+	<colors>
+		<color name="COLOR_MONEY" value="579D1C" />
+	</colors>
+	
+	<components>
+		
+		<label name="labelProduct" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Producto:" />
+		<input name="productName" type="text" x="1" y="0" margin_top="10" margin_left="-1" width="378" col_span="3" action="SEARCH" length="101" editable="false" tooltip="Producto de la factura" />
+		<button name="searchProduct" x="5" y="0" margin_top="9" margin_right="10" text="" icon="search.png" action="SEARCH_PRODUCT" width="30" height="24" tooltip="Buscar producto" />
+		
+		<label name="labelQuantity" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Cantidad:" />
+		<input name="quantity" type="decimal" x="1" y="1" margin_top="10" margin_left="-1" width="50" keypress="REFRESH" action="SAVE" length="6" decimals="2" positive="true" tooltip="Cantidad" />
+		
+		<label name="labelTax" x="2" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Impuesto:" />
+		<combo_box name="tax" x="3" y="1" editable="false" margin_top="10" margin_left="-1" width="130" />
+		
+		<label name="labelPrice" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Precio:" />
+		<input name="price" type="decimal" x="1" y="2" margin_top="10" margin_left="-1" margin_bottom="10" width="50" keypress="REFRESH" action="SAVE" length="6" decimals="2" positive="true" tooltip="Precio" />
+		
+		<label name="labelTotalPrice" x="2" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Total:" />
+		<label name="totalPrice" x="3" y="2" border="false" margin_top="13" margin_left="10" margin_bottom="10" text="0,0 €" color="COLOR_MONEY" bold="false" />
+		
+		<layout x="0" y="3" col_span="5">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="PRODUCT_REQUIRED" text="Debe indicar el producto" />
+		<literal name="QUANTITY_REQUIRED" text="Debe indicar la cantidad" />
+		<literal name="TAX_REQUIRED" text="Debe indicar el impuesto" />
+		<literal name="PRICE_REQUIRED" text="Debe indicar el precio" />
+		<literal name="INVOICE_DETAIL_NOT_CREATED" text="No se ha podido agregar el producto" />
+		<literal name="INVOICE_DETAIL_NOT_EDITED" text="No se ha podido editar el producto" />
+		<literal name="TITLE_ADD_INVOICE_DETAIL" text="Agregar producto" />
+		<literal name="TITLE_EDIT_INVOICE_DETAIL" text="Editar producto" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

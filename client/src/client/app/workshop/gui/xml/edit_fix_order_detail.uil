@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="shirt.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelDetail" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Detalle:" />
+		<input name="detail" type="text" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="215" action="SAVE" length="100" tooltip="Detalle" />
+		
+		<label name="labelQuantity" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Cantidad:" />
+		<input name="quantity" type="integer" x="1" y="1" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="60" action="SAVE" length="3" positive="true" tooltip="Cantidad" />
+		
+		<label name="labelAmount" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Monto:" />
+		<input name="amount" type="decimal" x="1" y="2" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="60" action="SAVE" length="4" decimals="2" positive="true" tooltip="Monto" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="DETAIL_REQUIRED" text="Debe indicar el detalle" />
+		<literal name="QUANTITY_REQUIRED" text="Debe indicar la cantidad" />
+		<literal name="AMOUNT_REQUIRED" text="Debe indicar el monto" />
+		<literal name="FIX_ORDER_DETAIL_NOT_CREATED" text="No se ha podido agregar el detalle" />
+		<literal name="FIX_ORDER_DETAIL_NOT_EDITED" text="No se ha podido editar el detalle" />
+		<literal name="TITLE_ADD_FIX_ORDER_DETAIL" text="Agregar detalle de pedido" />
+		<literal name="TITLE_EDIT_FIX_ORDER_DETAIL" text="Editar detalle de pedido" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

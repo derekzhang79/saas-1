@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Consultar pedidos" icon="shirt.png" status_bar="true">
+	
+	<menu_bar>
+		<menu name="MENU_1" text="Menú">
+			<item name="MENU_ITEM_1" text="Detalle"   action="DETAIL" icon="view.png" />
+			<item name="MENU_ITEM_2" text="Imprimir"  action="PRINT"  icon="pdf.png" />
+			<item name="MENU_ITEM_3" text="Agregar"   action="ADD"    icon="add.png" />
+			<item name="MENU_ITEM_4" text="Modificar" action="EDIT"   icon="edit.png" />
+			<item name="MENU_ITEM_5" text="Eliminar"  action="DELETE" icon="delete.png" />
+		</menu>
+	</menu_bar>
+	
+	<components>
+		
+		<group_box name="groupBox" text="Buscar:" x="0" y="0" margin_top="2" margin_right="5" margin_left="5" col_span="2">
+			
+			<label name="labelClient" x="0" y="0" border="true" margin_left="10" margin_top="6" text="Cliente:" />
+			<input name="clientName" type="text" x="1" y="0" margin_left="-1" margin_top="6" width="204" action="SEARCH" length="101" editable="false" tooltip="Cliente del pedido" />
+			<button name="searchClient" x="2" y="0" text="" margin_top="5" icon="search.png" action="SEARCH_CLIENT" width="30" height="24" tooltip="Buscar cliente" />
+			<button name="clearSearch" x="3" y="0" text="" margin_left="-1" margin_top="5" icon="clear.png" action="CLEAR_SEARCH_CLIENT" width="30" height="24" tooltip="Limpiar cliente" />
+			
+			<label name="labelStatus" x="4" y="0" border="true" margin_top="6" margin_left="10" text="Estado:" />
+			<combo_box name="status" x="5" y="0" margin_left="-1" margin_top="6" margin_right="5" width="125" />
+			
+			<button name="search" x="6" y="0" margin_bottom="5" margin_right="5" margin_left="5" text="Buscar" icon="search.png" action="SEARCH" width="120" tooltip="Buscar pedido" />
+			
+		</group_box>
+		
+		<table name="list" x="0" y="1" width="548" height="286" row_span="5" margin_top="5" margin_right="5" margin_bottom="5" margin_left="5" action="DETAIL">
+			<toolbar>
+				<item name="LIST_DETAIL" icon="view.png"   action="DETAIL" />
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EDIT"   icon="edit.png"   action="EDIT" />
+				<item name="LIST_DELETE" icon="delete.png" action="DELETE" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Cliente" code="clientName"        type="string" width="120" />
+				<column name="Estado"  code="statusDescription" type="string" width="20" />
+				<column name="Entrada" code="start"             type="date"   width="10" />
+				<column name="Salida"  code="finish"            type="date"   width="10" />
+				<column name="Monto"   code="totalAmount"       type="money"  width="10" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_DETAIL" text="Detalle"   action="DETAIL" icon="view.png" />
+				<item name="MENU_POPUP_PRINT"  text="Imprimir"  action="PRINT"  icon="pdf.png" />
+				<item name="MENU_POPUP_EDIT"   text="Modificar" action="EDIT"   icon="edit.png" />
+				<item name="MENU_POPUP_DELETE" text="Eliminar"  action="DELETE" icon="delete.png" />
+			</popup_menu>
+		</table>
+		
+		<button name="detail" x="1" y="1" text="Detalle"   icon="view.png"   action="DETAIL" width="130" margin_top="5" margin_right="5" tooltip="Ver un pedido" />
+		<button name="print"  x="1" y="2" text="Imprimir"  icon="pdf.png"    action="PRINT"  width="130" margin_top="5" margin_right="5" tooltip="Imprimir un pedido" />
+		<button name="add"    x="1" y="3" text="Agregar"   icon="add.png"    action="ADD"    width="130" margin_top="5" margin_right="5" tooltip="Agregar un pedido" />
+		<button name="edit"   x="1" y="4" text="Modificar" icon="edit.png"   action="EDIT"   width="130" margin_top="5" margin_right="5" tooltip="Modificar un pedido" />
+		<button name="delete" x="1" y="5" text="Eliminar"  icon="delete.png" action="DELETE" width="130" margin_top="5" margin_right="5" tooltip="Eliminar un pedido" />
+		
+	</components>
+	
+	<literals>
+		<literal name="ROW_NOT_SELECTED" text="Debe seleccionar un pedido" />
+		<literal name="LIST_PDF" text="Listado de pedidos" />
+	</literals>
+	
+</gui>

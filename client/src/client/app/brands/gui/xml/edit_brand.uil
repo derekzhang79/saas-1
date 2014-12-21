@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="brands.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelName" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="310" action="SAVE" length="30" tooltip="Nombre de la marca" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="BRAND_NOT_CREATED" text="No se ha podido agregar la marca" />
+		<literal name="BRAND_NOT_EDITED" text="No se ha podido editar la marca" />
+		<literal name="TITLE_ADD_BRAND" text="Agregar marca" />
+		<literal name="TITLE_EDIT_BRAND" text="Editar marca" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

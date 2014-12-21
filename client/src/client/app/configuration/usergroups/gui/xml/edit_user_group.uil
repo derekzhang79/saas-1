@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="users.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelName" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="150" action="SAVE" length="20" tooltip="Nombre del usuario" />
+	    
+	   	<label name="labelAdministrator" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Administrador:" />
+		<check_box name="administrator" text="" x="1" y="1" margin_left="-1" margin_top="10" selected="false" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="USER_GROUP_NOT_CREATED" text="No se ha podido agregar el grupo" />
+		<literal name="USER_GROUP_NOT_EDITED" text="No se ha podido editar el grupo" />
+		<literal name="TITLE_ADD_USER_GROUP" text="Agregar grupo" />
+		<literal name="TITLE_EDIT_USER_GROUP" text="Editar grupo" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

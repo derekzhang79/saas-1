@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Consultar permisos del grupo: " icon="users.png" status_bar="false">
+	
+	<components>
+		
+		<label name="labelIn" x="0" y="0" alignment="center" border="true" margin_top="5" margin_left="5" margin_right="5" text="Tareas asignadas al grupo" />
+		
+		<table name="list_in" x="0" y="1" width="300" height="286" margin_right="5" margin_bottom="5" margin_left="5" action="DELETE">
+			<toolbar>
+				<item name="LIST_DELETE" icon="delete.png" action="DELETE" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR_IN" />
+			</toolbar>
+			<columns>
+				<column name="Tarea" code="taskName" type="string" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_DELETE" text="Eliminar" action="DELETE" icon="delete.png" />
+			</popup_menu>
+		</table>
+		
+		<label name="labelOut" x="1" y="0" alignment="center" border="true" margin_top="5" margin_right="5" text="Lista de tareas general" />
+		
+		<table name="list_out" x="1" y="1" width="300" height="286" margin_right="5" margin_bottom="5" action="ADD">
+			<toolbar>
+				<item name="LIST_ADD"   icon="add.png"   action="ADD" />
+				<item name="LIST_CLEAR" icon="clean.png" action="CLEAR_OUT" />
+			</toolbar>
+			<columns>
+				<column name="Tarea" code="name" type="string" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_ADD" text="Agregar" action="ADD" icon="add.png" />
+			</popup_menu>
+		</table>
+		
+	</components>
+	
+	<literals>
+		<literal name="ROW_NOT_SELECTED" text="Debe seleccionar una tarea" />
+		<literal name="PREMISSION_NOT_ADDED" text="No se ha podido agregar el permiso" />
+		<literal name="PREMISSION_NOT_DELETED" text="No se ha podido eliminar el permiso" />
+	</literals>
+	
+</gui>

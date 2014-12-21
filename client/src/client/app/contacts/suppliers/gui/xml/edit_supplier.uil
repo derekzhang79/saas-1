@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="supplier.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelName" x="0" y="0" border="true" margin_left="10" margin_top="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="0" margin_left="-1" margin_top="10" margin_bottom="10" width="220" action="SAVE" length="50" tooltip="Nombre del proveedor" />
+	    
+	    <label name="labelIdentification" x="2" y="0" border="true" margin_left="10" margin_top="10" text="Identificación:" />
+		<input name="identification" type="text" x="3" y="0" margin_left="-1" margin_top="10" margin_bottom="10" width="150" action="SAVE" length="20" tooltip="Identificación del proveedor" />
+	    
+	    <label name="labelEmail" x="4" y="0" border="true" margin_left="10" margin_top="10" text="Email:" />
+		<input name="email" type="text" x="5" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="10" width="200" action="SAVE" length="100" tooltip="Email del proveedor" />
+		
+		<!-- =========================================================================== -->
+		
+		<label name="labelAddress" x="0" y="1" border="true" margin_left="10" text="Dirección:" />
+		<input name="address" type="text" x="1" y="1" margin_left="-1" margin_bottom="10" width="220" action="SAVE" length="100" tooltip="Dirección del proveedor" />
+		
+		<label name="labelCity" x="2" y="1" border="true" margin_left="10" text="Ciudad:" />
+		<input name="city" type="text" x="3" y="1" margin_left="-1" margin_bottom="10" width="150" action="SAVE" length="50" tooltip="Ciudad del proveedor" />
+		
+		<label name="labelPostalCode" x="4" y="1" border="true" margin_left="10" text="Código Postal:" />
+		<input name="postalCode" type="integer" positive="true" x="5" y="1" margin_left="-1" margin_bottom="10" width="70" action="SAVE" length="5" tooltip="Código postal del proveedor" />
+		
+		<!-- =========================================================================== -->
+		
+		<label name="labelTelephone" x="0" y="2" border="true" margin_left="10" text="Teléfono:" />
+		<input name="telephone" type="integer" positive="true" x="1" y="2" margin_left="-1" margin_bottom="10" width="100" action="SAVE" length="9" tooltip="Teléfono del proveedor" />
+		
+		<label name="labelMobile" x="2" y="2" border="true" margin_left="10" text="Móvil:" />
+		<input name="mobile" type="integer" positive="true" x="3" y="2" margin_left="-1" margin_bottom="10" width="100" action="SAVE" length="9" tooltip="Móvil del proveedor" />
+		
+		<label name="labelContactPerson" x="4" y="2" border="true" margin_left="10" text="Persona de contacto:" />
+		<input name="contactPerson" type="text" x="5" y="2" margin_left="-1" margin_right="10" margin_bottom="10" width="200" action="SAVE" length="100" tooltip="Persona de contacto del proveedor" />
+		
+		<!-- =========================================================================== -->
+		
+		<label name="labelComments" x="0" y="3" border="true" bottom_padding="33" margin_left="10" text="Comentarios:" />
+		<text_area name="comments" editable="true" x="1" y="3" margin_left="-1" margin_right="10" col_span="5" width="610" height="53" length="500" tooltip="Comentarios del proveedor" />
+		
+		<!-- =========================================================================== -->
+		
+		<layout x="0" y="4" col_span="6">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="PHONE_REQUIRED" text="Debe indicar el número de teléfono o móvil" />
+		<literal name="SUPPLIER_NOT_CREATED" text="No se ha podido agregar el proveedor" />
+		<literal name="SUPPLIER_NOT_EDITED" text="No se ha podido editar el proveedor" />
+		<literal name="TITLE_ADD_SUPPLIER" text="Agregar proveedor" />
+		<literal name="TITLE_EDIT_SUPPLIER" text="Editar proveedor" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

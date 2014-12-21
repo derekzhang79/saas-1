@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu_bar>
+	<menu title="Menú" permission="true">
+		<item title="Bloquear" icon="lock.png" task="system.tasks.Blocker" />
+		<separator/>
+		<item title="Salir"    icon="exit.png" task="system.tasks.Exit" />
+	</menu>
+	<menu title="Rubros">
+		<item title="Consultar rubros"    icon="sections.png" task="sections.tasks.BrowseSections" />
+		<item title="Agregar nuevo rubro" icon="sections.png" task="sections.tasks.AddSection" />
+	</menu>
+	<menu title="Registro de ventas">
+		<item title="Consultar registros de ventas"    icon="journal.png" task="journals.tasks.BrowseJournals" />
+		<item title="Agregar nuevo registro de ventas" icon="journal.png" task="journals.tasks.AddJournal" />
+	</menu>
+	<menu title="Arqueo de caja">
+		<item title="Consultar arqueos de caja"    icon="cash_register.png" task="cashcount.tasks.BrowseCashCount" />
+		<item title="Agregar nuevo arqueo de caja" icon="cash_register.png" task="cashcount.tasks.AddCashCount" />
+	</menu>
+	<menu title="Contactos">
+		<item title="Consultar clientes"    icon="clients.png" task="contacts.clients.tasks.BrowseClients" />
+		<item title="Agregar nuevo cliente" icon="clients.png" task="contacts.clients.tasks.AddClient" />
+		<separator/>
+		<item title="Consultar proveedores"   icon="supplier.png" task="contacts.suppliers.tasks.BrowseSuppliers" />
+		<item title="Agregar nuevo proveedor" icon="supplier.png" task="contacts.suppliers.tasks.AddSupplier" />
+	</menu>
+	<menu title="Taller">
+		<item title="Consultar pedidos"    icon="shirt.png" task="workshop.tasks.BrowseFixOrder" />
+		<item title="Agregar nuevo pedido" icon="shirt.png" task="workshop.tasks.AddFixOrder" />
+	</menu>
+	<menu title="Productos">
+		<item title="Consultar productos"    icon="products.png" task="products.tasks.BrowseProducts" />
+		<item title="Agregar nuevo producto" icon="products.png" task="products.tasks.AddProduct" />
+		<separator/>
+		<item title="Consultar marcas"    icon="brands.png" task="brands.tasks.BrowseBrands" />
+		<item title="Agregar nueva marca" icon="brands.png" task="brands.tasks.AddBrand" />
+	</menu>
+	<menu title="Facturación">
+		<item title="Consultar facturas"    icon="billing.png" task="invoices.tasks.BrowseInvoices" />
+		<item title="Agregar nueva factura" icon="billing.png" task="invoices.tasks.AddInvoice" />
+	</menu>
+	<menu title="Impuestos">
+		<item title="Consultar IVA"     icon="taxes.png" task="taxes.tasks.BrowseTaxes" />
+		<item title="Agregar nuevo IVA" icon="taxes.png" task="taxes.tasks.AddTax" />
+	</menu>
+	<menu title="Configuración">
+		<item title="Consultar usuarios"    icon="users.png" task="configuration.users.tasks.BrowseUsers" />
+		<item title="Agregar nuevo usuario" icon="users.png" task="configuration.users.tasks.AddUser" />
+		<separator/>
+		<item title="Consultar grupos de usuarios"    icon="users.png" task="configuration.usergroups.tasks.BrowseUserGroups" />
+		<item title="Agregar nuevo grupo de usuarios" icon="users.png" task="configuration.usergroups.tasks.AddUserGroup" />
+	</menu>
+	<menu title="Soporte">
+		<item title="Consultar incidencias"    icon="support.png" task="support.tasks.BrowseSupports" />
+		<item title="Agregar nueva incidencia" icon="support.png" task="support.tasks.AddSupport" />
+	</menu>
+	<menu title="Logs">
+		<item title="Log Información" icon="information.png" task="system.tasks.LogInfo" />
+		<item title="Log Error"       icon="error.png"       task="system.tasks.LogError" />
+	</menu>
+</menu_bar>

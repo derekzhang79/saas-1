@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tool_bar>
+	<item title="Rubros"      icon="toolbar_sections.png"  description="Gestión de rubros"             task="sections.tasks.BrowseSections" />
+	<separator/>
+	<item title="Ventas"      icon="toolbar_journal.png"   description="Gestión de registro de ventas" task="journals.tasks.BrowseJournals" />
+	<separator/>
+	<item title="Arqueo"      icon="toolbar_cashcount.png" description="Gestión de arqueos"            task="cashcount.tasks.BrowseCashCount" />
+	<separator/>
+	<item title="Clientes"    icon="toolbar_clients.png"   description="Gestión de clientes"           task="contacts.clients.tasks.BrowseClients" />
+	<separator/>
+	<item title="Proveedores" icon="toolbar_supplier.png"  description="Gestión de proveedores"        task="contacts.suppliers.tasks.BrowseSuppliers" />
+	<separator/>
+	<item title="Pedidos"     icon="toolbar_shirt.png"     description="Gestión de pedidos"            task="workshop.tasks.BrowseFixOrder" />
+	<separator/>
+	<item title="Productos"   icon="toolbar_products.png"  description="Gestión de productos"          task="products.tasks.BrowseProducts" />
+	<separator/>
+	<item title="Facturación" icon="toolbar_billing.png"   description="Gestión de facturación"        task="invoices.tasks.BrowseInvoices" />
+	<separator/>
+	<item title="Soporte"     icon="toolbar_support.png"   description="Gestión de soporte"            task="support.tasks.BrowseSupports" />
+</tool_bar>

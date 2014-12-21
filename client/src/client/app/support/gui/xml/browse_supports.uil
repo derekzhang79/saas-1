@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Consultar incidencias" icon="support.png" status_bar="true">
+	
+	<menu_bar>
+		<menu name="MENU_1" text="Menú">
+			<item name="MENU_ITEM_1" text="Agregar"   action="ADD"  icon="add.png" />
+			<item name="MENU_ITEM_2" text="Modificar" action="EDIT" icon="edit.png" />
+		</menu>
+	</menu_bar>
+	
+	<components>
+		
+		<group_box name="groupBox" text="Buscar:" x="0" y="0" margin_top="2" margin_right="5" margin_left="5" col_span="2">
+			
+			<label name="labelDate" x="0" y="0" border="true" margin_left="10" margin_top="6" text="Fecha:" />
+			<date_chooser name="dateCreation" x="1" y="0" margin_left="-1" margin_top="6" />
+			
+			<label name="labelStatus" x="2" y="0" border="true" margin_top="6" margin_left="10" text="Estado:" />
+			<combo_box name="status" x="3" y="0" margin_left="-1" margin_top="6" margin_right="5" margin_bottom="5" width="165" />
+			
+			<button name="search" x="4" y="0" margin_bottom="5" margin_right="5" margin_left="5" text="Buscar" icon="search.png" action="SEARCH" width="120" tooltip="Buscar incidencia" />
+			
+		</group_box>
+		
+		<table name="list" x="0" y="1" width="428" height="286" row_span="3" margin_top="5" margin_right="5" margin_bottom="5" margin_left="5" action="EDIT">
+			<toolbar>
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EDIT"   icon="edit.png"   action="EDIT" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Código" code="id"                type="integer" width="1" />
+				<column name="Nombre" code="name"              type="string"  width="130" />
+				<column name="Estado" code="statusDescription" type="string"  width="40" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_ADD" text="Modificar" action="EDIT" icon="edit.png" />
+			</popup_menu>
+		</table>
+		
+		<button name="add"  x="1" y="1" text="Agregar"   icon="add.png"  action="ADD"  width="130" margin_top="5" margin_right="5" tooltip="Agregar una incidencia" />
+		<button name="edit" x="1" y="2" text="Modificar" icon="edit.png" action="EDIT" width="130" margin_top="5" margin_right="5" tooltip="Modificar una incidencias" />
+		
+	</components>
+	
+	<literals>
+		<literal name="ROW_NOT_SELECTED" text="Debe seleccionar una incidencia" />
+		<literal name="LIST_PDF" text="Listado de Incidencias" />
+	</literals>
+	
+</gui>

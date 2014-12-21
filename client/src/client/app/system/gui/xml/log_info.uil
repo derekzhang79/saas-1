@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Log información" icon="information.png">
+	
+	<fonts>
+		<font name="FONT" family="Monospaced" size="12" bold="false" italic="false" />
+	</fonts>
+	
+	<components>
+		
+		<text_area name="info" editable="false" x="0" y="0" margin_top="5" margin_right="5" margin_left="5" col_span="2" width="675" height="320" font="FONT" />
+		
+		<layout x="0" y="1" col_span="2">
+			<button name="copy"   x="0" y="0" text="Copiar"  icon="copy.png"        action="COPY"   width="130" />
+			<button name="accept" x="1" y="0" text="Aceptar" icon="information.png" action="ACCEPT" width="130" />
+		</layout>
+		
+	</components>
+	
+</gui>

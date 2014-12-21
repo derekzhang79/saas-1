@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<desktop>
+	<title>Gestión de Mercería</title>
+	<icon>icon/icon.png</icon>
+	<laf>com.sun.java.swing.plaf.windows.WindowsLookAndFeel</laf>
+	<bgcolor>230</bgcolor>
+	<login>system.tasks.Login</login>
+	<exit>system.tasks.Exit</exit>
+	<blocker_time>10</blocker_time>
+	<shortcut>
+		<name>Gestion de Merceria</name>
+		<icone>icon/icon.ico</icone>
+		<base_url>http://IP_DEL_SERVIDOR/store/</base_url>
+		<file_url>/application.jnlp</file_url>
+	</shortcut>
+	<messages>
+		<information>Aviso</information>
+		<confirm>Advertencia</confirm>
+		<warning>Advertencia</warning>
+		<error>Error</error>
+		<no_permission>El usuario no tiene permisos para realizar esta operación</no_permission>
+		<communication_error>Se ha producido un error en la comunicación</communication_error>
+		<wait>Por favor, espere...</wait>
+		<true_string>Sí</true_string>
+		<false_string>No</false_string>
+	</messages>
+</desktop>

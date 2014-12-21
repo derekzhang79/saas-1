@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="billing.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelClient" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Cliente:" />
+		<input name="clientName" type="text" x="1" y="0" margin_top="10" margin_left="-1" width="200" action="SAVE" length="101" editable="false" tooltip="Cliente de la factura" />
+		<button name="searchClient" x="2" y="0" fill="false" margin_top="9" margin_right="10" text="" icon="search.png" action="SEARCH_CLIENT" width="30" height="24" tooltip="Buscar cliente" />
+		
+		<label name="labelNumber" x="0" y="1" border="true" margin_top="10" margin_left="10" text="Número:" />
+		<input name="number" type="integer" positive="true" x="1" y="1" margin_top="10" margin_left="-1" width="50" action="SAVE" length="9" tooltip="Número de factura" />
+		
+		<label name="labelDate" x="0" y="2" border="true" margin_top="10" margin_left="10" text="Fecha:" />
+		<date_chooser name="date" x="1" y="2" margin_top="10" margin_left="-1" />
+		
+		<label name="labelDiscount" x="0" y="3" border="true" margin_top="10" margin_left="10" text="Descuento (%):" />
+		<input name="discount" type="decimal" positive="true" x="1" y="3" margin_left="-1" margin_top="10" width="50" action="SAVE" length="3" decimals="2" tooltip="Descuento de factura" />
+		
+		<label name="labelPaymentMethod" x="0" y="4" border="true" margin_top="10" margin_left="10" text="Método de pago:" />
+		<combo_box name="paymentMethod" x="1" y="4" margin_top="10" margin_left="-1" width="109" />
+		
+		<label name="labelComments" x="0" y="5" border="true" bottom_padding="33" margin_top="10" margin_bottom="5" margin_left="10" text="Comentarios:" />
+		<text_area name="comments" editable="true" col_span="2" x="1" y="5" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="200" height="53" length="500" tooltip="Comentarios del pedido" />
+		
+		<layout x="0" y="6" col_span="3">
+			<button name="save"   x="147" y="67" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="277" y="67" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="CLIENT_REQUIRED" text="Debe indicar el cliente" />
+		<literal name="DATE_REQUIRED" text="Debe indicar la fecha" />
+		<literal name="PAYMENT_METHOD_REQUIRED" text="Debe indicar el método de pago" />
+		<literal name="INVOICE_ORDER_NOT_CREATED" text="No se ha podido agregar la factura" />
+		<literal name="INVOICE_ORDER_NOT_EDITED" text="No se ha podido editar la factura" />
+		<literal name="TITLE_ADD_INVOICE" text="Agregar factura" />
+		<literal name="TITLE_EDIT_INVOICE" text="Editar factura" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

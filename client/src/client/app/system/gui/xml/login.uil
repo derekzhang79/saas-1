@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Inciar sesión" icon="lock.png">
+	
+	<components>
+		
+		<image name="image" x="0" y="0" col_span="2" width="266" height="200" source="logo/logo.png" />
+		
+		<label name="userLabel" x="0" y="1" border="true" left_padding="4" top_padding="2" right_padding="10" bottom_padding="2" margin_top="10" margin_bottom="5" margin_left="10" text="Usuario:" />
+		<label name="passLabel" x="0" y="2" border="true" left_padding="4" top_padding="2" right_padding="10" bottom_padding="2" margin_top="5"  margin_bottom="5" margin_left="10" text="Contraseña:" />
+		
+		<input name="user" type="text"     x="1" y="1" fill="true" margin_top="10" margin_left="-1" margin_right="10" margin_bottom="5" width="145" length="20" action="LOGIN" regex="^[a-zA-Z]+$" />
+		<input name="pass" type="password" x="1" y="2" fill="true" margin_top="5"  margin_left="-1" margin_right="10" margin_bottom="5" width="145" length="20" action="LOGIN" regex="^[a-zA-Z0-9]+$" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="login" x="0" y="0" text="Aceptar" icon="key.png"  action="LOGIN" width="120" />
+			<button name="exit"  x="1" y="0" text="Salir"   icon="exit.png" action="EXIT"  width="123" />
+		</layout>
+	</components>
+	
+	<literals>
+		<literal name="USER_REQUIRED" text="Debe indicar el usuario" />
+		<literal name="PASS_REQUIRED" text="Debe indicar la contraseña" />
+		<literal name="INVALID_USER"  text="Usuario inválido" />
+		<literal name="INVALID_PASS"  text="Contraseña inválida" />
+	</literals>
+	
+</gui>

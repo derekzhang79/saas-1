@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Consultar registro de ventas" icon="journal.png" status_bar="true">
+	
+	<colors>
+		<color name="COLOR_MONEY" value="579D1C" />
+		<color name="COLOR_LABEL" value="FFFFFF" />
+	</colors>
+	
+	<menu_bar>
+		<menu name="MENU_1" text="Menú">
+			<item name="MENU_ITEM_1" text="Detalle"   action="DETAIL" icon="view.png" />
+			<item name="MENU_ITEM_2" text="Agregar"   action="ADD"    icon="add.png" />
+			<item name="MENU_ITEM_3" text="Modificar" action="EDIT"   icon="edit.png" />
+			<item name="MENU_ITEM_4" text="Eliminar"  action="DELETE" icon="delete.png" />
+		</menu>
+	</menu_bar>
+	
+	<components>
+		
+		<group_box name="groupBox" text="Buscar:" x="0" y="0" col_span="3" margin_top="2" margin_right="5" margin_left="5">
+			
+			<label name="labelYear" x="0" y="0" border="true" margin_left="10" margin_top="6" text="Año:" />
+			<input name="year" type="integer" x="1" y="0" margin_left="-1" margin_top="6" width="50" action="SEARCH" length="4" positive="true" tooltip="Año del arqueo de caja" />
+			
+			<label name="labelMonth" x="2" y="0" border="true" margin_top="6" margin_left="10" text="Mes:" />
+			<combo_box name="month" x="3" y="0" margin_left="-1" margin_top="6" margin_right="5" margin_bottom="5" width="127" />
+			
+			<button name="search" x="4" y="0" margin_bottom="5" margin_right="5" margin_left="5" text="Buscar" icon="search.png" action="SEARCH" width="120" tooltip="Buscar arqueo de caja" />
+			
+		</group_box>
+		
+		<table name="list" x="0" y="1" col_span="2" row_span="4" width="298" height="286" margin_top="5" margin_right="5" margin_bottom="5" margin_left="5" action="DETAIL">
+			<toolbar>
+				<item name="LIST_DETAIL" icon="view.png"   action="DETAIL" />
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EDIT"   icon="edit.png"   action="EDIT" />
+				<item name="LIST_DELETE" icon="delete.png" action="DELETE" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Fecha"    code="date"   type="date" />
+				<column name="Venta"    code="sale"   type="money" />
+				<column name="Ganancia" code="profit" type="money" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_DETAIL" text="Detalle"   action="DETAIL" icon="view.png" />
+				<item name="MENU_POPUP_EDIT"   text="Modificar" action="EDIT"   icon="edit.png" />
+				<item name="MENU_POPUP_DELETE" text="Eliminar"  action="DELETE" icon="delete.png" />
+			</popup_menu>
+		</table>
+		
+		<button name="view"   x="2" y="1" text="Detalle"   icon="view.png"   action="DETAIL" width="130" margin_top="5" margin_right="5" tooltip="Detalle" />
+		<button name="add"    x="2" y="2" text="Agregar"   icon="add.png"    action="ADD"    width="130" margin_top="5" margin_right="5" tooltip="Agregar un registro de ventas" />
+		<button name="edit"   x="2" y="3" text="Modificar" icon="edit.png"   action="EDIT"   width="130" margin_top="5" margin_right="5" tooltip="Modificar un registro de ventas" />
+		<button name="delete" x="2" y="4" text="Eliminar"  icon="delete.png" action="DELETE" width="130" margin_top="5" margin_right="5" tooltip="Eliminar un registro de ventas" />
+		
+		<label name="labelTotalSaleTitle" x="0" y="5" border="true" margin_left="7" margin_right="-1" margin_top="3" margin_bottom="5" text="Total venta:" />
+		<label name="labelTotalSale"      x="1" y="5" border="true" bg_color="COLOR_LABEL" width="250" alignment="right" margin_top="3" margin_right="70" margin_bottom="5" text="0,0 €" color="COLOR_MONEY" />	
+		
+		<label name="labelTotalProfitTitle" x="0" y="6" border="true" margin_left="7" margin_right="-1" margin_top="3" margin_bottom="10" text="Total ganancia:" />
+		<label name="labelTotalProfit"      x="1" y="6" border="true" bg_color="COLOR_LABEL" width="250" alignment="right" margin_top="3" margin_right="70" margin_bottom="10" text="0,0 €" color="COLOR_MONEY" />	
+		
+	</components>
+	
+	<literals>
+		<literal name="ROW_NOT_SELECTED" text="Debe seleccionar un registro de ventas" />
+		<literal name="LIST_PDF" text="Listado de Registro de ventas" />
+	</literals>
+	
+</gui>

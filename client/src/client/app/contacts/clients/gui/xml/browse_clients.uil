@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Consultar clientes" icon="clients.png" status_bar="true">
+	
+	<menu_bar>
+		<menu name="MENU_1" text="Menú">
+			<item name="MENU_ITEM_1" text="Agregar"   action="ADD"    icon="add.png" />
+			<item name="MENU_ITEM_2" text="Modificar" action="EDIT"   icon="edit.png" />
+			<item name="MENU_ITEM_4" text="Eliminar"  action="DELETE" icon="delete.png" />
+		</menu>
+	</menu_bar>
+	
+	<components>
+		
+		<table name="list" x="0" y="0" width="450" height="286" row_span="3" margin_top="5" margin_right="5" margin_bottom="5" margin_left="5" action="EDIT">
+			<toolbar>
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EDIT"   icon="edit.png"   action="EDIT" />
+				<item name="LIST_DELETE" icon="delete.png" action="DELETE" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Nombre"   code="name"      type="string" width="100" />
+				<column name="Teléfono" code="fullPhone" type="string" width="15" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_EDIT"   text="Modificar" action="EDIT"   icon="edit.png" />
+				<item name="MENU_POPUP_DELETE" text="Eliminar"  action="DELETE" icon="delete.png" />
+			</popup_menu>
+		</table>
+		
+		<button name="add"    x="1" y="0" text="Agregar"   icon="add.png"    action="ADD"    width="130" margin_top="5" margin_right="5" tooltip="Agregar un cliente" />
+		<button name="edit"   x="1" y="1" text="Modificar" icon="edit.png"   action="EDIT"   width="130" margin_top="5" margin_right="5" tooltip="Modificar un cliente" />
+		<button name="delete" x="1" y="2" text="Eliminar"  icon="delete.png" action="DELETE" width="130" margin_top="5" margin_right="5" tooltip="Eliminar un cliente" />
+		
+	</components>
+	
+	<literals>
+		<literal name="ROW_NOT_SELECTED" text="Debe seleccionar un cliente" />
+		<literal name="LIST_PDF" text="Listado de Clientes" />
+	</literals>
+	
+</gui>

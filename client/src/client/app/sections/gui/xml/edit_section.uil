@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="sections.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelCode" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Código:" />
+		<input name="code" type="integer" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="50" action="SAVE" length="9" positive="true" tooltip="Código del rubro" />
+	    
+	    <label name="labelName" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="1" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="170" action="SAVE" length="30" tooltip="Nombre del rubro" />
+		
+		<label name="labelProfit" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Ganancia:" />
+		<input name="profit" type="decimal" x="1" y="2" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="50" action="SAVE" length="1" decimals="2" positive="true" tooltip="Ganancia del rubro" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="CODE_REQUIRED" text="Debe indicar el código" />
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="SECTION_NOT_CREATED" text="No se ha podido agregar el rubro" />
+		<literal name="SECTION_NOT_EDITED" text="No se ha podido editar el rubro" />
+		<literal name="TITLE_ADD_SECTION" text="Agregar rubro" />
+		<literal name="TITLE_EDIT_SECTION" text="Editar rubro" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

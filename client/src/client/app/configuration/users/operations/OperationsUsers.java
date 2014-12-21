@@ -1,0 +1,38 @@
+package client.app.configuration.users.operations;
+
+import share.app.configuration.users.IOperations;
+import share.core.objects.User;
+import client.core.Operation;
+
+public class OperationsUsers implements IOperations {
+	
+	private static OperationsUsers instance = new OperationsUsers();
+	
+	public static OperationsUsers call() {
+		return OperationsUsers.instance;
+	}
+	
+	public User[] getUsers() {
+		Operation<User[]> operation = new Operation<User[]>(IOperations.GET_USERS);
+		
+		return operation.run();
+	}
+	
+	public Boolean addUser(User user) {
+		Operation<Boolean> operation = new Operation<Boolean>(IOperations.ADD_USER);
+		
+		return operation.run(user);
+	}
+	
+	public Boolean editUser(User original, User newUser) {
+		Operation<Boolean> operation = new Operation<Boolean>(IOperations.EDIT_USER);
+		
+		return operation.run(original, newUser);
+	}
+	
+	public Boolean deleteUser(User user) {
+		Operation<Boolean> operation = new Operation<Boolean>(IOperations.DELETE_USER);
+		
+		return operation.run(user);
+	}
+}

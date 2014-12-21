@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Bloqueado por: " icon="lock.png">
+	
+	<components>
+		
+		<label  name="labelPass" x="0" y="0" border="true" margin_left="10" margin_top="10" text="Contraseña:" />
+		
+		<input  name="pass" type="password" x="1" y="0" margin_left="-1" margin_top="10" margin_bottom="5" margin_right="10" width="165" length="20" action="ACCEPT" />
+		
+		<layout x="0" y="1" col_span="2">
+			<button name="accept" x="0" y="0" text="Aceptar" icon="key.png"  action="ACCEPT" width="130" />
+			<button name="exit"   x="1" y="0" text="Salir"   icon="exit.png" action="EXIT"   width="130" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="PASS_REQUIRED" text="Debe indicar la contraseña" />
+		<literal name="INVALID_PASS"  text="Contraseña inválida" />
+	</literals>
+	
+</gui>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report size="A4" margin_left="20" margin_right="20" margin_top="20" margin_bottom="20">
+	
+	<fonts>
+		<font name="TITLE"             family="calibri" size="25" bold="true"  italic="false" />
+		<font name="DESCRIPTION_TITLE" family="calibri" size="12" bold="false" italic="false" />
+		<font name="HEADER_TABLE"      family="calibri" size="9"  bold="true"  italic="false" />
+		<font name="ROW_TABLE"         family="calibri" size="11" bold="false" italic="false" />
+		<font name="TOTAL_INVOICE"     family="calibri" size="15" bold="true"  italic="false" />		
+	</fonts>
+	
+	<colors>
+		<color name="BLACK"      value="000000" />
+		<color name="WHITE"      value="FFFFFF" />
+		<color name="GRAY_TITLE" value="808080" />
+		<color name="GRAY_TABLE" value="969696" />
+		<color name="GRAY_ROW"   value="CCCCCC" />
+		<color name="TITLE"      value="666699" />
+		<color name="VIOLET"     value="800080" />
+	</colors>
+	
+	<elements>
+		
+		<image path="logo/logo.png" x="50" y="50" scale_width="55" scale_height="55" />
+		
+		<text value="ALBARAN" x="270" y="70" font="TITLE" color="TITLE" alignment="left" />
+		
+		<text value="Número:"      x="255" y="105" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+		<text param="fix_order_id" x="370" y="105" font="DESCRIPTION_TITLE" color="BLACK"      alignment="right" />
+		
+		<text value="Fecha:"         x="255" y="125" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+		<text param="fix_order_date" x="370" y="125" font="DESCRIPTION_TITLE" color="BLACK"      alignment="right" />
+		
+		<text param="company_name"           x="540" y="65"  font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="right" />
+		<text param="company_address"        x="540" y="85"  font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="right" />
+		<text param="company_city"           x="540" y="105" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="right" />
+		<text param="company_identification" x="540" y="125" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="right" prefix="N.I.F.:   " />
+		
+		<rectangle x="51"  y="175" width="270" height="77" color="GRAY_TABLE" bg_color="WITHE" thick="1">
+			<text value="Cliente:"    x="7"  y="15" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+			<text param="client_name" x="67" y="15" font="DESCRIPTION_TITLE" color="BLACK"      alignment="left" />
+			
+			<text value="Domicilio:"     x="7"  y="33" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+			<text param="client_address" x="67" y="33" font="DESCRIPTION_TITLE" color="BLACK"      alignment="left" />
+			
+			<text value="Ciudad:"     x="7"  y="51" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+			<text param="client_city" x="67" y="51" font="DESCRIPTION_TITLE" color="BLACK"      alignment="left" />
+			
+			<text value="N.I.F.:"               x="7"  y="69" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+			<text param="client_identification" x="67" y="69" font="DESCRIPTION_TITLE" color="BLACK"      alignment="left" />
+		</rectangle>
+		
+		<rectangle x="321" y="175" width="220" height="77" color="GRAY_TABLE" bg_color="WITHE" thick="1">
+			<text value="Comentarios:"   x="7"   y="15" font="DESCRIPTION_TITLE" color="GRAY_TITLE" alignment="left" />
+			<text_block param="comments" x="214" y="15" width="328" height="100" leading="14" font="DESCRIPTION_TITLE" color="BLACK" alignment="left" />
+		</rectangle>
+		
+		<table x="51" y="265" color="GRAY_TABLE" thick="1">
+			<header height="20">
+				<column_header value="CANTIDAD" font="HEADER_TABLE" color="VIOLET" bg_color="GRAY_ROW" alignment="center" top_padding="4" width="80" />
+				<column_header value="DETALLE"  font="HEADER_TABLE" color="VIOLET" bg_color="GRAY_ROW" alignment="center" top_padding="4" width="330" />
+				<column_header value="PRECIO"   font="HEADER_TABLE" color="VIOLET" bg_color="GRAY_ROW" alignment="center" top_padding="4" width="80" />
+			</header>
+			<rows param="details" height="20" min="15">
+				<column_row value="quantity" font="ROW_TABLE" color="BLACK" bg_color="WHITE" alignment="center" top_padding="2" />
+				<column_row value="detail"   font="ROW_TABLE" color="BLACK" bg_color="WHITE" alignment="left"   top_padding="2" left_padding="5" />
+				<column_row value="amount"   font="ROW_TABLE" color="BLACK" bg_color="WHITE" alignment="right"  top_padding="2" right_padding="5" extra=" €" />
+			</rows>
+		</table>
+		
+		<rectangle x="51" y="585" width="410" height="22"  color="GRAY_TABLE" bg_color="GRAY_ROW" thick="1">
+			<text value="TOTAL" x="400" y="16" font="TOTAL_INVOICE" color="VIOLET" alignment="right" />
+		</rectangle>
+		
+		<rectangle x="461" y="585" width="80" height="22"  color="GRAY_TABLE" bg_color="GRAY_ROW" thick="1">
+			<text param="total_fix_order" x="75" y="16" font="TOTAL_INVOICE" color="VIOLET" alignment="right" extra=" €" />
+		</rectangle>
+		
+	</elements>
+	
+</report>

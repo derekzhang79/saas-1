@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Buscar cliente" icon="clients.png" status_bar="false">
+	
+	<components>
+		
+		<table name="list" x="0" y="0" width="450" height="286" margin_top="5" margin_right="5" margin_bottom="5" margin_left="5" action="SELECT">
+			<toolbar>
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Nombre"   code="name"      type="string" width="100" />
+				<column name="Teléfono" code="fullPhone" type="string" width="15" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_SELECT" text="Seleccionar" action="SELECT" icon="accept.png" />
+			</popup_menu>
+		</table>
+		
+	</components>
+	
+	<literals>
+		<literal name="LIST_PDF" text="Listado de Clientes" />
+	</literals>
+	
+</gui>

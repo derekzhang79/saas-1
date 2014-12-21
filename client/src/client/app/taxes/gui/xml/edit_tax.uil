@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="taxes.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelType" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Tipo:" />
+		<combo_box name="type" x="1" y="0" margin_left="-1" margin_top="10" margin_bottom="5" width="150" />
+		
+		<label name="labelValue" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Valor:" />
+		<input name="value" type="decimal" x="1" y="1" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="60" action="SAVE" length="2" decimals="2" positive="true" tooltip="Valor del impuesto" />
+		
+		<label name="labelDate" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Desde:" />
+		<date_chooser name="start" x="1" y="2" margin_left="-1" margin_top="10" margin_right="5" margin_bottom="10" />
+	    
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="TYPE_REQUIRED" text="Debe indicar el tipo" />
+		<literal name="VALUE_REQUIRED" text="Debe indicar el valor" />
+		<literal name="DATE_REQUIRED" text="Debe indicar la fecha" />
+		<literal name="TAX_NOT_CREATED" text="No se ha podido agregar el impuesto" />
+		<literal name="TAX_NOT_EDITED" text="No se ha podido editar el impuesto" />
+		<literal name="TITLE_ADD_TAX" text="Agregar impuesto" />
+		<literal name="TITLE_EDIT_TAX" text="Editar impuesto" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

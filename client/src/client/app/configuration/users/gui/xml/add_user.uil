@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Agregar usuario" icon="users.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelName" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="0" col_span="2" margin_left="-1" margin_top="10" margin_bottom="5" margin_right="10" width="190" action="SAVE" length="20" tooltip="Nombre del usuario" regex="^[a-zA-Z]+$" />
+	    
+	    <label name="labelGroup" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Grupo:" />
+		<input name="groupName" type="text" x="1" y="1" margin_left="-1" margin_top="10" margin_bottom="5" width="160" action="SAVE" length="50" editable="false" tooltip="Grupo del usuario" />
+		<button name="searchGroup" x="2" y="1" margin_top="9" margin_bottom="5" margin_right="10" fill="false" text="" icon="search.png" action="SEARCH_USER_GROUP" width="30" height="24" tooltip="Buscar grupo de usuarios" />
+	    
+	    <label name="labelPassword" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Contraseña:" />
+		<input name="password" type="password" x="1" y="2" col_span="2" margin_left="-1" margin_top="10" margin_bottom="5" margin_right="10" width="190" action="SAVE" length="50" tooltip="Contraseña del usuario" regex="^[a-zA-Z0-9]+$" />
+		
+		<layout x="0" y="3" col_span="3">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="PASSWORD_REQUIRED" text="Debe indicar la contraseña" />
+		<literal name="GROUP_REQUIRED" text="Debe indicar el grupo" />
+		<literal name="USER_NOT_CREATED" text="No se ha podido agregar el usuario" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

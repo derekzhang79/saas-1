@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="" icon="products.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelName" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Nombre:" />
+		<input name="name" type="text" x="1" y="0" margin_left="-1" margin_top="10" margin_bottom="5" col_span="2" width="230" action="SAVE" length="100" tooltip="Nombre del producto" />
+	    
+	    <label name="labelSection" x="3" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Rubro:" />
+		<input name="sectionName" type="text" x="4" y="0" margin_left="-1" margin_top="10" margin_bottom="5" width="160" action="SAVE" length="30" editable="false" tooltip="Rubro del producto" />
+		<button name="searchSection" x="5" y="0" margin_top="9" margin_bottom="5" margin_right="10" fill="false" text="" icon="search.png" action="SEARCH_SECTION" width="30" height="24" tooltip="Buscar rubro" />
+	    
+	    <!-- ================================================================================== -->
+	    
+		<label name="labelBarCode" x="0" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Gódigo de barras:" />
+		<input name="barCode" type="integer" x="1" y="1" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="2" width="120" action="SAVE" length="13" positive="true" tooltip="Código de barras" />
+		
+		<label name="labelTax" x="3" y="1" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="IVA:" />
+		<combo_box name="tax" x="4" y="1" margin_top="10" margin_left="-1" margin_bottom="5" col_span="2" width="150" />
+		
+		<!-- ================================================================================== -->
+		
+		<label name="labelCostPrice" x="0" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Precio de coste:" />
+		<input name="costPrice" type="decimal" x="1" y="2" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="2" width="60" action="SAVE" length="4" decimals="2" positive="true" tooltip="Precio de coste del producto" />
+		
+		<label name="labelSalePrice" x="3" y="2" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="PVP:" />
+		<input name="salePrice" type="decimal" x="4" y="2" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="2" width="60" action="SAVE" length="4" decimals="2" positive="true" tooltip="Precio de venta del producto" />
+		
+		<!-- ================================================================================== -->
+		
+		<label name="labelBrand" x="0" y="3" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Marca:" />
+	    <input name="brandName" type="text" x="1" y="3" margin_left="-1" margin_top="10" margin_bottom="5" width="200" action="SAVE" length="100" editable="false" tooltip="Marca del producto" />
+		<button name="searchBrand" x="2" y="3" margin_top="9" margin_bottom="5" fill="false" text="" icon="search.png" action="SEARCH_BRAND" width="30" height="24" tooltip="Buscar marca" />
+	    
+	    <label name="labelModel" x="3" y="3" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Modelo:" />
+		<input name="model" type="text" x="4" y="3" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="2" width="190" action="SAVE" length="100" tooltip="Modelo del producto" />
+		
+		<!-- ================================================================================== -->
+		
+		<label name="labelMeasuringUnit" x="0" y="4" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Unidad de medida:" />
+		<combo_box name="measuringUnit" x="1" y="4" margin_left="-1" margin_top="10" margin_bottom="5" col_span="2" width="229" />
+		
+		<label name="labelLength" x="3" y="4" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Valor:" />
+		<input name="length" type="integer" x="4" y="4" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="2" width="75" action="SAVE" length="3" positive="true" tooltip="Valor de la unidad de medida" />
+		
+		<!-- ================================================================================== -->
+		
+		<label name="labelColor" x="0" y="5" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Color:" />
+		<input name="color" type="text" x="1" y="5" margin_left="-1" margin_top="10" margin_bottom="5" col_span="2" width="229" action="SAVE" length="100" tooltip="Color del producto" />
+	    
+	    <label name="labelQuantity" x="3" y="5" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Cantidad:" />
+		<input name="quantity" type="integer" x="4" y="5" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="2" width="75" action="SAVE" length="5" positive="true" tooltip="Cantidad del producto" />
+		
+		<!-- ================================================================================== -->
+		
+		<label name="labelDescription" x="0" y="6" border="true" bottom_padding="33" margin_top="10" margin_bottom="5" margin_left="10" text="Descripción:" />
+		<text_area name="description" editable="true" x="1" y="6" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" col_span="5" width="405" height="53" length="300" tooltip="Descripción del producto" />
+		
+		<!-- ================================================================================== -->
+		
+		<layout x="0" y="7" col_span="10">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="NAME_REQUIRED" text="Debe indicar el nombre" />
+		<literal name="SECTION_REQUIRED" text="Debe indicar el rubro" />
+		<literal name="BAR_CODE_REQUIRED" text="Debe indicar el código de barras" />
+		<literal name="COST_PRICE_REQUIRED" text="Debe indicar el precio de coste" />
+		<literal name="SALE_PRICE_REQUIRED" text="Debe indicar precio de venta" />
+		<literal name="TAX_REQUIRED" text="Debe indicar el impuesto" />
+		<literal name="BRAND_REQUIRED" text="Debe indicar la marca" />
+		<literal name="MODEL_REQUIRED" text="Debe indicar el modelo" />
+		<literal name="MEASURING_UNIT_REQUIRED" text="Debe indicar la unidad de medida" />
+		<literal name="PRODUCT_NOT_CREATED" text="No se ha podido agregar el producto" />
+		<literal name="PRODUCT_NOT_EDITED" text="No se ha podido editar el producto" />
+		<literal name="TITLE_ADD_PRODUCT" text="Agregar producto" />
+		<literal name="TITLE_EDIT_PRODUCT" text="Editar producto" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>

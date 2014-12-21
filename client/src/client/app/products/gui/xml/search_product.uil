@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Buscar producto" icon="products.png" status_bar="false">
+	
+	<components>
+		
+		<group_box name="groupBox" text="Buscar:" x="0" y="0" margin_top="2" margin_right="5" margin_left="5" col_span="2">
+			
+			<label name="labelBarCode" x="0" y="0" border="true" margin_left="10" margin_top="6" text="Gódigo de barras:" />
+			<input name="barCode" type="integer" x="1" y="0" margin_left="-1" margin_top="6" width="120" action="SEARCH" length="13" positive="true" tooltip="Código de barras" />
+			
+			<label name="labelSection" x="2" y="0" border="true" margin_top="6" margin_left="10" text="Rubro:" />
+			<input name="sectionName" type="text" x="3" y="0" margin_left="-1" margin_top="6" width="120" action="SEARCH" length="30" editable="false" tooltip="Rubro del producto" />
+			<button name="searchSection" x="4" y="0" margin_top="5" text="" icon="search.png" action="SEARCH_SECTION" width="30" height="24" tooltip="Buscar rubro" />
+			<button name="clearSearchSection" x="5" y="0" margin_left="-1" margin_top="5" text="" icon="clear.png" action="CLEAR_SEARCH_SECTION" width="30" height="24" tooltip="Limpiar rubro" />
+			
+			<label name="labelBrand" x="6" y="0" border="true" margin_top="6" margin_left="10" text="Marca:" />
+			<input name="brandName" type="text" x="7" y="0" margin_left="-1" margin_top="6" width="211" action="SEARCH" length="100" editable="false" tooltip="Marca del producto" />
+			<button name="searchBrand" x="8" y="0" margin_top="5" text="" icon="search.png" action="SEARCH_BRAND" width="30" height="24" tooltip="Buscar marca" />
+			<button name="clearSearchBrand" x="9" y="0" margin_left="-1" margin_top="5" text="" icon="clear.png" action="CLEAR_SEARCH_BRAND" width="30" height="24" tooltip="Limpiar marca" />
+			
+			<button name="search" x="10" y="0" margin_bottom="5" margin_right="5" margin_left="5" text="Buscar" icon="search.png" action="SEARCH" width="120" tooltip="Buscar producto" />
+			
+		</group_box>
+		
+		<table name="list" x="0" y="1" width="990" height="286" margin_top="3" margin_right="5" margin_bottom="5" margin_left="5" action="SELECT">
+			<toolbar>
+				<item name="LIST_ADD"    icon="add.png"    action="ADD" />
+				<item name="LIST_EXCEL"  icon="excel.png"  action="EXCEL" />
+				<item name="LIST_PDF"    icon="pdf.png"    action="PDF" />
+				<item name="LIST_CLEAR"  icon="clean.png"  action="CLEAR" />
+			</toolbar>
+			<columns>
+				<column name="Código"   code="barCode"            type="integer" width="70" />
+				<column name="Rubro"    code="sectionDescription" type="string"  width="65" />
+				<column name="Nombre"   code="name"               type="string"  width="200" />
+				<column name="Marca"    code="brandName"          type="string"  width="100" />
+				<column name="Modelo"   code="model"              type="string"  width="100" />
+				<column name="Cantidad" code="quantity"           type="integer" width="20" />
+			</columns>
+			<popup_menu>
+				<item name="MENU_POPUP_SELECT" text="Seleccionar" action="SELECT" icon="accept.png" />
+			</popup_menu>
+		</table>
+		
+	</components>
+	
+	<literals>
+		<literal name="LIST_PDF" text="Listado de Productos" />
+	</literals>
+	
+</gui>

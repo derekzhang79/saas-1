@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui title="Desglose: " icon="journal.png" status_bar="true">
+	
+	<components>
+		
+	    <label name="labelAmount" x="0" y="0" border="true" margin_top="10" margin_bottom="5" margin_left="10" text="Monto:" />
+		<input name="amount" type="decimal" x="1" y="0" margin_left="-1" margin_top="10" margin_right="10" margin_bottom="5" width="100" action="SAVE" length="4" decimals="2" text="" tooltip="Monto del desglose" />
+		
+		<layout x="0" y="3" col_span="2">
+			<button name="save"   x="0" y="0" text="Guardar"  icon="save.png"   action="SAVE"   width="130" tooltip="Guardar" />
+			<button name="cancel" x="1" y="0" text="Cancelar" icon="cancel.png" action="CANCEL" width="130" tooltip="Cancelar" />
+		</layout>
+		
+	</components>
+	
+	<literals>
+		<literal name="JOURNAL_DETAIL_NOT_EDITED" text="No se ha podido editar el desglose" />
+		<literal name="ASK_CLOSE_WINDOW" text="¿Desea cerrar la ventana?" />
+	</literals>
+	
+</gui>
