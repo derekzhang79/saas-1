@@ -10,42 +10,30 @@ import sun.misc.BASE64Encoder;
 public class Encoding
 {
 	public static final String UTF8 = "UTF-8";
-	private static final String MD5 = "MD5";
-
-	public static String md5(String text)
+	private static final String SHA_256 = "SHA-256";
+	
+	public static String getSHA256(String text)
 	{
-		String result = "";
-
+		StringBuilder builder = new StringBuilder();
+		
 		try
 		{
-			byte[] bytesOfMessage = text.getBytes(Encoding.UTF8);
-			MessageDigest md = MessageDigest.getInstance(Encoding.MD5);
-			md.reset();
-			md.update(bytesOfMessage);
+			MessageDigest messageDigest = MessageDigest.getInstance(Encoding.SHA_256);
+			messageDigest.update(text.getBytes());
 
-			byte messageDigest[] = md.digest();
-			StringBuffer hexString = new StringBuffer();
+			byte[] bytes = messageDigest.digest();
 
-			for (byte element : messageDigest)
+			for (byte value : bytes)
 			{
-				String hex = Integer.toHexString(0xFF & element);
-
-				if (hex.length() == 1)
-				{
-					hex = "0" + hex;
-				}
-
-				hexString.append(hex);
+				builder.append(Integer.toString((value & 0xff) + 0x100, 16).substring(1));
 			}
-
-			result = new String(hexString.toString());
 		}
 		catch (Exception e)
 		{
-			AppError.setError(e);
+			e.printStackTrace();
 		}
 
-		return result;
+		return builder.toString();
 	}
 
 	public static byte[] base64DecodeByte(byte[] array)
