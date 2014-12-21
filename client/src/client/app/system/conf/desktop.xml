@@ -12,7 +12,7 @@
 	<shortcut>
 		<name>Gestion de Merceria</name>
 		<icone>icon/icon.ico</icone>
-		<base_url>http://SERVER_URL/store/</base_url>
+		<base_url>http://SERVER/store/</base_url>
 		<file_url>/application.jnlp</file_url>
 	</shortcut>
 	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <communication>
 	<local>localhost:7777</local>
-	<remote>IP_DEL_SERVIDOR:7777</remote>
+	<remote>SERVER_IP:7777</remote>
 </communication>
