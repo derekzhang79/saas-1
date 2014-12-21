@@ -1,7 +1,7 @@
 package client.app.system.tasks;
 
 import java.awt.Color;
-import share.core.Encoding;
+import share.core.utils.Encoding;
 import client.app.system.gui.def.GUIBlocker;
 import client.core.gui.taks.OptionTask;
 import client.core.profile.Profile;

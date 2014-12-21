@@ -3,7 +3,7 @@ package client.app.invoices.operations;
 import share.app.invoices.IOperations;
 import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;
-import share.core.Date;
+import share.core.objects.Date;
 import client.core.operations.Operation;
 
 public class OperationsInvoices implements IOperations {

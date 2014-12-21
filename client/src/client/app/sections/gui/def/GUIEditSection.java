@@ -1,6 +1,6 @@
 package client.app.sections.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.gui.components.ExtendedLabel;
 import client.core.gui.components.ExtendedInputDecimal;
 import client.core.gui.components.ExtendedInputText;

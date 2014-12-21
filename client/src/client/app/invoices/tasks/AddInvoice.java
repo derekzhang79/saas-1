@@ -2,7 +2,7 @@ package client.app.invoices.tasks;
 
 import share.app.dictionary.Category.Categories;
 import share.app.invoices.Invoice;
-import share.core.Date;
+import share.core.objects.Date;
 import client.app.invoices.gui.def.GUIEditInvoice;
 import client.app.invoices.operations.OperationsInvoices;
 import client.app.system.dictionary.DictionaryManager;

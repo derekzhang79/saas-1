@@ -3,7 +3,7 @@ package client.app.cashcount.tasks;
 import java.util.Calendar;
 import share.app.cashcount.CashCount;
 import share.app.dictionary.Category.Categories;
-import share.core.Environment;
+import share.core.utils.Environment;
 import client.app.cashcount.gui.def.GUIBrowseCashCount;
 import client.app.cashcount.operations.OperationsCashCount;
 import client.app.system.dictionary.DictionaryManager;

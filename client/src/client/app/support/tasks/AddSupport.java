@@ -3,7 +3,7 @@ package client.app.support.tasks;
 import share.app.dictionary.Category;
 import share.app.dictionary.Category.Categories;
 import share.app.support.Support;
-import share.core.Date;
+import share.core.objects.Date;
 import client.app.support.gui.def.GUIEditSupport;
 import client.app.support.operations.OperationsSupports;
 import client.app.system.dictionary.DictionaryManager;

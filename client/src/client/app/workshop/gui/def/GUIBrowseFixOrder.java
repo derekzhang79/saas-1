@@ -1,6 +1,6 @@
 package client.app.workshop.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.gui.components.ExtendedButton;
 import client.core.gui.components.ExtendedLabel;
 import client.core.gui.components.ExtendedComboBox;

@@ -1,9 +1,9 @@
 package client.app.system.tasks;
 
 import java.awt.Color;
-import share.core.Encoding;
-import share.core.Environment;
 import share.core.login.LoginResponse;
+import share.core.utils.Encoding;
+import share.core.utils.Environment;
 import client.app.system.dictionary.DictionaryManager;
 import client.app.system.gui.def.GUILogin;
 import client.app.system.operations.OperationsLogin;

@@ -1,6 +1,6 @@
 package client.app.cashcount.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.gui.components.ExtendedLabel;
 import client.core.gui.components.ExtendedInputInt;
 import client.core.gui.components.ExtendedButton;

@@ -1,6 +1,6 @@
 package client.app.configuration.usergroups.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.gui.components.ExtendedTable;
 
 public class GUISearchUserGroups {

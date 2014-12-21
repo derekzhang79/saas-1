@@ -1,6 +1,6 @@
 package client.app.contacts.clients.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 
 public class GUIDeleteClient {
 

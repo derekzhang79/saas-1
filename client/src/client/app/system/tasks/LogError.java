@@ -1,6 +1,6 @@
 package client.app.system.tasks;
 
-import share.core.Environment;
+import share.core.utils.Environment;
 import client.app.system.gui.def.GUILogError;
 import client.core.debug.Debug;
 import client.core.gui.taks.OptionTask;

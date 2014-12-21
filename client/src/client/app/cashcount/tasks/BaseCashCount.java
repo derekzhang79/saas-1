@@ -1,7 +1,7 @@
 package client.app.cashcount.tasks;
 
 import java.awt.Color;
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.app.cashcount.gui.def.GUIEditCashCount;
 import client.core.gui.format.DataFormatter;
 import client.core.gui.taks.OptionTask;

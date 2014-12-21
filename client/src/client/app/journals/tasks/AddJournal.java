@@ -1,7 +1,7 @@
 package client.app.journals.tasks;
 
 import share.app.journals.Journal;
-import share.core.Date;
+import share.core.objects.Date;
 import client.app.journals.gui.def.GUIEditJournal;
 import client.app.journals.operations.OperationsJournals;
 

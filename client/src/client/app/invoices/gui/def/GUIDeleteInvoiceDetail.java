@@ -1,6 +1,6 @@
 package client.app.invoices.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 
 public class GUIDeleteInvoiceDetail {
 

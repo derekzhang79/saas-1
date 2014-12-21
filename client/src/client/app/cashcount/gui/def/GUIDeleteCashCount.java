@@ -1,6 +1,6 @@
 package client.app.cashcount.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 
 public class GUIDeleteCashCount {
 

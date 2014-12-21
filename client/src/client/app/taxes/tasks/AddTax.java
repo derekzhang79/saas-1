@@ -3,7 +3,7 @@ package client.app.taxes.tasks;
 import share.app.dictionary.Category.Categories;
 import share.app.dictionary.Category.TAX;
 import share.app.taxes.Tax;
-import share.core.Date;
+import share.core.objects.Date;
 import client.app.system.dictionary.DictionaryManager;
 import client.app.taxes.gui.def.GUIEditTax;
 import client.app.taxes.operations.OperationsTaxes;

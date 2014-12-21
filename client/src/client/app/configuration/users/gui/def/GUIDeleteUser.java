@@ -1,6 +1,6 @@
 package client.app.configuration.users.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 
 public class GUIDeleteUser {
 

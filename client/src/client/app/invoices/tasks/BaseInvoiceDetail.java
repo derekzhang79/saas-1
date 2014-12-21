@@ -2,7 +2,7 @@ package client.app.invoices.tasks;
 
 import java.awt.Color;
 import share.app.products.Product;
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.app.invoices.gui.def.GUIEditInvoiceDetail;
 import client.app.products.tasks.SearchProduct;
 import client.core.gui.format.DataFormatter;

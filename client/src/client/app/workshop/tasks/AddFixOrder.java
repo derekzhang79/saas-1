@@ -3,7 +3,7 @@ package client.app.workshop.tasks;
 import share.app.dictionary.Category;
 import share.app.dictionary.Category.Categories;
 import share.app.workshop.FixOrder;
-import share.core.Date;
+import share.core.objects.Date;
 import client.app.system.dictionary.DictionaryManager;
 import client.app.workshop.gui.def.GUIEditFixOrder;
 import client.app.workshop.operations.OperationsWorkshop;

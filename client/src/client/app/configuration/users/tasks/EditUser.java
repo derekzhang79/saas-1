@@ -1,9 +1,9 @@
 package client.app.configuration.users.tasks;
 
 import java.awt.Color;
-import share.core.Encoding;
 import share.core.objects.User;
 import share.core.objects.UserGroup;
+import share.core.utils.Encoding;
 import client.app.configuration.usergroups.tasks.SearchUserGroup;
 import client.app.configuration.users.gui.def.GUIEditUser;
 import client.app.configuration.users.operations.OperationsUsers;

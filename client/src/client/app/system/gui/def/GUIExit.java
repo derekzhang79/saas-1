@@ -1,6 +1,6 @@
 package client.app.system.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 
 public class GUIExit {
 

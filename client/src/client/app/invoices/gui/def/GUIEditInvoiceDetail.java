@@ -1,6 +1,6 @@
 package client.app.invoices.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.gui.components.ExtendedLabel;
 import client.core.gui.components.ExtendedComboBox;
 import client.core.gui.components.ExtendedInputDecimal;

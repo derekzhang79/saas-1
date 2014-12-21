@@ -5,7 +5,7 @@ import share.app.dictionary.Category.TAX;
 import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;
 import share.app.taxes.Tax;
-import share.core.Constants;
+import share.core.constants.Constants;
 import share.core.objects.Company;
 import client.core.gui.format.DataFormatter;
 import client.core.gui.reports.Report;

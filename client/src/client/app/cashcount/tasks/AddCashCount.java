@@ -1,7 +1,7 @@
 package client.app.cashcount.tasks;
 
 import share.app.cashcount.CashCount;
-import share.core.Date;
+import share.core.objects.Date;
 import client.app.cashcount.gui.def.GUIEditCashCount;
 import client.app.cashcount.operations.OperationsCashCount;
 

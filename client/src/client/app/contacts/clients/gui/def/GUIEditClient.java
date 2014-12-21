@@ -1,6 +1,6 @@
 package client.app.contacts.clients.gui.def;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.gui.components.ExtendedInputText;
 import client.core.gui.components.ExtendedLabel;
 import client.core.gui.components.ExtendedInputInt;
