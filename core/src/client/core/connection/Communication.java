@@ -19,7 +19,7 @@ public class Communication<ResponseClass>
 
 	private static String ticket;
 	private static String sessionId;
-	private static String dbEnvironment;
+	private static String databaseEnvironment;
 	
 	public Communication(String target, String user, int clientID)
 	{
@@ -30,7 +30,7 @@ public class Communication<ResponseClass>
 	
 	public static void configure(AppLocation location, AppEnvironment environment)
 	{
-		Communication.dbEnvironment = environment.toString();
+		Communication.databaseEnvironment = environment.toString();
 		
 		ConfCommunication cofCommunication = Configurator.getCommunication();
 
@@ -59,7 +59,7 @@ public class Communication<ResponseClass>
 	public ResponseClass send(Object... parameters)
 	{
 		Desktop.getDesktop().restartTimer();
-		BackgroundWorker worker = new BackgroundWorker(this.target, this.user, this.clientID, Communication.sessionId, Communication.ticket, Communication.dbEnvironment, parameters);
+		BackgroundWorker worker = new BackgroundWorker(this.target, this.user, this.clientID, Communication.sessionId, Communication.ticket, Communication.databaseEnvironment, parameters);
 		
 		if (!this.pass.isEmpty())
 		{
