@@ -6,23 +6,27 @@ import client.app.taxes.operations.OperationsTaxes;
 import client.core.gui.format.DataFormatter;
 import client.core.gui.taks.OptionTask;
 
-public class DeleteTax extends OptionTask<Boolean> {
+public class DeleteTax extends OptionTask<Boolean>
+{
+	private final Tax tax;
 	
-	private Tax tax = null;
-	
-	public DeleteTax(Tax tax) {
+	public DeleteTax(Tax tax)
+	{
 		super(GUIDeleteTax.PATH, TaskType.SINGLE);
 		
 		this.tax = tax;
 	}
 	
-	public void start() {
-		if (showConfirmLiteral(getLiteral(GUIDeleteTax.Literals.ASK_DELETE, this.tax.typeDescription + ": " + DataFormatter.formatDecimal(this.tax.value) + "%"))) {
-			
+	@Override
+	public void start()
+	{
+		if (showConfirmLiteral(getLiteral(GUIDeleteTax.Literals.ASK_DELETE, this.tax.typeDescription + ": " + DataFormatter.formatDecimal(this.tax.value) + "%")))
+		{
 			Boolean response = OperationsTaxes.call().deleteTax(this.tax);
 			close(valid(response));
-			
-		} else {
+		}
+		else
+		{
 			close(false);
 		}
 	}

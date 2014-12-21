@@ -5,77 +5,93 @@ import client.app.contacts.suppliers.gui.def.GUIBrowseSuppliers;
 import client.app.contacts.suppliers.operations.OperationsSuppliers;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseSuppliers extends OptionTask<Void> {
+public class BrowseSuppliers extends OptionTask<Void>
+{
+	private final GUIBrowseSuppliers gui = new GUIBrowseSuppliers();
 	
-	private GUIBrowseSuppliers gui = new GUIBrowseSuppliers();
-	
-	public BrowseSuppliers() {
+	public BrowseSuppliers()
+	{
 		super(GUIBrowseSuppliers.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshSuppliers();
 	}
 	
-	private void refreshSuppliers() {
+	private void refreshSuppliers()
+	{
 		this.gui.list.setRows(OperationsSuppliers.call().getSuppliers());
 	}
 	
-	private void addSupplier() {
+	private void addSupplier()
+	{
 		AddSupplier task = new AddSupplier();
 		Boolean response = task.run();
 		
-		if (valid(response)) {
+		if (valid(response))
+		{
 			refreshSuppliers();
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editSupplier() {
-		if (this.gui.list.isRowSelected()) {
+	private void editSupplier()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			
 			Supplier current = (Supplier)this.gui.list.getCurrentRow();
 			EditSupplier task = new EditSupplier(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshSuppliers();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseSuppliers.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteSupplier() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteSupplier()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Supplier current = (Supplier)this.gui.list.getCurrentRow();
 			DeleteSupplier task = new DeleteSupplier(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshSuppliers();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseSuppliers.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addSupplier();
 				break;

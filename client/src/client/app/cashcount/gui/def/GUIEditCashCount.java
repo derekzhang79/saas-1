@@ -1,17 +1,18 @@
 package client.app.cashcount.gui.def;
 
 import share.core.constants.Constants;
-import client.core.gui.components.ExtendedLabel;
-import client.core.gui.components.ExtendedInputInt;
 import client.core.gui.components.ExtendedButton;
-import client.core.gui.components.ExtendedGroupBox;
 import client.core.gui.components.ExtendedDateChooser;
+import client.core.gui.components.ExtendedGroupBox;
+import client.core.gui.components.ExtendedInputInt;
+import client.core.gui.components.ExtendedLabel;
 
-public class GUIEditCashCount {
-
+public class GUIEditCashCount
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "cashcount/gui/xml/edit_cash_count";
 
-	public enum Literals {
+	public enum Literals
+	{
 		DATE_REQUIRED, CASH_COUNT_NOT_CREATED, CASH_COUNT_NOT_EDITED, TITLE_ADD_CASH_COUNT, TITLE_EDIT_CASH_COUNT, ASK_CLOSE_WINDOW
 	}
 
@@ -67,5 +68,4 @@ public class GUIEditCashCount {
 	public ExtendedLabel labelType_2_sub = null;
 	public ExtendedLabel labelType_50_sub = null;
 	public ExtendedLabel labelType_100 = null;
-
 }

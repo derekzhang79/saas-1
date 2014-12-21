@@ -2,13 +2,12 @@ package client.app.products.gui.def;
 
 import share.core.constants.Constants;
 
-public class GUIDeleteProduct {
-
+public class GUIDeleteProduct
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "products/gui/xml/delete_product";
-
-	public enum Literals {
+	
+	public enum Literals
+	{
 		ASK_DELETE
 	}
-
-
 }

@@ -5,43 +5,53 @@ import client.app.configuration.usergroups.gui.def.GUISearchUserGroups;
 import client.app.configuration.usergroups.operations.OperationsUserGroups;
 import client.core.gui.taks.OptionTask;
 
-public class SearchUserGroup extends OptionTask<UserGroup> {
+public class SearchUserGroup extends OptionTask<UserGroup>
+{
+	private final GUISearchUserGroups gui = new GUISearchUserGroups();
 	
-	private GUISearchUserGroups gui = new GUISearchUserGroups();
-	
-	public SearchUserGroup() {
+	public SearchUserGroup()
+	{
 		super(GUISearchUserGroups.PATH, TaskType.MODAL);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshUserGroups();
 	}
 	
-	private void refreshUserGroups() {
+	private void refreshUserGroups()
+	{
 		this.gui.list.setRows(OperationsUserGroups.call().getUserGroups());
 	}
 	
-	private void select() {
+	private void select()
+	{
 		close((UserGroup)this.gui.list.getCurrentRow());
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	private void addUserGroup() {
+	private void addUserGroup()
+	{
 		AddUserGroup task = new AddUserGroup();
 		UserGroup response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			close(response);
 		}
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addUserGroup();
 				break;

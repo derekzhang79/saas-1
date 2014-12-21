@@ -6,51 +6,61 @@ import client.app.journals.gui.def.GUIBrowseJournalDetail;
 import client.app.journals.operations.OperationsJournals;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseJournalDetail extends OptionTask<Void> {
-	
-	private GUIBrowseJournalDetail gui = new GUIBrowseJournalDetail();
+public class BrowseJournalDetail extends OptionTask<Void>
+{
+	private final GUIBrowseJournalDetail gui = new GUIBrowseJournalDetail();
 	private Journal journal = null;
 	
-	public BrowseJournalDetail(Journal journal) {
+	public BrowseJournalDetail(Journal journal)
+	{
 		super(GUIBrowseJournalDetail.PATH, TaskType.MODAL);
 		
 		this.journal = journal;
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshJournalsDetails();
 	}
 	
-	private void refreshJournalsDetails() {
+	private void refreshJournalsDetails()
+	{
 		this.gui.list.setRows(OperationsJournals.call().getJournalDetail(this.journal.id));
 	}
 	
-	private void editJournalDetail() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editJournalDetail()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			JournalDetail current = (JournalDetail)this.gui.list.getCurrentRow();
 			EditJournalDetail task = new EditJournalDetail(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshJournalsDetails();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseJournalDetail.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case EDIT:
 				editJournalDetail();
 				break;

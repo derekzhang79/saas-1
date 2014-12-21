@@ -4,15 +4,18 @@ import share.app.contacts.suppliers.Supplier;
 import client.app.contacts.suppliers.gui.def.GUIEditSupplier;
 import client.app.contacts.suppliers.operations.OperationsSuppliers;
 
-public class EditSupplier extends BaseSupplier {
+public class EditSupplier extends BaseSupplier
+{
+	private final Supplier original;
 	
-	private Supplier original = null;
-	
-	public EditSupplier(Supplier original) {
+	public EditSupplier(Supplier original)
+	{
 		this.original = original;
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setTitle(getLiteral(GUIEditSupplier.Literals.TITLE_EDIT_SUPPLIER));
 		
 		this.gui.name.set(this.original.name);
@@ -29,39 +32,55 @@ public class EditSupplier extends BaseSupplier {
 		this.gui.name.focus();
 	}
 	
-	private void editSupplier() {
-		if (validate()) {
+	private void editSupplier()
+	{
+		if (validate())
+		{
 			Supplier newSupplier = new Supplier(0, this.gui.name.get(), this.gui.identification.get(), this.gui.address.get(), this.gui.city.get(), this.gui.postalCode.getInt(), this.gui.telephone.getInt(), this.gui.mobile.getInt(), this.gui.email.get(), this.gui.contactPerson.get(), this.gui.comments.get(), 0);
 			boolean response = OperationsSuppliers.call().editSupplier(this.original, newSupplier);
 			
-			if (response) {
+			if (response)
+			{
 				close(true);
-			} else {
+			}
+			else
+			{
 				showWarning(GUIEditSupplier.Literals.SUPPLIER_NOT_EDITED);
 				this.gui.name.focus();
 			}
 		}
 	}
 	
-	public void closing() {
-		if (formChanged()) {
-			if (showConfirm(GUIEditSupplier.Literals.ASK_CLOSE_WINDOW)) {
+	@Override
+	public void closing()
+	{
+		if (formChanged())
+		{
+			if (showConfirm(GUIEditSupplier.Literals.ASK_CLOSE_WINDOW))
+			{
 				close();
-			} else {
+			}
+			else
+			{
 				setFocus();
 			}
-		} else {
+		}
+		else
+		{
 			close();
 		}
 	}
 	
-	private boolean formChanged() {
+	private boolean formChanged()
+	{
 		return ((!this.gui.name.equals(this.original.name)) || (!this.gui.identification.equals(this.original.identification)) || (!this.gui.address.equals(this.original.address)) || (!this.gui.city.equals(this.original.city)) || (!this.gui.postalCode.equals(this.original.postalCode)) || (!this.gui.telephone.equals(this.original.telephone)) || (!this.gui.mobile.equals(this.original.mobile)) || (!this.gui.contactPerson.equals(this.original.contactPerson)) || (!this.gui.email.equals(this.original.email)) || (!this.gui.comments.equals(this.original.comments)));
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case SAVE:
 				editSupplier();
 				break;

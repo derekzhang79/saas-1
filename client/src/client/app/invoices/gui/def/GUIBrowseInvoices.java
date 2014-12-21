@@ -3,19 +3,20 @@ package client.app.invoices.gui.def;
 import share.core.constants.Constants;
 import client.core.gui.components.ExtendedButton;
 import client.core.gui.components.ExtendedDateChooser;
-import client.core.gui.components.ExtendedInputText;
-import client.core.gui.components.ExtendedTable;
 import client.core.gui.components.ExtendedGroupBox;
+import client.core.gui.components.ExtendedInputText;
 import client.core.gui.components.ExtendedLabel;
+import client.core.gui.components.ExtendedTable;
 
-public class GUIBrowseInvoices {
-
+public class GUIBrowseInvoices
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "invoices/gui/xml/browse_invoices";
-
-	public enum Literals {
+	
+	public enum Literals
+	{
 		ROW_NOT_SELECTED, LIST_PDF
 	}
-
+	
 	public ExtendedButton print = null;
 	public ExtendedDateChooser date = null;
 	public ExtendedInputText clientName = null;
@@ -30,5 +31,4 @@ public class GUIBrowseInvoices {
 	public ExtendedButton delete = null;
 	public ExtendedButton add = null;
 	public ExtendedButton search = null;
-
 }

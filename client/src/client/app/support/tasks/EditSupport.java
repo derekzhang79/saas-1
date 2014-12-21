@@ -9,15 +9,18 @@ import client.app.support.operations.OperationsSupports;
 import client.app.system.dictionary.DictionaryManager;
 import client.core.profile.Profile;
 
-public class EditSupport extends BaseSupport {
+public class EditSupport extends BaseSupport
+{
+	private final Support original;
 	
-	private Support original = null;
-	
-	public EditSupport(Support original) {
+	public EditSupport(Support original)
+	{
 		this.original = original;
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setTitle(getLiteral(GUIEditSupport.Literals.TITLE_EDIT_SUPPORT));
 		this.gui.module.setItems(DictionaryManager.get(Categories.SYSTEM_MODULES));
 		this.gui.status.setItems(DictionaryManager.get(Categories.SUPPORT_STATUS));
@@ -27,7 +30,8 @@ public class EditSupport extends BaseSupport {
 		this.gui.status.set(this.original.status);
 		this.gui.description.set(this.original.description);
 		
-		if (!this.original.status.equals(Category.SUPPORT_STATUS.PENDING)) {
+		if (!this.original.status.equals(Category.SUPPORT_STATUS.PENDING))
+		{
 			this.gui.module.setEnabled(false);
 			this.gui.description.setEnabled(false);
 		}
@@ -35,39 +39,55 @@ public class EditSupport extends BaseSupport {
 		this.gui.name.focus();
 	}
 	
-	private void editSupport() {
-		if (validate()) {
+	private void editSupport()
+	{
+		if (validate())
+		{
 			Support newSupport = new Support(0, Profile.getUserID(), this.gui.module.get(), this.gui.status.get(), Date.getTodayDate(), Date.getTodayDate(), this.gui.name.get(), this.gui.description.get());
 			boolean response = OperationsSupports.call().editSupport(this.original, newSupport);
 			
-			if (response) {
+			if (response)
+			{
 				close(true);
-			} else {
+			}
+			else
+			{
 				showWarning(GUIEditSupport.Literals.SUPPORT_NOT_EDITED);
 				this.gui.module.focus();
 			}
 		}
 	}
 	
-	public void closing() {
-		if (formChanged()) {
-			if (showConfirm(GUIEditSupport.Literals.ASK_CLOSE_WINDOW)) {
+	@Override
+	public void closing()
+	{
+		if (formChanged())
+		{
+			if (showConfirm(GUIEditSupport.Literals.ASK_CLOSE_WINDOW))
+			{
 				close();
-			} else {
+			}
+			else
+			{
 				setFocus();
 			}
-		} else {
+		}
+		else
+		{
 			close();
 		}
 	}
 	
-	private boolean formChanged() {
+	private boolean formChanged()
+	{
 		return ((!this.gui.name.equals(this.original.name)) || (!this.gui.module.equals(this.original.module)) || (!this.gui.description.equals(this.original.description)));
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case SAVE:
 				editSupport();
 				break;

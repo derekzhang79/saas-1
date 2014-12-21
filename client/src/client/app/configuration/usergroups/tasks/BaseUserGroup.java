@@ -4,28 +4,33 @@ import java.awt.Color;
 import client.app.configuration.usergroups.gui.def.GUIEditUserGroup;
 import client.core.gui.taks.OptionTask;
 
-public abstract class BaseUserGroup<ResultType> extends OptionTask<ResultType> {
-	
+public abstract class BaseUserGroup<ResultType> extends OptionTask<ResultType>
+{
 	protected GUIEditUserGroup gui = new GUIEditUserGroup();
-	
-	public BaseUserGroup() {
+
+	public BaseUserGroup()
+	{
 		super(GUIEditUserGroup.PATH, TaskType.MODAL);
 		setGUI(this.gui);
 	}
-	
-	protected boolean validate() {
+
+	protected boolean validate()
+	{
 		boolean valid = false;
-		
+
 		clearInputsBorders();
-		
-		if (this.gui.name.isEmpty()) {
+
+		if (this.gui.name.isEmpty())
+		{
 			showWarning(GUIEditUserGroup.Literals.NAME_REQUIRED);
 			this.gui.name.focus();
 			this.gui.name.setBorderColor(Color.RED);
-		} else {
+		}
+		else
+		{
 			valid = true;
 		}
-		
+
 		return valid;
 	}
 }

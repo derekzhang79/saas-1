@@ -2,18 +2,19 @@ package client.app.configuration.users.gui.def;
 
 import share.core.constants.Constants;
 import client.core.gui.components.ExtendedButton;
+import client.core.gui.components.ExtendedInputPassword;
 import client.core.gui.components.ExtendedInputText;
 import client.core.gui.components.ExtendedLabel;
-import client.core.gui.components.ExtendedInputPassword;
 
-public class GUIEditUser {
-
+public class GUIEditUser
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "configuration/users/gui/xml/edit_user";
-
-	public enum Literals {
+	
+	public enum Literals
+	{
 		NAME_REQUIRED, GROUP_REQUIRED, USER_NOT_EDITED, ASK_CLOSE_WINDOW
 	}
-
+	
 	public ExtendedButton searchGroup = null;
 	public ExtendedInputText name = null;
 	public ExtendedLabel labelGroup = null;
@@ -23,5 +24,4 @@ public class GUIEditUser {
 	public ExtendedLabel labelPassword = null;
 	public ExtendedButton cancel = null;
 	public ExtendedInputText groupName = null;
-
 }

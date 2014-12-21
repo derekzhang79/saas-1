@@ -5,77 +5,92 @@ import client.app.brands.gui.def.GUIBrowseBrands;
 import client.app.brands.operations.OperationsBrands;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseBrands extends OptionTask<Void> {
+public class BrowseBrands extends OptionTask<Void>
+{
+	private final GUIBrowseBrands gui = new GUIBrowseBrands();
 	
-	private GUIBrowseBrands gui = new GUIBrowseBrands();
-	
-	public BrowseBrands() {
+	public BrowseBrands()
+	{
 		super(GUIBrowseBrands.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshBrands();
 	}
 	
-	private void refreshBrands() {
+	private void refreshBrands()
+	{
 		this.gui.list.setRows(OperationsBrands.call().getBrands());
 	}
 	
-	private void addBrand() {
+	private void addBrand()
+	{
 		AddBrand task = new AddBrand();
 		Brand response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			refreshBrands();
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editBrand() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editBrand()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Brand current = (Brand)this.gui.list.getCurrentRow();
 			EditBrand task = new EditBrand(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshBrands();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseBrands.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteBrand() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteBrand()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Brand current = (Brand)this.gui.list.getCurrentRow();
 			DeleteBrand task = new DeleteBrand(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshBrands();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseBrands.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addBrand();
 				break;

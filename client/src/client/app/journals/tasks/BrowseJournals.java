@@ -11,15 +11,18 @@ import client.app.system.dictionary.DictionaryManager;
 import client.core.gui.format.DataFormatter;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseJournals extends OptionTask<Void> {
+public class BrowseJournals extends OptionTask<Void>
+{
+	private final GUIBrowseJournals gui = new GUIBrowseJournals();
 	
-	private GUIBrowseJournals gui = new GUIBrowseJournals();
-	
-	public BrowseJournals() {
+	public BrowseJournals()
+	{
 		super(GUIBrowseJournals.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		this.gui.month.setItems(DictionaryManager.get(Categories.MONTHS));
 		this.gui.month.set(Environment.getCurrentMonth());
@@ -27,13 +30,15 @@ public class BrowseJournals extends OptionTask<Void> {
 		refreshJournals();
 	}
 	
-	private void refreshJournals() {
+	private void refreshJournals()
+	{
 		Journal[] list = OperationsJournals.call().getJournals(this.gui.year.getInt(), this.gui.month.get());
 		
 		double totalSale = 0;
 		double totalProfit = 0;
 		
-		for (Journal journal : list) {
+		for (Journal journal : list)
+		{
 			totalSale += journal.sale;
 			totalProfit += journal.profit;
 		}
@@ -44,27 +49,31 @@ public class BrowseJournals extends OptionTask<Void> {
 		this.gui.labelTotalProfit.set(DataFormatter.formatDecimal(totalProfit) + " " + Constants.CURRENCY_EURO);
 	}
 	
-	private void journalDetail() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void journalDetail()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Journal current = (Journal)this.gui.list.getCurrentRow();
 			BrowseJournalDetail task = new BrowseJournalDetail(current);
 			task.run();
 			
 			refreshJournals();
 			this.gui.list.focus();
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseJournals.Literals.ROW_NOT_SELECTED);
 			this.gui.list.focus();
 		}
 	}
 	
-	private void addJournal() {
+	private void addJournal()
+	{
 		AddJournal task = new AddJournal();
 		Journal response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			refreshJournals();
 			
 			BrowseJournalDetail browse = new BrowseJournalDetail(response);
@@ -76,49 +85,58 @@ public class BrowseJournals extends OptionTask<Void> {
 		this.gui.list.focus();
 	}
 	
-	private void editJournal() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editJournal()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Journal current = (Journal)this.gui.list.getCurrentRow();
 			EditJournal task = new EditJournal(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshJournals();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseJournals.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteJournal() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteJournal()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Journal current = (Journal)this.gui.list.getCurrentRow();
 			DeleteJournal task = new DeleteJournal(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshJournals();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseJournals.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case DETAIL:
 				journalDetail();
 				break;

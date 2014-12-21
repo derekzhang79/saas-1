@@ -2,20 +2,21 @@ package client.app.products.gui.def;
 
 import share.core.constants.Constants;
 import client.core.gui.components.ExtendedButton;
-import client.core.gui.components.ExtendedLabel;
-import client.core.gui.components.ExtendedInputText;
-import client.core.gui.components.ExtendedInputInt;
-import client.core.gui.components.ExtendedTable;
 import client.core.gui.components.ExtendedGroupBox;
+import client.core.gui.components.ExtendedInputInt;
+import client.core.gui.components.ExtendedInputText;
+import client.core.gui.components.ExtendedLabel;
+import client.core.gui.components.ExtendedTable;
 
-public class GUIBrowseProducts {
-
+public class GUIBrowseProducts
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "products/gui/xml/browse_products";
-
-	public enum Literals {
+	
+	public enum Literals
+	{
 		ROW_NOT_SELECTED, LIST_PDF
 	}
-
+	
 	public ExtendedButton clearSearchSection = null;
 	public ExtendedLabel labelSection = null;
 	public ExtendedInputText sectionName = null;
@@ -32,5 +33,4 @@ public class GUIBrowseProducts {
 	public ExtendedButton add = null;
 	public ExtendedButton search = null;
 	public ExtendedInputText brandName = null;
-
 }

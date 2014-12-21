@@ -5,43 +5,53 @@ import client.app.sections.gui.def.GUISearchSection;
 import client.app.sections.operations.OperationsSections;
 import client.core.gui.taks.OptionTask;
 
-public class SearchSection extends OptionTask<Section> {
+public class SearchSection extends OptionTask<Section>
+{
+	private final GUISearchSection gui = new GUISearchSection();
 	
-	private GUISearchSection gui = new GUISearchSection();
-	
-	public SearchSection() {
+	public SearchSection()
+	{
 		super(GUISearchSection.PATH, TaskType.MODAL);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshSections();
 	}
 	
-	private void refreshSections() {
+	private void refreshSections()
+	{
 		this.gui.list.setRows(OperationsSections.call().getSections());
 	}
 	
-	private void select() {
+	private void select()
+	{
 		close((Section)this.gui.list.getCurrentRow());
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	private void addSection() {
+	private void addSection()
+	{
 		AddSection task = new AddSection();
 		Section response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			close(response);
 		}
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addSection();
 				break;

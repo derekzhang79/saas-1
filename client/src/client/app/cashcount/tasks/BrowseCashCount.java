@@ -9,15 +9,18 @@ import client.app.cashcount.operations.OperationsCashCount;
 import client.app.system.dictionary.DictionaryManager;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseCashCount extends OptionTask<Void> {
+public class BrowseCashCount extends OptionTask<Void>
+{
+	private final GUIBrowseCashCount gui = new GUIBrowseCashCount();
 	
-	private GUIBrowseCashCount gui = new GUIBrowseCashCount();
-	
-	public BrowseCashCount() {
+	public BrowseCashCount()
+	{
 		super(GUIBrowseCashCount.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		this.gui.month.setItems(DictionaryManager.get(Categories.MONTHS));
 		this.gui.month.set(Environment.getCurrentMonth());
@@ -25,64 +28,76 @@ public class BrowseCashCount extends OptionTask<Void> {
 		refreshCashCount();
 	}
 	
-	private void refreshCashCount() {
+	private void refreshCashCount()
+	{
 		this.gui.list.setRows(OperationsCashCount.call().getCashCounts(this.gui.year.getInt(), this.gui.month.get()));
 	}
 	
-	private void addCashCount() {
+	private void addCashCount()
+	{
 		AddCashCount task = new AddCashCount();
 		Boolean response = task.run();
 		
-		if (valid(response)) {
+		if (valid(response))
+		{
 			refreshCashCount();
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editCashCount() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editCashCount()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			CashCount current = (CashCount)this.gui.list.getCurrentRow();
 			EditCashCount task = new EditCashCount(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshCashCount();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseCashCount.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteCashCount() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteCashCount()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			CashCount current = (CashCount)this.gui.list.getCurrentRow();
 			DeleteCashCount task = new DeleteCashCount(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshCashCount();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseCashCount.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addCashCount();
 				break;

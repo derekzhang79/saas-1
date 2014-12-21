@@ -5,31 +5,38 @@ import client.app.configuration.usergroups.gui.def.GUIBrowseUserGroups;
 import client.app.configuration.usergroups.operations.OperationsUserGroups;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseUserGroups extends OptionTask<Void> {
+public class BrowseUserGroups extends OptionTask<Void>
+{
+	private final GUIBrowseUserGroups gui = new GUIBrowseUserGroups();
 	
-	private GUIBrowseUserGroups gui = new GUIBrowseUserGroups();
-	
-	public BrowseUserGroups() {
+	public BrowseUserGroups()
+	{
 		super(GUIBrowseUserGroups.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshUserGroups();
 	}
 	
-	private void refreshUserGroups() {
+	private void refreshUserGroups()
+	{
 		this.gui.list.setRows(OperationsUserGroups.call().getUserGroups());
 	}
 	
-	private void addUserGroup() {
+	private void addUserGroup()
+	{
 		AddUserGroup task = new AddUserGroup();
 		UserGroup response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			refreshUserGroups();
 			
-			if (!response.administrator) {
+			if (!response.administrator)
+			{
 				EditUserGroupPermissions editUserGroup = new EditUserGroupPermissions(response);
 				editUserGroup.run();
 				
@@ -40,68 +47,82 @@ public class BrowseUserGroups extends OptionTask<Void> {
 		this.gui.list.focus();
 	}
 	
-	private void editUserGroup() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editUserGroup()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			UserGroup current = (UserGroup)this.gui.list.getCurrentRow();
 			EditUserGroup task = new EditUserGroup(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshUserGroups();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseUserGroups.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteUserGroup() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteUserGroup()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			UserGroup current = (UserGroup)this.gui.list.getCurrentRow();
 			DeleteUserGroup task = new DeleteUserGroup(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshUserGroups();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseUserGroups.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editUserGroupPermissions() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editUserGroupPermissions()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			UserGroup current = (UserGroup)this.gui.list.getCurrentRow();
 			
-			if (!current.administrator) {
+			if (!current.administrator)
+			{
 				EditUserGroupPermissions task = new EditUserGroupPermissions(current);
 				task.run();
-			} else {
+			}
+			else
+			{
 				showWarning(GUIBrowseUserGroups.Literals.IS_ADMINISTRATOR_GROUP);
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseUserGroups.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case DETAIL:
 				editUserGroupPermissions();
 				break;

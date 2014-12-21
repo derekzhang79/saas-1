@@ -5,43 +5,53 @@ import client.app.contacts.clients.gui.def.GUISearchClient;
 import client.app.contacts.clients.operations.OperationsClients;
 import client.core.gui.taks.OptionTask;
 
-public class SearchClient extends OptionTask<Client> {
+public class SearchClient extends OptionTask<Client>
+{
+	private final GUISearchClient gui = new GUISearchClient();
 	
-	private GUISearchClient gui = new GUISearchClient();
-	
-	public SearchClient() {
+	public SearchClient()
+	{
 		super(GUISearchClient.PATH, TaskType.MODAL);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshClients();
 	}
 	
-	private void refreshClients() {
+	private void refreshClients()
+	{
 		this.gui.list.setRows(OperationsClients.call().getClients());
 	}
 	
-	private void select() {
+	private void select()
+	{
 		close((Client)this.gui.list.getCurrentRow());
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	private void addClient() {
+	private void addClient()
+	{
 		AddClient task = new AddClient();
 		Client response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			close(response);
 		}
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addClient();
 				break;

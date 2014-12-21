@@ -8,65 +8,78 @@ import client.app.support.operations.OperationsSupports;
 import client.app.system.dictionary.DictionaryManager;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseSupports extends OptionTask<Void> {
+public class BrowseSupports extends OptionTask<Void>
+{
+	private final GUIBrowseSupports gui = new GUIBrowseSupports();
 	
-	private GUIBrowseSupports gui = new GUIBrowseSupports();
-	
-	public BrowseSupports() {
+	public BrowseSupports()
+	{
 		super(GUIBrowseSupports.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		this.gui.status.setItems(DictionaryManager.get(Categories.SUPPORT_STATUS));
 		this.gui.status.set(Category.SUPPORT_STATUS.PENDING);
 		refreshSupports();
 	}
 	
-	private void refreshSupports() {
-		if (this.gui.dateCreation.isEmpty()) {
+	private void refreshSupports()
+	{
+		if (this.gui.dateCreation.isEmpty())
+		{
 			this.gui.dateCreation.clear();
 		}
 		
 		this.gui.list.setRows(OperationsSupports.call().getSupports(this.gui.dateCreation.get(), this.gui.status.get()));
 	}
 	
-	private void addSupport() {
+	private void addSupport()
+	{
 		AddSupport task = new AddSupport();
 		Boolean response = task.run();
 		
-		if (valid(response)) {
+		if (valid(response))
+		{
 			refreshSupports();
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editSupport() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editSupport()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Support current = (Support)this.gui.list.getCurrentRow();
 			EditSupport task = new EditSupport(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshSupports();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseSupports.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addSupport();
 				break;

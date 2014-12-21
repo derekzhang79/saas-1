@@ -4,11 +4,12 @@ import share.core.constants.Constants;
 import client.core.gui.components.ExtendedButton;
 import client.core.gui.components.ExtendedTable;
 
-public class GUIBrowseBrands {
-
+public class GUIBrowseBrands
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "brands/gui/xml/browse_brands";
 
-	public enum Literals {
+	public enum Literals
+	{
 		ROW_NOT_SELECTED, LIST_PDF
 	}
 
@@ -16,5 +17,4 @@ public class GUIBrowseBrands {
 	public ExtendedTable list = null;
 	public ExtendedButton add = null;
 	public ExtendedButton delete = null;
-
 }

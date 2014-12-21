@@ -9,35 +9,42 @@ import client.app.products.operations.OperationsProducts;
 import client.app.sections.tasks.SearchSection;
 import client.core.gui.taks.OptionTask;
 
-public class SearchProduct extends OptionTask<Product> {
-	
-	private GUISearchProduct gui = new GUISearchProduct();
+public class SearchProduct extends OptionTask<Product>
+{
+	private final GUISearchProduct gui = new GUISearchProduct();
 	
 	private int sectionID = 0;
 	private int brandID = 0;
 	
-	public SearchProduct() {
+	public SearchProduct()
+	{
 		super(GUISearchProduct.PATH, TaskType.MODAL);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshProducts();
 	}
 	
-	private void refreshProducts() {
+	private void refreshProducts()
+	{
 		this.gui.list.setRows(OperationsProducts.call().getProducts(this.gui.barCode.getLong(), this.sectionID, this.brandID));
 	}
 	
-	private void select() {
+	private void select()
+	{
 		close((Product)this.gui.list.getCurrentRow());
 	}
 	
-	private void searchSection() {
+	private void searchSection()
+	{
 		SearchSection task = new SearchSection();
 		Section section = task.run();
 		
-		if (section != null) {
+		if (section != null)
+		{
 			this.sectionID = section.id;
 			this.gui.sectionName.set(section.name);
 		}
@@ -45,16 +52,19 @@ public class SearchProduct extends OptionTask<Product> {
 		this.gui.sectionName.focus();
 	}
 	
-	private void clearSearchSection() {
+	private void clearSearchSection()
+	{
 		this.sectionID = 0;
 		this.gui.sectionName.clear();
 	}
 	
-	private void searchBrand() {
+	private void searchBrand()
+	{
 		SearchBrand task = new SearchBrand();
 		Brand brand = task.run();
 		
-		if (brand != null) {
+		if (brand != null)
+		{
 			this.brandID = brand.id;
 			this.gui.brandName.set(brand.name);
 		}
@@ -62,27 +72,33 @@ public class SearchProduct extends OptionTask<Product> {
 		this.gui.brandName.focus();
 	}
 	
-	private void clearSearchBrand() {
+	private void clearSearchBrand()
+	{
 		this.brandID = 0;
 		this.gui.brandName.clear();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	private void addProduct() {
+	private void addProduct()
+	{
 		AddProduct task = new AddProduct();
 		Product response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			close(response);
 		}
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addProduct();
 				break;

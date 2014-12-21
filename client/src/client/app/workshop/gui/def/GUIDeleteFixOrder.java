@@ -2,13 +2,12 @@ package client.app.workshop.gui.def;
 
 import share.core.constants.Constants;
 
-public class GUIDeleteFixOrder {
-
+public class GUIDeleteFixOrder
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "workshop/gui/xml/delete_fix_order";
-
-	public enum Literals {
+	
+	public enum Literals
+	{
 		ASK_DELETE
 	}
-
-
 }

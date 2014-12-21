@@ -6,27 +6,37 @@ import client.app.system.gui.def.GUIBlocker;
 import client.core.gui.taks.OptionTask;
 import client.core.profile.Profile;
 
-public class Blocker extends OptionTask<Void> {
+public class Blocker extends OptionTask<Void>
+{
+	private final GUIBlocker gui = new GUIBlocker();
 	
-	private GUIBlocker gui = new GUIBlocker();
-	
-	public Blocker() {
+	public Blocker()
+	{
 		super(GUIBlocker.PATH, TaskType.SPECIAL, true);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		addTitle(Profile.getUserName());
 	}
 	
-	public void closing() {
+	@Override
+	public void closing()
+	{
 	}
 	
-	private void checkPassword(String pass) {
-		if (validate()) {
-			if (Profile.getUserPassword().equals(Encoding.md5(pass))) {
+	private void checkPassword(String pass)
+	{
+		if (validate())
+		{
+			if (Profile.getUserPassword().equals(Encoding.md5(pass)))
+			{
 				close();
-			} else {
+			}
+			else
+			{
 				showWarning(GUIBlocker.Literals.INVALID_PASS);
 				this.gui.pass.setBorderColor(Color.RED);
 				this.gui.pass.focus();
@@ -34,25 +44,31 @@ public class Blocker extends OptionTask<Void> {
 		}
 	}
 	
-	private boolean validate() {
+	private boolean validate()
+	{
 		boolean valid = false;
 		
 		clearInputsBorders();
 		
-		if (this.gui.pass.isEmpty()) {
+		if (this.gui.pass.isEmpty())
+		{
 			showWarning(GUIBlocker.Literals.PASS_REQUIRED);
 			this.gui.pass.focus();
 			this.gui.pass.setBorderColor(Color.RED);
-		} else {
+		}
+		else
+		{
 			valid = true;
 		}
 		
 		return valid;
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ACCEPT:
 				checkPassword(this.gui.pass.get());
 				break;

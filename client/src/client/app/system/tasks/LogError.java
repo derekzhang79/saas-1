@@ -5,30 +5,35 @@ import client.app.system.gui.def.GUILogError;
 import client.core.debug.Debug;
 import client.core.gui.taks.OptionTask;
 
-public class LogError extends OptionTask<Void> {
+public class LogError extends OptionTask<Void>
+{
+	private final GUILogError gui = new GUILogError();
 	
-	private GUILogError gui = new GUILogError();
-	
-	public LogError() {
+	public LogError()
+	{
 		super(GUILogError.PATH, TaskType.MODAL, true);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		this.gui.error.setEditable(false);
 		this.gui.error.set(Debug.getErrors());
 		this.gui.error.setBottom();
 	}
 	
-	private void copyText() {
+	private void copyText()
+	{
 		Environment.copyClipboard(this.gui.error.get());
 		this.gui.error.focus();
 	}
 	
-	public void event(Event event) {
-		
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case COPY:
 				copyText();
 				break;

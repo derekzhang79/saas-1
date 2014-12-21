@@ -13,7 +13,7 @@ import client.core.gui.taks.OptionTask;
 
 public class EditUserGroupPermissions extends OptionTask<Void>
 {
-	private UserGroup userGroup = null;
+	private final UserGroup userGroup;
 	private final List<Task> generalList = new ArrayList<Task>();
 
 	private final GUIEditUserGroupPermissions gui = new GUIEditUserGroupPermissions();
@@ -107,7 +107,6 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 	{
 		if (this.gui.list_out.isRowSelected())
 		{
-
 			Task current = (Task)this.gui.list_out.getCurrentRow();
 			Permission permission = new Permission(0, this.userGroup.id, current.id, current.name, current.path);
 			boolean response = OperationsPermissions.call().addUserGroupPermission(permission);
@@ -120,7 +119,6 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 			{
 				showWarning(GUIEditUserGroupPermissions.Literals.PREMISSION_NOT_ADDED);
 			}
-
 		}
 		else
 		{
@@ -134,7 +132,6 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 	{
 		if (this.gui.list_in.isRowSelected())
 		{
-
 			Permission current = (Permission)this.gui.list_in.getCurrentRow();
 			boolean response = OperationsPermissions.call().deleteUserGroupPermission(current);
 
@@ -146,7 +143,6 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 			{
 				showWarning(GUIEditUserGroupPermissions.Literals.PREMISSION_NOT_DELETED);
 			}
-
 		}
 		else
 		{
@@ -171,7 +167,6 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 	{
 		switch (event)
 		{
-
 			case ADD:
 				addPermission();
 				break;
@@ -193,9 +188,8 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 		}
 	}
 
-	class PermissionComparator implements Comparator<Permission>
+	private class PermissionComparator implements Comparator<Permission>
 	{
-
 		@Override
 		public int compare(Permission permissionA, Permission permissionB)
 		{

@@ -5,30 +5,35 @@ import client.app.system.gui.def.GUILogInfo;
 import client.core.debug.Debug;
 import client.core.gui.taks.OptionTask;
 
-public class LogInfo extends OptionTask<Void> {
+public class LogInfo extends OptionTask<Void>
+{
+	private final GUILogInfo gui = new GUILogInfo();
 	
-	private GUILogInfo gui = new GUILogInfo();
-	
-	public LogInfo() {
+	public LogInfo()
+	{
 		super(GUILogInfo.PATH, TaskType.MODAL, true);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		this.gui.info.setEditable(false);
 		this.gui.info.set(Debug.getInfo());
 		this.gui.info.setBottom();
 	}
 	
-	private void copyText() {
+	private void copyText()
+	{
 		Environment.copyClipboard(this.gui.info.get());
 		this.gui.info.focus();
 	}
 	
-	public void event(Event event) {
-		
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case COPY:
 				copyText();
 				break;

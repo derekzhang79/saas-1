@@ -5,43 +5,53 @@ import client.app.brands.gui.def.GUISearchBrand;
 import client.app.brands.operations.OperationsBrands;
 import client.core.gui.taks.OptionTask;
 
-public class SearchBrand extends OptionTask<Brand> {
+public class SearchBrand extends OptionTask<Brand>
+{
+	private final GUISearchBrand gui = new GUISearchBrand();
 	
-	private GUISearchBrand gui = new GUISearchBrand();
-	
-	public SearchBrand() {
+	public SearchBrand()
+	{
 		super(GUISearchBrand.PATH, TaskType.MODAL);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshBrands();
 	}
 	
-	private void refreshBrands() {
+	private void refreshBrands()
+	{
 		this.gui.list.setRows(OperationsBrands.call().getBrands());
 	}
 	
-	private void select() {
+	private void select()
+	{
 		close((Brand)this.gui.list.getCurrentRow());
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	private void addBrand() {
+	private void addBrand()
+	{
 		AddBrand task = new AddBrand();
 		Brand response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			close(response);
 		}
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addBrand();
 				break;

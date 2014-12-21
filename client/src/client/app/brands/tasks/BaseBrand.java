@@ -4,28 +4,33 @@ import java.awt.Color;
 import client.app.brands.gui.def.GUIEditBrand;
 import client.core.gui.taks.OptionTask;
 
-public abstract class BaseBrand<ResultType> extends OptionTask<ResultType> {
-	
+public abstract class BaseBrand<ResultType> extends OptionTask<ResultType>
+{
 	protected GUIEditBrand gui = new GUIEditBrand();
-	
-	public BaseBrand() {
+
+	public BaseBrand()
+	{
 		super(GUIEditBrand.PATH, TaskType.MODAL);
 		setGUI(this.gui);
 	}
-	
-	protected boolean validate() {
+
+	protected boolean validate()
+	{
 		boolean valid = false;
-		
+
 		clearInputsBorders();
-		
-		if (this.gui.name.isEmpty()) {
+
+		if (this.gui.name.isEmpty())
+		{
 			showWarning(GUIEditBrand.Literals.NAME_REQUIRED);
 			this.gui.name.focus();
 			this.gui.name.setBorderColor(Color.RED);
-		} else {
+		}
+		else
+		{
 			valid = true;
 		}
-		
+
 		return valid;
 	}
 }

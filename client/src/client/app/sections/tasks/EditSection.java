@@ -4,15 +4,18 @@ import share.app.sections.Section;
 import client.app.sections.gui.def.GUIEditSection;
 import client.app.sections.operations.OperationsSections;
 
-public class EditSection extends BaseSection<Boolean> {
+public class EditSection extends BaseSection<Boolean>
+{
+	private final Section original;
 	
-	private Section original = null;
-	
-	public EditSection(Section original) {
+	public EditSection(Section original)
+	{
 		this.original = original;
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setTitle(getLiteral(GUIEditSection.Literals.TITLE_EDIT_SECTION));
 		this.gui.code.set(this.original.id);
 		this.gui.name.set(this.original.name);
@@ -20,39 +23,55 @@ public class EditSection extends BaseSection<Boolean> {
 		this.gui.code.focus();
 	}
 	
-	private void editSection() {
-		if (validate()) {
+	private void editSection()
+	{
+		if (validate())
+		{
 			Section newSection = new Section(this.gui.code.getInt(), this.gui.name.get(), this.gui.profit.getValue());
 			boolean response = OperationsSections.call().editSection(this.original, newSection);
 			
-			if (response) {
+			if (response)
+			{
 				close(true);
-			} else {
+			}
+			else
+			{
 				showWarning(GUIEditSection.Literals.SECTION_NOT_EDITED);
 				this.gui.code.focus();
 			}
 		}
 	}
 	
-	public void closing() {
-		if (formChanged()) {
-			if (showConfirm(GUIEditSection.Literals.ASK_CLOSE_WINDOW)) {
+	@Override
+	public void closing()
+	{
+		if (formChanged())
+		{
+			if (showConfirm(GUIEditSection.Literals.ASK_CLOSE_WINDOW))
+			{
 				close();
-			} else {
+			}
+			else
+			{
 				setFocus();
 			}
-		} else {
+		}
+		else
+		{
 			close();
 		}
 	}
 	
-	private boolean formChanged() {
+	private boolean formChanged()
+	{
 		return ((!this.gui.code.equals(this.original.id)) || (!this.gui.name.equals(this.original.name)) || (!this.gui.profit.equals(this.original.profit)));
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case SAVE:
 				editSection();
 				break;

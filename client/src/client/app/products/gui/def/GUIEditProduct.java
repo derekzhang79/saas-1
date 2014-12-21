@@ -2,21 +2,22 @@ package client.app.products.gui.def;
 
 import share.core.constants.Constants;
 import client.core.gui.components.ExtendedButton;
+import client.core.gui.components.ExtendedComboBox;
 import client.core.gui.components.ExtendedInputDecimal;
 import client.core.gui.components.ExtendedInputInt;
 import client.core.gui.components.ExtendedInputText;
 import client.core.gui.components.ExtendedLabel;
-import client.core.gui.components.ExtendedComboBox;
 import client.core.gui.components.ExtendedTextArea;
 
-public class GUIEditProduct {
-
+public class GUIEditProduct
+{
 	public static final String PATH = Constants.GUI_BASE_PATH + "products/gui/xml/edit_product";
-
-	public enum Literals {
+	
+	public enum Literals
+	{
 		NAME_REQUIRED, SECTION_REQUIRED, BAR_CODE_REQUIRED, COST_PRICE_REQUIRED, SALE_PRICE_REQUIRED, TAX_REQUIRED, BRAND_REQUIRED, MODEL_REQUIRED, MEASURING_UNIT_REQUIRED, PRODUCT_NOT_CREATED, PRODUCT_NOT_EDITED, TITLE_ADD_PRODUCT, TITLE_EDIT_PRODUCT, ASK_CLOSE_WINDOW
 	}
-
+	
 	public ExtendedButton searchSection = null;
 	public ExtendedInputDecimal salePrice = null;
 	public ExtendedInputInt barCode = null;
@@ -47,5 +48,4 @@ public class GUIEditProduct {
 	public ExtendedLabel labelTax = null;
 	public ExtendedButton searchBrand = null;
 	public ExtendedInputText name = null;
-
 }

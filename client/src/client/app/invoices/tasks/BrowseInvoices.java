@@ -12,34 +12,41 @@ import client.app.invoices.reports.PrintInvoice;
 import client.app.taxes.operations.OperationsTaxes;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseInvoices extends OptionTask<Void> {
-	
-	private GUIBrowseInvoices gui = new GUIBrowseInvoices();
+public class BrowseInvoices extends OptionTask<Void>
+{
+	private final GUIBrowseInvoices gui = new GUIBrowseInvoices();
 	
 	private int clientID = 0;
 	
-	public BrowseInvoices() {
+	public BrowseInvoices()
+	{
 		super(GUIBrowseInvoices.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshInvoices();
 	}
 	
-	private void refreshInvoices() {
-		if (this.gui.date.isEmpty()) {
+	private void refreshInvoices()
+	{
+		if (this.gui.date.isEmpty())
+		{
 			this.gui.date.clear();
 		}
 		
 		this.gui.list.setRows(OperationsInvoices.call().getInvoices(this.clientID, this.gui.date.get()));
 	}
 	
-	private void addInvoice() {
+	private void addInvoice()
+	{
 		AddInvoice task = new AddInvoice();
 		Invoice response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			refreshInvoices();
 			
 			BrowseInvoiceDetail browse = new BrowseInvoiceDetail(response);
@@ -51,45 +58,52 @@ public class BrowseInvoices extends OptionTask<Void> {
 		this.gui.list.focus();
 	}
 	
-	private void editInvoice() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editInvoice()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Invoice current = (Invoice)this.gui.list.getCurrentRow();
 			EditInvoice task = new EditInvoice(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshInvoices();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseInvoices.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteInvoice() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteInvoice()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Invoice current = (Invoice)this.gui.list.getCurrentRow();
 			DeleteInvoice task = new DeleteInvoice(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshInvoices();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseInvoices.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void invoiceDetail() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void invoiceDetail()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Invoice current = (Invoice)this.gui.list.getCurrentRow();
 			
 			BrowseInvoiceDetail task = new BrowseInvoiceDetail(current);
@@ -97,18 +111,21 @@ public class BrowseInvoices extends OptionTask<Void> {
 			refreshInvoices();
 			
 			this.gui.list.focus();
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseInvoices.Literals.ROW_NOT_SELECTED);
 			this.gui.list.focus();
 		}
 	}
 	
-	private void searchClient() {
+	private void searchClient()
+	{
 		SearchClient task = new SearchClient();
 		Client client = task.run();
 		
-		if (client != null) {
+		if (client != null)
+		{
 			this.clientID = client.id;
 			this.gui.clientName.set(client.name);
 		}
@@ -116,18 +133,21 @@ public class BrowseInvoices extends OptionTask<Void> {
 		this.gui.clientName.focus();
 	}
 	
-	private void clearSearchClient() {
+	private void clearSearchClient()
+	{
 		this.clientID = 0;
 		this.gui.clientName.clear();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	private void print() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void print()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Invoice current = (Invoice)this.gui.list.getCurrentRow();
 			InvoiceDetail[] details = OperationsInvoices.call().getInvoiceDetail(current.id);
 			Client client = OperationsClients.call().getClient(current.client);
@@ -137,16 +157,19 @@ public class BrowseInvoices extends OptionTask<Void> {
 			print.show();
 			
 			this.gui.list.focus();
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseInvoices.Literals.ROW_NOT_SELECTED);
 			this.gui.list.focus();
 		}
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case DETAIL:
 				invoiceDetail();
 				break;

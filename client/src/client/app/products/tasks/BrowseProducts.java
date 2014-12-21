@@ -9,78 +9,92 @@ import client.app.products.operations.OperationsProducts;
 import client.app.sections.tasks.SearchSection;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseProducts extends OptionTask<Void> {
-	
-	private GUIBrowseProducts gui = new GUIBrowseProducts();
+public class BrowseProducts extends OptionTask<Void>
+{
+	private final GUIBrowseProducts gui = new GUIBrowseProducts();
 	
 	private int sectionID = 0;
 	private int brandID = 0;
 	
-	public BrowseProducts() {
+	public BrowseProducts()
+	{
 		super(GUIBrowseProducts.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshProducts();
 	}
 	
-	private void refreshProducts() {
+	private void refreshProducts()
+	{
 		this.gui.list.setRows(OperationsProducts.call().getProducts(this.gui.barCode.getLong(), this.sectionID, this.brandID));
 	}
 	
-	private void addProduct() {
+	private void addProduct()
+	{
 		AddProduct task = new AddProduct();
 		Product response = task.run();
 		
-		if (response != null) {
+		if (response != null)
+		{
 			refreshProducts();
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editProduct() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editProduct()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Product current = (Product)this.gui.list.getCurrentRow();
 			EditProduct task = new EditProduct(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshProducts();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseProducts.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteProduct() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteProduct()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			Product current = (Product)this.gui.list.getCurrentRow();
 			DeleteProduct task = new DeleteProduct(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshProducts();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseProducts.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void searchSection() {
+	private void searchSection()
+	{
 		SearchSection task = new SearchSection();
 		Section section = task.run();
 		
-		if (section != null) {
+		if (section != null)
+		{
 			this.sectionID = section.id;
 			this.gui.sectionName.set(section.name);
 		}
@@ -88,16 +102,19 @@ public class BrowseProducts extends OptionTask<Void> {
 		this.gui.sectionName.focus();
 	}
 	
-	private void clearSearchSection() {
+	private void clearSearchSection()
+	{
 		this.sectionID = 0;
 		this.gui.sectionName.clear();
 	}
 	
-	private void searchBrand() {
+	private void searchBrand()
+	{
 		SearchBrand task = new SearchBrand();
 		Brand brand = task.run();
 		
-		if (brand != null) {
+		if (brand != null)
+		{
 			this.brandID = brand.id;
 			this.gui.brandName.set(brand.name);
 		}
@@ -105,18 +122,22 @@ public class BrowseProducts extends OptionTask<Void> {
 		this.gui.brandName.focus();
 	}
 	
-	private void clearSearchBrand() {
+	private void clearSearchBrand()
+	{
 		this.brandID = 0;
 		this.gui.brandName.clear();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addProduct();
 				break;

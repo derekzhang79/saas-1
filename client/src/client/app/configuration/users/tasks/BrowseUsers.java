@@ -5,77 +5,92 @@ import client.app.configuration.users.gui.def.GUIBrowseUsers;
 import client.app.configuration.users.operations.OperationsUsers;
 import client.core.gui.taks.OptionTask;
 
-public class BrowseUsers extends OptionTask<Void> {
+public class BrowseUsers extends OptionTask<Void>
+{
+	private final GUIBrowseUsers gui = new GUIBrowseUsers();
 	
-	private GUIBrowseUsers gui = new GUIBrowseUsers();
-	
-	public BrowseUsers() {
+	public BrowseUsers()
+	{
 		super(GUIBrowseUsers.PATH, TaskType.SINGLE);
 	}
 	
-	public void start() {
+	@Override
+	public void start()
+	{
 		setGUI(this.gui);
 		refreshUsers();
 	}
 	
-	private void refreshUsers() {
+	private void refreshUsers()
+	{
 		this.gui.list.setRows(OperationsUsers.call().getUsers());
 	}
 	
-	private void addUser() {
+	private void addUser()
+	{
 		AddUser task = new AddUser();
 		Boolean response = task.run();
 		
-		if (valid(response)) {
+		if (valid(response))
+		{
 			refreshUsers();
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void editUser() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void editUser()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			User current = (User)this.gui.list.getCurrentRow();
 			EditUser task = new EditUser(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshUsers();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseUsers.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void deleteUser() {
-		if (this.gui.list.isRowSelected()) {
-			
+	private void deleteUser()
+	{
+		if (this.gui.list.isRowSelected())
+		{
 			User current = (User)this.gui.list.getCurrentRow();
 			DeleteUser task = new DeleteUser(current);
 			Boolean response = task.run();
 			
-			if (valid(response)) {
+			if (valid(response))
+			{
 				refreshUsers();
 			}
-			
-		} else {
+		}
+		else
+		{
 			showWarning(GUIBrowseUsers.Literals.ROW_NOT_SELECTED);
 		}
 		
 		this.gui.list.focus();
 	}
 	
-	private void clean() {
+	private void clean()
+	{
 		this.gui.list.cleanSearch();
 	}
 	
-	public void event(Event event) {
-		switch (event) {
-		
+	@Override
+	public void event(Event event)
+	{
+		switch (event)
+		{
 			case ADD:
 				addUser();
 				break;
