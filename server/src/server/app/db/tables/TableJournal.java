@@ -1,29 +1,35 @@
 package server.app.db.tables;
 
 import java.sql.Connection;
-
 import server.core.db.Table;
 import share.app.journals.Journal;
 import share.app.sections.Section;
 import share.core.Date;
 
-public class TableJournal extends Table {
-	
+public class TableJournal extends Table
+{
 	public Integer id = new Integer(0);
 	public Date date = new Date();
 	
-	public TableJournal(Connection connection) {
+	public TableJournal(Connection connection)
+	{
 		super(connection, "JOURNAL");
 		setTable(this);
 	}
 	
-	public Journal[] getJournals(Integer year, String month) {
+	public Journal[] getJournals(Integer year, String month)
+	{
 		
-		if ((year != 0) && (!month.isEmpty())) {
+		if ((year != 0) && (!month.isEmpty()))
+		{
 			addCondition("date LIKE '" + year + "-" + month + "-%'");
-		} else if ((year != 0) && (month.isEmpty())) {
+		}
+		else if ((year != 0) && (month.isEmpty()))
+		{
 			addCondition("date LIKE '" + year + "-%'");
-		} else if ((year == 0) && (!month.isEmpty())) {
+		}
+		else if ((year == 0) && (!month.isEmpty()))
+		{
 			addCondition("date LIKE '%-" + month + "-%'");
 		}
 		
@@ -31,7 +37,8 @@ public class TableJournal extends Table {
 		
 		Journal[] result = new Journal[number];
 		
-		for (int i = 0; i < number; i++) {
+		for (int i = 0; i < number; i++)
+		{
 			select(i);
 			
 			result[i] = new Journal(this.id, this.date, getJournalSale(this.id), getJournalProfit(this.id));
@@ -40,68 +47,79 @@ public class TableJournal extends Table {
 		return result;
 	}
 	
-	public Journal add(Journal journal) {
+	public Journal add(Journal journal)
+	{
 		Journal result = null;
 		
 		beginTransaction();
 		
 		this.date = journal.date;
 		
-		if (create()) {
-			
+		if (create())
+		{
 			Section[] sections = getSections();
 			int quantity = 0;
 			
-			for (Section section : sections) {
-				
+			for (Section section : sections)
+			{
 				TableJournalDetail table = new TableJournalDetail(getConnection());
 				
-				if (table.add(getLastId(), section.id)) {
+				if (table.add(getLastId(), section.id))
+				{
 					quantity++;
 				}
 			}
 			
-			if (sections.length == quantity) {
-				
-				if (commit()) {
+			if (sections.length == quantity)
+			{
+				if (commit())
+				{
 					int newID = getLastId();
 					result = new Journal(newID, journal.date, getJournalSale(newID), getJournalProfit(newID));
 				}
-				
-			} else {
+			}
+			else
+			{
 				rollback();
 			}
-		} else {
+		}
+		else
+		{
 			rollback();
 		}
 		
 		return result;
 	}
 	
-	private Section[] getSections() {
+	private Section[] getSections()
+	{
 		TableSection table = new TableSection(getConnection());
 		
 		return table.getSections();
 	}
 	
-	private double getJournalSale(int journalID) {
+	private double getJournalSale(int journalID)
+	{
 		TableJournalDetail table = new TableJournalDetail(getConnection());
 		
 		return table.getSale(journalID);
 	}
 	
-	private double getJournalProfit(int journalID) {
+	private double getJournalProfit(int journalID)
+	{
 		TableJournalDetail table = new TableJournalDetail(getConnection());
 		
 		return table.getProfit(journalID);
 	}
 	
-	public boolean editJournal(Journal original, Journal newJournal) {
+	public boolean editJournal(Journal original, Journal newJournal)
+	{
 		boolean valid = false;
 		
 		this.id = original.id;
 		
-		if (read()) {
+		if (read())
+		{
 			this.date = newJournal.date;
 			
 			valid = update();
@@ -110,24 +128,31 @@ public class TableJournal extends Table {
 		return valid;
 	}
 	
-	public boolean deleteJournal(Journal journal) {
+	public boolean deleteJournal(Journal journal)
+	{
 		boolean valid = false;
 		
 		beginTransaction();
 		
 		this.id = journal.id;
 		
-		if (read()) {
-			
+		if (read())
+		{
 			TableJournalDetail table = new TableJournalDetail(getConnection());
 			
-			if (table.delete(journal.id)) {
-				if (delete()) {
+			if (table.delete(journal.id))
+			{
+				if (delete())
+				{
 					valid = commit();
-				} else {
+				}
+				else
+				{
 					rollback();
 				}
-			} else {
+			}
+			else
+			{
 				rollback();
 			}
 		}

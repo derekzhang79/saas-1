@@ -1,13 +1,12 @@
 package server.app.db.tables;
 
 import java.sql.Connection;
-
 import server.core.db.Table;
 import share.app.products.Product;
 import share.core.Date;
 
-public class TableProduct extends Table {
-	
+public class TableProduct extends Table
+{
 	public Integer id = new Integer(0);
 	public Integer section = new Integer(0);
 	public Long bar_code = new Long(0);
@@ -22,40 +21,47 @@ public class TableProduct extends Table {
 	public String measuring_unit = new String();
 	public Integer length = new Integer(0);
 	public Integer quantity = new Integer(0);
-	
-	public TableProduct(Connection connection) {
+
+	public TableProduct(Connection connection)
+	{
 		super(connection, "PRODUCT");
 		setTable(this);
 	}
-	
-	public Product[] getProducts(Long barCodeParam, Integer sectionIDParam, Integer brandParam) {
-		if (barCodeParam != 0) {
+
+	public Product[] getProducts(Long barCodeParam, Integer sectionIDParam, Integer brandParam)
+	{
+		if (barCodeParam != 0)
+		{
 			this.bar_code = barCodeParam;
 		}
-		
-		if (sectionIDParam != 0) {
+
+		if (sectionIDParam != 0)
+		{
 			this.section = sectionIDParam;
 		}
-		
-		if (brandParam != 0) {
+
+		if (brandParam != 0)
+		{
 			this.brand = brandParam;
 		}
-		
+
 		int number = search("id");
-		
+
 		Product[] result = new Product[number];
-		
-		for (int i = 0; i < number; i++) {
+
+		for (int i = 0; i < number; i++)
+		{
 			select(i);
 			result[i] = new Product(this.id, this.section, getSectionName(this.section), this.bar_code, this.name, this.description, this.cost_price, this.sale_price, this.tax, getTaxValue(this.tax, Date.getTodayDate()), this.brand, getBrandName(this.brand), this.model, this.color, this.measuring_unit, this.length, this.quantity);
 		}
-		
+
 		return result;
 	}
-	
-	public Product add(Product product) {
+
+	public Product add(Product product)
+	{
 		Product result = null;
-		
+
 		this.section = product.section;
 		this.bar_code = product.barCode;
 		this.name = product.name;
@@ -69,20 +75,23 @@ public class TableProduct extends Table {
 		this.measuring_unit = product.measuringUnit;
 		this.length = product.length;
 		this.quantity = product.quantity;
-		
-		if (create()) {
+
+		if (create())
+		{
 			result = new Product(getLastId(), this.section, getSectionName(this.section), this.bar_code, this.name, this.description, this.cost_price, this.sale_price, this.tax, getTaxValue(this.tax, Date.getTodayDate()), this.brand, getBrandName(this.brand), this.model, this.color, this.measuring_unit, this.length, this.quantity);
 		}
-		
+
 		return result;
 	}
-	
-	public boolean edit(Product original, Product newProduct) {
+
+	public boolean edit(Product original, Product newProduct)
+	{
 		boolean valid = false;
-		
+
 		this.id = original.id;
-		
-		if (read()) {
+
+		if (read())
+		{
 			this.section = newProduct.section;
 			this.bar_code = newProduct.barCode;
 			this.name = newProduct.name;
@@ -96,40 +105,45 @@ public class TableProduct extends Table {
 			this.measuring_unit = newProduct.measuringUnit;
 			this.length = newProduct.length;
 			this.quantity = newProduct.quantity;
-			
+
 			valid = update();
 		}
-		
+
 		return valid;
 	}
-	
-	public boolean delete(Product product) {
+
+	public boolean delete(Product product)
+	{
 		boolean valid = false;
-		
+
 		this.id = product.id;
-		
-		if (read()) {
+
+		if (read())
+		{
 			valid = delete();
 		}
-		
+
 		return valid;
 	}
-	
-	private String getSectionName(int sectionID) {
+
+	private String getSectionName(int sectionID)
+	{
 		TableSection table = new TableSection(getConnection());
-		
+
 		return table.getName(sectionID);
 	}
-	
-	private String getBrandName(int brandID) {
+
+	private String getBrandName(int brandID)
+	{
 		TableBrand table = new TableBrand(getConnection());
-		
+
 		return table.getName(brandID);
 	}
-	
-	private double getTaxValue(String type, Date date) {
+
+	private double getTaxValue(String type, Date date)
+	{
 		TableTax table = new TableTax(getConnection());
-		
+
 		return table.getTaxValue(type, date);
 	}
 }

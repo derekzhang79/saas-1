@@ -1,5 +1,5 @@
-CREATE TABLE CLIENT (
-	
+CREATE TABLE CLIENT
+(
 	id             int(9) unsigned NOT NULL AUTO_INCREMENT,
 	owner_name     varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	company_name   varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -14,20 +14,20 @@ CREATE TABLE CLIENT (
 	ddbb           varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	
 	PRIMARY KEY (id)
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2;
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2;
 
-CREATE TABLE TASK (
-	
+CREATE TABLE TASK
+(	
 	id   int(9) unsigned NOT NULL AUTO_INCREMENT,
 	name varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	path varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	
 	PRIMARY KEY (id),
 	UNIQUE KEY name (name),
-	UNIQUE KEY path (path)
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
+	UNIQUE KEY path (path)	
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
 
 INSERT INTO TASK (id, name, path) VALUES
 (1, 'Agregar marcas',   'client.app.brands.tasks.AddBrand'),
@@ -110,8 +110,8 @@ INSERT INTO TASK (id, name, path) VALUES
 (66, 'Modificar permisos de grupos de usuarios', 'client.app.configuration.usergroups.tasks.EditUserGroupPermissions'),
 (67, 'Buscar grupos de usuarios',                'client.app.configuration.usergroups.tasks.SearchUserGroup');
 
-CREATE TABLE USER_GROUP (
-	
+CREATE TABLE USER_GROUP
+(	
 	id            int(9) unsigned NOT NULL AUTO_INCREMENT,
 	name          varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	administrator boolean NOT NULL,
@@ -121,15 +121,15 @@ CREATE TABLE USER_GROUP (
 	UNIQUE KEY name (name),
 	
 	KEY client (client),
-	FOREIGN KEY (client) REFERENCES CLIENT(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2;
+	FOREIGN KEY (client) REFERENCES CLIENT(id) ON DELETE NO ACTION ON UPDATE NO ACTION	
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2;
 
 INSERT INTO USER_GROUP (id, name, administrator, client) VALUES
 (1, 'Administrador', 1, 1);
 
-CREATE TABLE USER (
-	
+CREATE TABLE USER
+(	
 	id            int(9) unsigned NOT NULL AUTO_INCREMENT,
 	name          varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	password      varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -141,15 +141,15 @@ CREATE TABLE USER (
 	UNIQUE KEY name (name),
 	
 	KEY user_group (user_group),
-	FOREIGN KEY (user_group) REFERENCES USER_GROUP(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2;
+	FOREIGN KEY (user_group) REFERENCES USER_GROUP(id) ON DELETE NO ACTION ON UPDATE NO ACTION	
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2;
 
 INSERT INTO USER (id, name, password, ticket, session_id, user_group) VALUES
 (1, 'user', '202cb962ac59075b964b07152d234b70', '', '', 1);
 
-CREATE TABLE PERMISSION (
-	
+CREATE TABLE PERMISSION
+(	
 	id         int(9) unsigned NOT NULL AUTO_INCREMENT,
 	user_group int(9) unsigned NOT NULL,
 	task       int(9) unsigned NOT NULL,
@@ -160,12 +160,12 @@ CREATE TABLE PERMISSION (
 	KEY user_group (user_group),
 	FOREIGN KEY (user_group) REFERENCES USER_GROUP(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
 	KEY task (task),
-	FOREIGN KEY (task) REFERENCES TASK(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
+	FOREIGN KEY (task) REFERENCES TASK(id) ON DELETE NO ACTION ON UPDATE NO ACTION	
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
 
-CREATE TABLE SUPPORT (
-	
+CREATE TABLE SUPPORT
+(	
 	id                int(9) unsigned NOT NULL AUTO_INCREMENT,
 	user              int(9) unsigned NOT NULL,
 	module            varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -179,11 +179,11 @@ CREATE TABLE SUPPORT (
 	
 	KEY user (user),
 	FOREIGN KEY (user) REFERENCES USER(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
 
-CREATE TABLE LOGIN (
-	
+CREATE TABLE LOGIN
+(	
 	id           int(9) unsigned NOT NULL AUTO_INCREMENT,
 	ip           varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	java_vendor  varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -197,6 +197,6 @@ CREATE TABLE LOGIN (
 	PRIMARY KEY (id),
 	
 	KEY user (user),
-	FOREIGN KEY (user) REFERENCES USER(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-	
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
+	FOREIGN KEY (user) REFERENCES USER(id) ON DELETE NO ACTION ON UPDATE NO ACTION	
+)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;

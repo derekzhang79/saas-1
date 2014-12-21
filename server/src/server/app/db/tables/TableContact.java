@@ -1,11 +1,10 @@
 package server.app.db.tables;
 
 import java.sql.Connection;
-
 import server.core.db.Table;
 
-public class TableContact extends Table {
-	
+public class TableContact extends Table
+{
 	public Integer id = new Integer(0);
 	public String first_name = new String();
 	public String last_name = new String();
@@ -18,19 +17,22 @@ public class TableContact extends Table {
 	public String email = new String();
 	public String contact_person = new String();
 	public String comments = new String();
-	
-	public TableContact(Connection connection) {
+
+	public TableContact(Connection connection)
+	{
 		super(connection, "CONTACT");
 		setTable(this);
 	}
-	
-	public boolean getContact(int contactID) {
+
+	public boolean getContact(int contactID)
+	{
 		this.id = contactID;
-		
+
 		return read();
 	}
-	
-	public boolean add(String newFirstName, String newLastName, String newIdentification, String newAddress, String newCity, Integer newPostalCode, Integer newTelephone, Integer newMobile, String newEmail, String newContactPerson, String newComments) {
+
+	public boolean add(String newFirstName, String newLastName, String newIdentification, String newAddress, String newCity, Integer newPostalCode, Integer newTelephone, Integer newMobile, String newEmail, String newContactPerson, String newComments)
+	{
 		this.first_name = newFirstName;
 		this.last_name = newLastName;
 		this.identification = newIdentification;
@@ -42,22 +44,25 @@ public class TableContact extends Table {
 		this.email = newEmail;
 		this.contact_person = newContactPerson;
 		this.comments = newComments;
-		
+
 		boolean valid = create();
-		
-		if (valid) {
+
+		if (valid)
+		{
 			this.id = getLastId();
 		}
-		
+
 		return valid;
 	}
-	
-	public boolean edit(Integer contactID, String newFirstName, String newLastName, String newIdentification, String newAddress, String newCity, Integer newPostalCode, Integer newTelephone, Integer newMobile, String newEmail, String newContactPerson, String newComments) {
+
+	public boolean edit(Integer contactID, String newFirstName, String newLastName, String newIdentification, String newAddress, String newCity, Integer newPostalCode, Integer newTelephone, Integer newMobile, String newEmail, String newContactPerson, String newComments)
+	{
 		boolean valid = false;
-		
+
 		this.id = contactID;
-		
-		if (read()) {
+
+		if (read())
+		{
 			this.first_name = newFirstName;
 			this.last_name = newLastName;
 			this.identification = newIdentification;
@@ -69,34 +74,38 @@ public class TableContact extends Table {
 			this.email = newEmail;
 			this.contact_person = newContactPerson;
 			this.comments = newComments;
-			
+
 			valid = update();
 		}
-		
+
 		return valid;
 	}
-	
-	public boolean delete(Integer contactID) {
+
+	public boolean delete(Integer contactID)
+	{
 		boolean valid = false;
-		
+
 		this.id = contactID;
-		
-		if (read()) {
+
+		if (read())
+		{
 			valid = delete();
 		}
-		
+
 		return valid;
 	}
-	
-	public String getName(int contact) {
+
+	public String getName(int contact)
+	{
 		String result = "";
-		
+
 		this.id = contact;
-		
-		if (read()) {
+
+		if (read())
+		{
 			result = (this.first_name + " " + this.last_name).trim();
 		}
-		
+
 		return result;
 	}
 }

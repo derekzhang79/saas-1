@@ -87,24 +87,24 @@ public class ClientProcessor implements Runnable
 		}
 		else if (manager.isValid(parameters))
 		{
-			result = process(parameters, manager.getApplicationConnection(), manager.getSystemConnection());
+			result = processOperation(parameters, manager.getApplicationConnection(), manager.getSystemConnection());
 		}
 		
-		byte[] response = respond(result, manager.getNewTicket(), manager.getSessionId(), parameters.getKey());
+		byte[] response = getResponse(result, manager.getNewTicket(), manager.getSessionId(), parameters.getKey());
 		
 		manager.closeConnections();
 
 		return response;
 	}
 	
-	private byte[] respond(Object result, String ticket, String sessionId, byte[] key)
+	private byte[] getResponse(Object result, String ticket, String sessionId, byte[] key)
 	{
 		Response data = new Response(ticket, sessionId, result);
 		
 		return Crypt.encrypt(data.getData(), key);
 	}
 	
-	private Object process(Parameters parameters, Connection appConnection, Connection sysConnection)
+	private Object processOperation(Parameters parameters, Connection appConnection, Connection sysConnection)
 	{
 		Object result = null;
 		

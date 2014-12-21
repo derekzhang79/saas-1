@@ -1,13 +1,12 @@
 package server.app.db.tables;
 
 import java.sql.Connection;
-
 import server.core.db.Table;
 import share.app.cashcount.CashCount;
 import share.core.Date;
 
-public class TableCashCount extends Table {
-	
+public class TableCashCount extends Table
+{
 	public Integer id = new Integer(0);
 	public Date date = new Date();
 	public Integer type_500 = new Integer(0);
@@ -26,18 +25,24 @@ public class TableCashCount extends Table {
 	public Integer type_0_02 = new Integer(0);
 	public Integer type_0_01 = new Integer(0);
 	
-	public TableCashCount(Connection connection) {
+	public TableCashCount(Connection connection)
+	{
 		super(connection, "CASH_COUNT");
 		setTable(this);
 	}
 	
-	public CashCount[] getCashCounts(Integer year, String month) {
-		
-		if ((year != 0) && (!month.isEmpty())) {
+	public CashCount[] getCashCounts(Integer year, String month)
+	{
+		if ((year != 0) && (!month.isEmpty()))
+		{
 			addCondition("date LIKE '" + year + "-" + month + "-%'");
-		} else if ((year != 0) && (month.isEmpty())) {
+		}
+		else if ((year != 0) && (month.isEmpty()))
+		{
 			addCondition("date LIKE '" + year + "-%'");
-		} else if ((year == 0) && (!month.isEmpty())) {
+		}
+		else if ((year == 0) && (!month.isEmpty()))
+		{
 			addCondition("date LIKE '%-" + month + "-%'");
 		}
 		
@@ -45,7 +50,8 @@ public class TableCashCount extends Table {
 		
 		CashCount[] result = new CashCount[number];
 		
-		for (int i = 0; i < number; i++) {
+		for (int i = 0; i < number; i++)
+		{
 			select(i);
 			result[i] = new CashCount(this.id, this.date, this.type_500, this.type_200, this.type_100, this.type_50, this.type_20, this.type_10, this.type_5, this.type_2, this.type_1, this.type_0_5, this.type_0_2, this.type_0_1, this.type_0_05, this.type_0_02, this.type_0_01);
 		}
@@ -53,7 +59,8 @@ public class TableCashCount extends Table {
 		return result;
 	}
 	
-	public boolean add(CashCount cashCount) {
+	public boolean add(CashCount cashCount)
+	{
 		this.id = cashCount.id;
 		this.date = cashCount.date;
 		this.type_500 = cashCount.type_500;
@@ -75,12 +82,14 @@ public class TableCashCount extends Table {
 		return create();
 	}
 	
-	public boolean edit(CashCount original, CashCount newCashCount) {
+	public boolean edit(CashCount original, CashCount newCashCount)
+	{
 		boolean valid = false;
 		
 		this.id = original.id;
 		
-		if (read()) {
+		if (read())
+		{
 			this.id = newCashCount.id;
 			this.date = newCashCount.date;
 			this.type_500 = newCashCount.type_500;
@@ -105,12 +114,14 @@ public class TableCashCount extends Table {
 		return valid;
 	}
 	
-	public boolean delete(CashCount cashCount) {
+	public boolean delete(CashCount cashCount)
+	{
 		boolean valid = false;
 		
 		this.id = cashCount.id;
 		
-		if (read()) {
+		if (read())
+		{
 			valid = delete();
 		}
 		
