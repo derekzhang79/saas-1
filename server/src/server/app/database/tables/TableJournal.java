@@ -4,7 +4,7 @@ import java.sql.Connection;
 import server.core.database.kernel.Table;
 import share.app.journals.Journal;
 import share.app.sections.Section;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableJournal extends Table
 {

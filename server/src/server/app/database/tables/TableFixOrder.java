@@ -5,7 +5,7 @@ import server.core.database.kernel.Table;
 import server.core.database.tables.TableDictionary;
 import share.app.dictionary.Category.Categories;
 import share.app.workshop.FixOrder;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableFixOrder extends Table
 {

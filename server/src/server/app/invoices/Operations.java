@@ -7,7 +7,7 @@ import server.core.connection.ServerOperation;
 import share.app.invoices.IOperations;
 import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class Operations extends ServerOperation implements IOperations
 {

@@ -3,7 +3,7 @@ package server.app.database.tables;
 import java.sql.Connection;
 import server.core.database.kernel.Table;
 import share.app.invoices.InvoiceDetail;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableInvoiceDetail extends Table
 {

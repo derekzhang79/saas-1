@@ -7,7 +7,7 @@ import server.core.database.kernel.Table;
 import server.core.database.tables.TableDictionary;
 import share.app.dictionary.Category.Categories;
 import share.app.taxes.Tax;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableTax extends Table
 {

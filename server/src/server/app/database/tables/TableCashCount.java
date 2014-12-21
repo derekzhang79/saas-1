@@ -3,7 +3,7 @@ package server.app.database.tables;
 import java.sql.Connection;
 import server.core.database.kernel.Table;
 import share.app.cashcount.CashCount;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableCashCount extends Table
 {

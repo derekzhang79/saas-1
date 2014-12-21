@@ -5,7 +5,7 @@ import server.core.database.kernel.Table;
 import server.core.database.tables.TableDictionary;
 import share.app.dictionary.Category.Categories;
 import share.app.support.Support;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableSupport extends Table
 {

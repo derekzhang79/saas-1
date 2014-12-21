@@ -10,10 +10,10 @@ import server.core.connection.CommunicationManager;
 import server.core.connection.RequestParameters;
 import server.core.connection.ServerOperation;
 import server.core.debug.ServerError;
-import share.core.Crypt;
 import share.core.connection.Parameters;
 import share.core.connection.Response;
 import share.core.resources.ResourceUtils;
+import share.core.utils.Crypt;
 
 public class ClientProcessor implements Runnable
 {

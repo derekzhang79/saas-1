@@ -5,7 +5,7 @@ import server.app.database.tables.TableTax;
 import server.core.connection.ServerOperation;
 import share.app.taxes.IOperations;
 import share.app.taxes.Tax;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class Operations extends ServerOperation implements IOperations
 {
