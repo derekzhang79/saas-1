@@ -1,8 +1,8 @@
 package server.app.cashcount;
 
 import java.sql.Connection;
-import server.app.db.tables.TableCashCount;
-import server.core.ServerOperation;
+import server.app.database.tables.TableCashCount;
+import server.core.connection.ServerOperation;
 import share.app.cashcount.CashCount;
 import share.app.cashcount.IOperations;
 

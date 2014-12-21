@@ -1,8 +1,8 @@
 package server.app.configuration.usergroups;
 
 import java.sql.Connection;
-import server.core.ServerOperation;
-import server.core.db.tables.TableUserGroup;
+import server.core.connection.ServerOperation;
+import server.core.database.tables.TableUserGroup;
 import share.app.configuration.usergroups.IOperations;
 import share.core.objects.UserGroup;
 

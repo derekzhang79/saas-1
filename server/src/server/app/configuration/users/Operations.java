@@ -1,8 +1,8 @@
 package server.app.configuration.users;
 
 import java.sql.Connection;
-import server.core.ServerOperation;
-import server.core.db.tables.TableUser;
+import server.core.connection.ServerOperation;
+import server.core.database.tables.TableUser;
 import share.app.configuration.users.IOperations;
 import share.core.objects.User;
 

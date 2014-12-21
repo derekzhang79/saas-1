@@ -1,8 +1,8 @@
 package server.app.brands;
 
 import java.sql.Connection;
-import server.app.db.tables.TableBrand;
-import server.core.ServerOperation;
+import server.app.database.tables.TableBrand;
+import server.core.connection.ServerOperation;
 import share.app.brands.Brand;
 import share.app.brands.IOperations;
 

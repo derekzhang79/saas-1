@@ -1,8 +1,8 @@
 package server.app.contacts.suppliers;
 
 import java.sql.Connection;
-import server.app.db.tables.TableSupplier;
-import server.core.ServerOperation;
+import server.app.database.tables.TableSupplier;
+import server.core.connection.ServerOperation;
 import share.app.contacts.suppliers.IOperations;
 import share.app.contacts.suppliers.Supplier;
 

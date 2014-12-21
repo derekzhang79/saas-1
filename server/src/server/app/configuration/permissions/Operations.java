@@ -1,9 +1,9 @@
 package server.app.configuration.permissions;
 
 import java.sql.Connection;
-import server.core.ServerOperation;
-import server.core.db.tables.TablePermission;
-import server.core.db.tables.TableTask;
+import server.core.connection.ServerOperation;
+import server.core.database.tables.TablePermission;
+import server.core.database.tables.TableTask;
 import share.app.configuration.permissions.IOperations;
 import share.core.objects.Permission;
 import share.core.objects.Task;
