@@ -35,56 +35,54 @@ import client.core.images.ImageStore;
 public class Desktop extends JFrame implements ActionListener
 {
 	private static final long serialVersionUID = 3024264473305582800L;
-
+	
 	private static Desktop self = null;
-
+	
 	@SuppressWarnings("rawtypes")
 	private final MapTable<String, OptionTask> singleTasks = new MapTable<String, OptionTask>();
-
+	
 	@SuppressWarnings("rawtypes")
 	private final List<OptionTask> tasksList = new ArrayList<OptionTask>();
-
+	
 	private BlockTimer blockTimer = null;
 	private Boolean appBlocked = false;
-
+	
 	private static final String SEPARATOR = "separator";
 	private static final String ITEM = "item";
-
+	
 	private static final String ATTRIBUTE_TITLE = "title";
 	private static final String ATTRIBUTE_ICON = "icon";
 	private static final String ATTRIBUTE_TASK = "task";
 	private static final String ATTRIBUTE_DESCRIPTION = "description";
 	private static final String ATTRIBUTE_PERMISSION = "permission";
-
+	
 	private static final String VALUE_TRUE = "true";
-
+	
 	public static final int TOOL_BAR_HEIGHT = 60;
-
+	
 	private JDesktopPane desktop = null;
 	private final JMenuBar menuBar = new JMenuBar();
-
+	
 	public Desktop(int color)
 	{
 		Desktop.self = this;
-
+		
 		this.desktop = new JDesktopPane();
 		this.desktop.setBackground(new Color(color, color, color));
 		setContentPane(this.desktop);
 		this.desktop.setDesktopManager(new DesktopManager());
 		this.desktop.setDragMode(JDesktopPane.LIVE_DRAG_MODE);
-
+		
 		this.blockTimer = new BlockTimer(Integer.parseInt(Configurator.getDesktop().blocker_time));
 		callOptionTask(Configurator.getDesktop().login);
 	}
-
+	
 	public void restartTimer()
 	{
 		if (Desktop.isDesktopSet())
 		{
-
 			synchronized (this.appBlocked)
 			{
-
 				if (!this.appBlocked)
 				{
 					Desktop.getDesktop().blockTimer.reset();
@@ -92,13 +90,13 @@ public class Desktop extends JFrame implements ActionListener
 			}
 		}
 	}
-
+	
 	public void appBlocked(boolean value)
 	{
 		synchronized (this.appBlocked)
 		{
 			this.appBlocked = value;
-
+			
 			if (value)
 			{
 				Desktop.getDesktop().blockTimer.stopTask();
@@ -109,17 +107,17 @@ public class Desktop extends JFrame implements ActionListener
 			}
 		}
 	}
-
+	
 	public int getDesktopHeight()
 	{
 		return this.desktop.getHeight();
 	}
-
+	
 	public int getDesktopWidth()
 	{
 		return this.desktop.getWidth();
 	}
-
+	
 	public void enableMenu(boolean enable)
 	{
 		for (int i = 0; i < this.menuBar.getMenuCount(); i++)
@@ -127,30 +125,30 @@ public class Desktop extends JFrame implements ActionListener
 			this.menuBar.getMenu(i).setEnabled(enable);
 		}
 	}
-
+	
 	public JInternalFrame[] getAllWindows()
 	{
 		return this.desktop.getAllFrames();
 	}
-
+	
 	public void startApplication()
 	{
 		createMenuBar();
 		createToolBar();
 		restartTimer();
 	}
-
+	
 	private boolean isMenuPermission(Element element)
 	{
 		return ((element.getAttributeValue(Desktop.ATTRIBUTE_PERMISSION) != null) && element.getAttributeValue(Desktop.ATTRIBUTE_PERMISSION).equals(Desktop.VALUE_TRUE));
 	}
-
+	
 	private boolean hasSubItemPermission(Element menu)
 	{
 		boolean valid = false;
-
+		
 		List<Element> submenu = menu.getChildren();
-
+		
 		for (Element item : submenu)
 		{
 			if (Profile.hasPermission(Constants.BASE_OPTION_TASK + item.getAttributeValue(Desktop.ATTRIBUTE_TASK)))
@@ -159,38 +157,38 @@ public class Desktop extends JFrame implements ActionListener
 				break;
 			}
 		}
-
+		
 		return valid;
 	}
-
+	
 	private void createMenuBar()
 	{
 		Element root = XMLUtils.readFromResource(Constants.CONF_MENUBAR + Constants.XML_EXTENSION).getRootElement();
 		List<Element> list = root.getChildren();
-
+		
 		for (Element menu : list)
 		{
-
+			
 			if (isMenuPermission(menu) || hasSubItemPermission(menu))
 			{
-
+				
 				String title = " " + menu.getAttributeValue(Desktop.ATTRIBUTE_TITLE);
 				JMenu newMenu = new JMenu(title);
 				newMenu.setFont(FontStore.getDefaultFont());
 				newMenu.setPreferredSize(new Dimension(newMenu.getFontMetrics(newMenu.getFont()).stringWidth(title) + 15, 25));
-
+				
 				List<Element> submenu = menu.getChildren();
-
+				
 				boolean lastSeparator = false;
-
+				
 				for (Element item : submenu)
 				{
-
+					
 					if (isMenuPermission(menu) || Profile.hasPermission(Constants.BASE_OPTION_TASK + item.getAttributeValue(Desktop.ATTRIBUTE_TASK)))
 					{
-
+						
 						String type = item.getName();
-
+						
 						if (type.equals(Desktop.ITEM))
 						{
 							newMenu.add(menuItem(item.getAttributeValue(Desktop.ATTRIBUTE_TITLE), item.getAttributeValue(Desktop.ATTRIBUTE_ICON), item.getAttributeValue(Desktop.ATTRIBUTE_TASK)));
@@ -203,14 +201,14 @@ public class Desktop extends JFrame implements ActionListener
 						}
 					}
 				}
-
+				
 				this.menuBar.add(newMenu);
 			}
 		}
-
+		
 		setJMenuBar(this.menuBar);
 	}
-
+	
 	private JMenuItem menuItem(String label, String icon, String task)
 	{
 		JMenuItem menuItem = new JMenuItem(" " + label);
@@ -220,10 +218,10 @@ public class Desktop extends JFrame implements ActionListener
 		menuItem.addActionListener(this);
 		menuItem.setFont(FontStore.getDefaultFont());
 		menuItem.setPreferredSize(new Dimension((int)menuItem.getPreferredSize().getWidth() + 5, 25));
-
+		
 		return menuItem;
 	}
-
+	
 	private void createToolBar()
 	{
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -232,22 +230,22 @@ public class Desktop extends JFrame implements ActionListener
 		toolBar.setBorderPainted(true);
 		toolBar.setBorder(BorderFactory.createLineBorder(Color.black));
 		toolBar.setBounds(-1, -1, screenSize.width + 1, Desktop.TOOL_BAR_HEIGHT);
-
+		
 		Element root = XMLUtils.readFromResource(Constants.CONF_TOOLBAR + Constants.XML_EXTENSION).getRootElement();
 		List<Element> list = root.getChildren();
-
+		
 		boolean lastSeparator = true;
-
+		
 		for (Element element : list)
 		{
-
+			
 			String type = element.getName();
-
+			
 			if (type.equals(Desktop.ITEM))
 			{
-
+				
 				String taskPath = Constants.BASE_OPTION_TASK + element.getAttributeValue(Desktop.ATTRIBUTE_TASK);
-
+				
 				if (Profile.hasPermission(taskPath))
 				{
 					JButton button = buttonItem(element.getAttributeValue(Desktop.ATTRIBUTE_TITLE), element.getAttributeValue(Desktop.ATTRIBUTE_DESCRIPTION), Constants.DESKTOP_TOOLBAR_PATH + element.getAttributeValue(Desktop.ATTRIBUTE_ICON), element.getAttributeValue(Desktop.ATTRIBUTE_TASK));
@@ -255,7 +253,7 @@ public class Desktop extends JFrame implements ActionListener
 					toolBar.add(button);
 					lastSeparator = false;
 				}
-
+				
 			}
 			else if (type.equals(Desktop.SEPARATOR) && (!lastSeparator))
 			{
@@ -263,10 +261,10 @@ public class Desktop extends JFrame implements ActionListener
 				lastSeparator = true;
 			}
 		}
-
+		
 		add(toolBar);
 	}
-
+	
 	private JButton buttonItem(String text, String description, String icon, String task)
 	{
 		JButton button = new JButton();
@@ -277,19 +275,19 @@ public class Desktop extends JFrame implements ActionListener
 		button.addActionListener(this);
 		button.setIcon(ImageStore.getIcon(icon));
 		button.setToolTipText("<html><b>" + text + "</b><br>" + description + "</html>");
-
+		
 		button.setPreferredSize(new Dimension(100, 65));
 		button.setMaximumSize(new Dimension(100, 65));
 		button.setMinimumSize(new Dimension(100, 65));
-
+		
 		return button;
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	public void callOptionTask(String path)
 	{
 		OptionTask task = (OptionTask)Environment.instanceClass(Constants.BASE_OPTION_TASK + path);
-
+		
 		if (task.isSingle())
 		{
 			if (isSingleTaskActive(task))
@@ -309,7 +307,7 @@ public class Desktop extends JFrame implements ActionListener
 			task.run();
 		}
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	public void closeTask(OptionTask task)
 	{
@@ -321,29 +319,29 @@ public class Desktop extends JFrame implements ActionListener
 			}
 		}
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	private boolean isSingleTaskActive(OptionTask task)
 	{
 		return this.singleTasks.containsKey(task.getClass().getCanonicalName());
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent event)
 	{
 		callOptionTask(event.getActionCommand());
 	}
-
+	
 	public void addTask(OptionTask<?> task)
 	{
 		this.tasksList.add(task);
 	}
-
+	
 	public void removeTask(OptionTask<?> task)
 	{
 		this.tasksList.remove(task);
 	}
-
+	
 	public void blurAllWindows(boolean blur)
 	{
 		synchronized (this.tasksList)
@@ -354,12 +352,12 @@ public class Desktop extends JFrame implements ActionListener
 			}
 		}
 	}
-
+	
 	public void addWindowToDesktop(ExtendedWindow window)
 	{
 		getContentPane().add(window);
 		window.showWindow();
-
+		
 		try
 		{
 			window.setSelected(true);
@@ -370,38 +368,38 @@ public class Desktop extends JFrame implements ActionListener
 			Debug.setError(e);
 		}
 	}
-
+	
 	public static Desktop getDesktop()
 	{
 		return Desktop.self;
 	}
-
+	
 	public static boolean isDesktopSet()
 	{
 		return Desktop.self != null;
 	}
-
+	
 	public JDesktopPane getDesktopPane()
 	{
 		return this.desktop;
 	}
-
+	
 	private class DesktopManager extends DefaultDesktopManager
 	{
 		private static final long serialVersionUID = 2579392641919643665L;
-		
+
 		@Override
 		public void dragFrame(JComponent f, int xPanel, int yPanel)
 		{
 			int x = xPanel;
 			int y = yPanel;
-
+			
 			if (f instanceof JInternalFrame)
 			{
 				JInternalFrame frame = (JInternalFrame)f;
 				JDesktopPane desk = frame.getDesktopPane();
 				Dimension d = desk.getSize();
-
+				
 				if (x < 0)
 				{
 					x = 0;
@@ -410,7 +408,7 @@ public class Desktop extends JFrame implements ActionListener
 				{
 					x = d.width - frame.getWidth();
 				}
-
+				
 				if (y < (Desktop.TOOL_BAR_HEIGHT - 1))
 				{
 					y = Desktop.TOOL_BAR_HEIGHT - 1;
@@ -420,7 +418,7 @@ public class Desktop extends JFrame implements ActionListener
 					y = d.height - frame.getHeight();
 				}
 			}
-
+			
 			super.dragFrame(f, x, y);
 		}
 	}

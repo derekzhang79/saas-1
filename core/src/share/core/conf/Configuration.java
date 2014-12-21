@@ -16,19 +16,19 @@ public class Configuration<ResponseClass>
 		ResponseClass obj = (ResponseClass)Environment.instanceClass(clazz);
 		Element root = XMLUtils.readFromResource(xml + Constants.XML_EXTENSION).getRootElement();
 		fillObject(obj, root);
-		
+
 		return obj;
 	}
-	
+
 	private void fillObject(Object obj, Element root)
 	{
 		List<Element> list = root.getChildren();
-		
+
 		for (int i = 0; i < list.size(); i++)
 		{
 			Element element = list.get(i);
 			Field field = getField(obj.getClass(), element);
-			
+
 			if (hasChildren(element))
 			{
 				Object value = Environment.instanceClass(field.getType());
@@ -41,16 +41,16 @@ public class Configuration<ResponseClass>
 			}
 		}
 	}
-	
+
 	private boolean hasChildren(Element element)
 	{
 		return (element.getChildren().size() != 0);
 	}
-	
+
 	private Field getField(Class<?> clazz, Element element)
 	{
 		Field field = null;
-		
+
 		try
 		{
 			field = clazz.getField(element.getName());
@@ -59,10 +59,10 @@ public class Configuration<ResponseClass>
 		{
 			AppError.setError(e);
 		}
-		
+
 		return field;
 	}
-	
+
 	private void setField(Object obj, Field field, Object value)
 	{
 		try

@@ -1,16 +1,23 @@
 package share.core;
 
-public class Constants {
+public class Constants
+{
+	private Constants()
+	{
+	}
 	
-	public enum AppDatabase {
+	public enum AppDatabase
+	{
 		SYSTEM, APPLICATION
 	};
 	
-	public enum AppEnvironment {
+	public enum AppEnvironment
+	{
 		TEST, REAL
 	};
 	
-	public enum AppLocation {
+	public enum AppLocation
+	{
 		LOCAL, REMOTE
 	};
 	

@@ -16,40 +16,15 @@ import client.core.images.ImageStore;
 
 public class MainClient
 {
-	private static AppLocation LOCATION = null;
-	private static AppEnvironment ENVIRONMENT = null;
-	
 	public static void main(String[] args)
 	{
 		if (args.length == 2)
 		{
-			MainClient.LOCATION = AppLocation.valueOf(args[0].toUpperCase());
-			MainClient.ENVIRONMENT = AppEnvironment.valueOf(args[1].toUpperCase());
+			AppLocation location = AppLocation.valueOf(args[0].toUpperCase());
+			AppEnvironment environment = AppEnvironment.valueOf(args[1].toUpperCase());
 			
-			MainClient.configure();
-			
-			SwingUtilities.invokeLater(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					Desktop frame = new Desktop(Integer.parseInt(Configurator.getDesktop().bgcolor));
-					frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-					frame.setTitle(Configurator.getDesktop().title);
-					frame.setIconImage(ImageStore.getImage(Configurator.getDesktop().icon));
-					frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-					frame.setVisible(true);
-					
-					frame.addWindowListener(new WindowAdapter()
-					{
-						@Override
-						public void windowClosing(WindowEvent winEvt)
-						{
-							Desktop.getDesktop().callOptionTask(Configurator.getDesktop().exit);
-						}
-					});
-				}
-			});
+			MainClient mainClient = new MainClient();
+			mainClient.start(location, environment);
 		}
 		else
 		{
@@ -57,23 +32,19 @@ public class MainClient
 		}
 	}
 	
-	public static AppLocation getLocation()
+	private void start(AppLocation location, AppEnvironment environment)
 	{
-		return MainClient.LOCATION;
+		configure(location, environment);
+		startDesktop();
 	}
-	
-	public static AppEnvironment getEnvironment()
-	{
-		return MainClient.ENVIRONMENT;
-	}
-	
-	public static void configure()
+
+	private void configure(AppLocation location, AppEnvironment environment)
 	{
 		Environment.createApplicationPath();
-		Communication.configure();
+		Communication.configure(location, environment);
 		FontStore.configure();
 		
-		String url = Configurator.getDesktop().shortcut.base_url + MainClient.ENVIRONMENT.toString().toLowerCase() + Configurator.getDesktop().shortcut.file_url;
+		String url = Configurator.getDesktop().shortcut.base_url + environment.toString().toLowerCase() + Configurator.getDesktop().shortcut.file_url;
 		Environment.setApplicationShortcut(Configurator.getDesktop().shortcut.name, Configurator.getDesktop().shortcut.icone, url);
 		
 		try
@@ -83,5 +54,31 @@ public class MainClient
 		catch (Exception e)
 		{
 		}
+	}
+	
+	private void startDesktop()
+	{
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				Desktop frame = new Desktop(Integer.parseInt(Configurator.getDesktop().bgcolor));
+				frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+				frame.setTitle(Configurator.getDesktop().title);
+				frame.setIconImage(ImageStore.getImage(Configurator.getDesktop().icon));
+				frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+				frame.setVisible(true);
+				
+				frame.addWindowListener(new WindowAdapter()
+				{
+					@Override
+					public void windowClosing(WindowEvent winEvt)
+					{
+						Desktop.getDesktop().callOptionTask(Configurator.getDesktop().exit);
+					}
+				});
+			}
+		});
 	}
 }
