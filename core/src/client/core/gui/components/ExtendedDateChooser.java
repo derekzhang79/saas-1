@@ -3,7 +3,7 @@ package client.core.gui.components;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.LineBorder;
-import share.core.Date;
+import share.core.objects.Date;
 import client.core.gui.fonts.FontStore;
 import com.toedter.calendar.JDateChooser;
 

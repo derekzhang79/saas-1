@@ -1,4 +1,4 @@
-package share.core;
+package share.core.utils;
 
 import java.io.Serializable;
 

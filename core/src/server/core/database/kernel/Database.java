@@ -5,11 +5,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Enumeration;
 import server.core.debug.ServerError;
-import share.core.Constants.AppDatabase;
-import share.core.Environment;
-import share.core.MapTable;
 import share.core.conf.Configurator;
 import share.core.conf.database.ConfDatabase;
+import share.core.constants.Constants.AppDatabase;
+import share.core.utils.Environment;
+import share.core.utils.MapTable;
 
 public class Database
 {

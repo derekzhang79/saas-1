@@ -1,7 +1,7 @@
 package share.core.connection;
 
 import java.io.Serializable;
-import share.core.Serializer;
+import share.core.utils.Serializer;
 
 public class Response implements Serializable
 {

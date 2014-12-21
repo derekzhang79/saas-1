@@ -2,8 +2,8 @@ package client.core.gui.fonts;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
-import share.core.Constants;
-import share.core.Resource;
+import share.core.constants.Constants;
+import share.core.utils.Resource;
 import client.core.debug.Debug;
 
 public class FontStore

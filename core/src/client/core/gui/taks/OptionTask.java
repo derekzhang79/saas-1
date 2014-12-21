@@ -2,8 +2,8 @@ package client.core.gui.taks;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import share.core.MapTable;
 import share.core.conf.Configurator;
+import share.core.utils.MapTable;
 import client.core.debug.Debug;
 import client.core.desktop.Desktop;
 import client.core.gui.components.ExtendedTable;

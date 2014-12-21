@@ -3,7 +3,7 @@ package server.core.database.kernel;
 import java.lang.reflect.Field;
 import java.sql.Time;
 import server.core.debug.ServerError;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class ObjectField
 {

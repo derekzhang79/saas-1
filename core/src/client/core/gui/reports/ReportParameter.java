@@ -1,7 +1,7 @@
 package client.core.gui.reports;
 
-import share.core.Date;
-import share.core.MapTable;
+import share.core.objects.Date;
+import share.core.utils.MapTable;
 import client.core.gui.format.DataFormatter;
 
 public class ReportParameter

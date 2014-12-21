@@ -3,8 +3,8 @@ package server.core.database.kernel;
 import java.sql.ResultSet;
 import java.util.List;
 import server.core.debug.ServerError;
-import share.core.Date;
-import share.core.MapTable;
+import share.core.objects.Date;
+import share.core.utils.MapTable;
 
 public class TableRow
 {

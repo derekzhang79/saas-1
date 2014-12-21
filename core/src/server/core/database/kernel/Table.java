@@ -9,7 +9,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import server.core.debug.ServerError;
-import share.core.MapTable;
+import share.core.utils.MapTable;
 
 public class Table
 {

@@ -7,7 +7,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.debug.Debug;
 
 public class ImageCreator

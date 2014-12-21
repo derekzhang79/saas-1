@@ -1,12 +1,12 @@
 package server.core.connection;
 
 import server.core.debug.ServerError;
-import share.core.Constants;
-import share.core.Crypt;
-import share.core.Encoding;
-import share.core.Resource;
-import share.core.Serializer;
 import share.core.connection.Parameters;
+import share.core.constants.Constants;
+import share.core.utils.Crypt;
+import share.core.utils.Encoding;
+import share.core.utils.Resource;
+import share.core.utils.Serializer;
 
 public class RequestParameters
 {

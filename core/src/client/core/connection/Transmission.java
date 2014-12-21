@@ -6,12 +6,12 @@ import java.net.Socket;
 import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import share.core.AppError;
-import share.core.Constants;
-import share.core.Crypt;
-import share.core.Encoding;
-import share.core.Resource;
 import share.core.connection.Parameters;
+import share.core.constants.Constants;
+import share.core.debug.AppError;
+import share.core.utils.Crypt;
+import share.core.utils.Encoding;
+import share.core.utils.Resource;
 import client.core.debug.Debug;
 import client.core.gui.messages.Message;
 

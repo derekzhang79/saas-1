@@ -1,6 +1,6 @@
 package share.core.objects;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class Task extends Shareable
 {

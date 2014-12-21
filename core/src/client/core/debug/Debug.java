@@ -1,6 +1,6 @@
 package client.core.debug;
 
-import share.core.Environment;
+import share.core.utils.Environment;
 
 public class Debug
 {

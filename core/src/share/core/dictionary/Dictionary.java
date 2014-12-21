@@ -1,7 +1,7 @@
 package share.core.dictionary;
 
-import share.core.MapTable;
-import share.core.Shareable;
+import share.core.utils.MapTable;
+import share.core.utils.Shareable;
 
 public class Dictionary extends Shareable
 {

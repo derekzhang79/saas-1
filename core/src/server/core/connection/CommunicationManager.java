@@ -11,15 +11,15 @@ import server.core.database.tables.TableLogin;
 import server.core.database.tables.TablePermission;
 import server.core.database.tables.TableUser;
 import server.core.database.tables.TableUserGroup;
-import share.core.Constants.AppDatabase;
-import share.core.Encoding;
 import share.core.connection.Parameters;
+import share.core.constants.Constants.AppDatabase;
 import share.core.dictionary.Dictionary;
 import share.core.dictionary.DictionaryCategory;
 import share.core.login.LoginResponse;
 import share.core.objects.Company;
 import share.core.objects.Permission;
 import share.core.objects.User;
+import share.core.utils.Encoding;
 
 public class CommunicationManager
 {

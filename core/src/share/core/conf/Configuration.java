@@ -3,9 +3,9 @@ package share.core.conf;
 import java.lang.reflect.Field;
 import java.util.List;
 import org.jdom2.Element;
-import share.core.AppError;
-import share.core.Constants;
-import share.core.Environment;
+import share.core.constants.Constants;
+import share.core.debug.AppError;
+import share.core.utils.Environment;
 import share.core.xml.XMLUtils;
 
 public class Configuration<ResponseClass>

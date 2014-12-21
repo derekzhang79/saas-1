@@ -1,11 +1,11 @@
 package client.core.connection;
 
-import share.core.Constants.AppEnvironment;
-import share.core.Constants.AppLocation;
-import share.core.Serializer;
 import share.core.conf.Configurator;
 import share.core.conf.communication.ConfCommunication;
 import share.core.connection.Response;
+import share.core.constants.Constants.AppEnvironment;
+import share.core.constants.Constants.AppLocation;
+import share.core.utils.Serializer;
 import client.core.debug.Debug;
 import client.core.desktop.Desktop;
 import client.core.gui.messages.Message;

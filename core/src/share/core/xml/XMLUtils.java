@@ -13,8 +13,8 @@ import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-import share.core.AppError;
-import share.core.Resource;
+import share.core.debug.AppError;
+import share.core.utils.Resource;
 
 public class XMLUtils
 {

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import share.core.AppError;
-import share.core.Serializer;
+import share.core.debug.AppError;
+import share.core.utils.Serializer;
 
 public class Parameters implements Serializable
 {

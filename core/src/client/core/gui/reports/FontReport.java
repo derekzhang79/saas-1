@@ -1,6 +1,6 @@
 package client.core.gui.reports;
 
-import share.core.Constants;
+import share.core.constants.Constants;
 import client.core.debug.Debug;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.BaseFont;

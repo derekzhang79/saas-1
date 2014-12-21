@@ -1,7 +1,7 @@
 package server.core.database.kernel;
 
 import java.sql.Time;
-import share.core.Date;
+import share.core.objects.Date;
 
 public class TableField
 {

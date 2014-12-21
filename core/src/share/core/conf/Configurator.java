@@ -1,9 +1,9 @@
 package share.core.conf;
 
-import share.core.Constants;
 import share.core.conf.communication.ConfCommunication;
 import share.core.conf.database.ConfDatabase;
 import share.core.conf.desktop.ConfDesktop;
+import share.core.constants.Constants;
 
 public class Configurator
 {

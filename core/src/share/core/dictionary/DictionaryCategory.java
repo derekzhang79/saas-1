@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
-import share.core.MapTable;
-import share.core.Shareable;
+import share.core.utils.MapTable;
+import share.core.utils.Shareable;
 
 public class DictionaryCategory extends Shareable
 {

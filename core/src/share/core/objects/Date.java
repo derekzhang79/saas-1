@@ -1,6 +1,7 @@
-package share.core;
+package share.core.objects;
 
 import java.util.Calendar;
+import share.core.utils.Shareable;
 
 public class Date extends Shareable
 {
