@@ -4,7 +4,7 @@ import share.app.invoices.IOperations;
 import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;
 import share.core.Date;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsInvoices implements IOperations {
 	

@@ -3,7 +3,7 @@ package client.app.configuration.usergroups.tasks;
 import share.core.objects.UserGroup;
 import client.app.configuration.usergroups.gui.def.GUIEditUserGroup;
 import client.app.configuration.usergroups.operations.OperationsUserGroups;
-import client.core.Profile;
+import client.core.profile.Profile;
 
 public class AddUserGroup extends BaseUserGroup<UserGroup> {
 	

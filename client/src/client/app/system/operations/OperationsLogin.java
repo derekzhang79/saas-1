@@ -1,7 +1,7 @@
 package client.app.system.operations;
 
 import share.core.login.LoginResponse;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsLogin
 {

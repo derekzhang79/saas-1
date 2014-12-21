@@ -3,7 +3,7 @@ package client.app.taxes.operations;
 import share.app.taxes.IOperations;
 import share.app.taxes.Tax;
 import share.core.Date;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsTaxes implements IOperations {
 	

@@ -7,9 +7,9 @@ import share.core.login.LoginResponse;
 import client.app.system.dictionary.DictionaryManager;
 import client.app.system.gui.def.GUILogin;
 import client.app.system.operations.OperationsLogin;
-import client.core.Desktop;
-import client.core.Profile;
+import client.core.desktop.Desktop;
 import client.core.gui.OptionTask;
+import client.core.profile.Profile;
 
 public class Login extends OptionTask<Void>
 {

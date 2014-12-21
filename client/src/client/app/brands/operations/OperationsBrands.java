@@ -2,7 +2,7 @@ package client.app.brands.operations;
 
 import share.app.brands.Brand;
 import share.app.brands.IOperations;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsBrands implements IOperations {
 	

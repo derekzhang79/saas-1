@@ -1,6 +1,6 @@
 package client.app.init;
 
-import client.core.MainClient;
+import client.core.desktop.MainClient;
 
 public class Main
 {

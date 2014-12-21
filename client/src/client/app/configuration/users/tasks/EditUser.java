@@ -1,15 +1,14 @@
 package client.app.configuration.users.tasks;
 
 import java.awt.Color;
-
 import share.core.Encoding;
 import share.core.objects.User;
 import share.core.objects.UserGroup;
 import client.app.configuration.usergroups.tasks.SearchUserGroup;
 import client.app.configuration.users.gui.def.GUIEditUser;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.Profile;
 import client.core.gui.OptionTask;
+import client.core.profile.Profile;
 
 public class EditUser extends OptionTask<Boolean> {
 	

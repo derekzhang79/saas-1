@@ -3,7 +3,7 @@ package client.app.configuration.usergroups.operations;
 import share.app.configuration.permissions.IOperations;
 import share.core.objects.Permission;
 import share.core.objects.Task;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsPermissions implements IOperations {
 	

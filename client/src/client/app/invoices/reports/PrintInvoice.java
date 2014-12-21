@@ -7,10 +7,10 @@ import share.app.invoices.InvoiceDetail;
 import share.app.taxes.Tax;
 import share.core.Constants;
 import share.core.objects.Company;
-import client.core.Profile;
 import client.core.gui.DataFormatter;
 import client.core.gui.reports.Report;
 import client.core.gui.reports.ReportParameter;
+import client.core.profile.Profile;
 
 public class PrintInvoice {
 	

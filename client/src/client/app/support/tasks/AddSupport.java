@@ -7,7 +7,7 @@ import share.core.Date;
 import client.app.support.gui.def.GUIEditSupport;
 import client.app.support.operations.OperationsSupports;
 import client.app.system.dictionary.DictionaryManager;
-import client.core.Profile;
+import client.core.profile.Profile;
 
 public class AddSupport extends BaseSupport {
 	

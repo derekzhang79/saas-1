@@ -3,7 +3,7 @@ package client.app.support.operations;
 import share.app.support.IOperations;
 import share.app.support.Support;
 import share.core.Date;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsSupports implements IOperations {
 	

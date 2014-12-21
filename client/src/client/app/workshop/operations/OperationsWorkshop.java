@@ -3,7 +3,7 @@ package client.app.workshop.operations;
 import share.app.workshop.FixOrder;
 import share.app.workshop.FixOrderDetail;
 import share.app.workshop.IOperations;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsWorkshop implements IOperations {
 	

@@ -2,7 +2,7 @@ package client.app.configuration.users.operations;
 
 import share.app.configuration.users.IOperations;
 import share.core.objects.User;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsUsers implements IOperations {
 	

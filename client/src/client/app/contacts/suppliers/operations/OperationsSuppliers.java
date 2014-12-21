@@ -2,7 +2,7 @@ package client.app.contacts.suppliers.operations;
 
 import share.app.contacts.suppliers.IOperations;
 import share.app.contacts.suppliers.Supplier;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsSuppliers implements IOperations {
 	

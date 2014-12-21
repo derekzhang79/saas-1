@@ -2,7 +2,7 @@ package client.app.contacts.clients.operations;
 
 import share.app.contacts.clients.Client;
 import share.app.contacts.clients.IOperations;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsClients implements IOperations {
 	

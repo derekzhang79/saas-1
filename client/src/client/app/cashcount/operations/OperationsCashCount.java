@@ -2,7 +2,7 @@ package client.app.cashcount.operations;
 
 import share.app.cashcount.CashCount;
 import share.app.cashcount.IOperations;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsCashCount implements IOperations {
 	

@@ -2,7 +2,7 @@ package client.app.system.tasks;
 
 import share.core.Environment;
 import client.app.system.gui.def.GUILogError;
-import client.core.Debug;
+import client.core.debug.Debug;
 import client.core.gui.OptionTask;
 
 public class LogError extends OptionTask<Void> {

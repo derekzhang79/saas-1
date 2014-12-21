@@ -2,7 +2,7 @@ package client.app.sections.operations;
 
 import share.app.sections.IOperations;
 import share.app.sections.Section;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsSections implements IOperations {
 	

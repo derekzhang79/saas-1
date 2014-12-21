@@ -2,7 +2,7 @@ package client.app.configuration.usergroups.operations;
 
 import share.app.configuration.usergroups.IOperations;
 import share.core.objects.UserGroup;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsUserGroups implements IOperations {
 	

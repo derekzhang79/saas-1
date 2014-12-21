@@ -5,10 +5,10 @@ import share.app.workshop.FixOrder;
 import share.app.workshop.FixOrderDetail;
 import share.core.Constants;
 import share.core.objects.Company;
-import client.core.Profile;
 import client.core.gui.DataFormatter;
 import client.core.gui.reports.Report;
 import client.core.gui.reports.ReportParameter;
+import client.core.profile.Profile;
 
 public class PrintFixOrder {
 	

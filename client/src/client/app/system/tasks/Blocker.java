@@ -1,11 +1,10 @@
 package client.app.system.tasks;
 
 import java.awt.Color;
-
 import share.core.Encoding;
 import client.app.system.gui.def.GUIBlocker;
-import client.core.Profile;
 import client.core.gui.OptionTask;
+import client.core.profile.Profile;
 
 public class Blocker extends OptionTask<Void> {
 	

@@ -3,7 +3,7 @@ package client.app.journals.operations;
 import share.app.journals.IOperations;
 import share.app.journals.Journal;
 import share.app.journals.JournalDetail;
-import client.core.Operation;
+import client.core.operations.Operation;
 
 public class OperationsJournals implements IOperations {
 	
