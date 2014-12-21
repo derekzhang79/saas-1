@@ -1,37 +1,40 @@
 package share.core.connection;
 
 import java.io.Serializable;
-
 import share.core.Serializer;
 
-public class Response implements Serializable {
+public class Response implements Serializable
+{
+	private static final long serialVersionUID = 7623519621928853232L;
+
+	private final String ticket;
+	private final String sessionId;
+	private final Object value;
 	
-	private static final long serialVersionUID = 1L;
-	
-	private String ticket = "";
-	private String sessionId = "";
-	
-	private Object value = null;
-	
-	public Response(String ticket, String sessionId, Object value) {
+	public Response(String ticket, String sessionId, Object value)
+	{
 		this.ticket = ticket;
 		this.sessionId = sessionId;
 		this.value = value;
 	}
 	
-	public String getTicket() {
+	public String getTicket()
+	{
 		return this.ticket;
 	}
 	
-	public String getSessionId() {
+	public String getSessionId()
+	{
 		return this.sessionId;
 	}
 	
-	public Object getValue() {
+	public Object getValue()
+	{
 		return this.value;
 	}
 	
-	public String getData() {
+	public String getData()
+	{
 		return Serializer.serialize(this);
 	}
 }

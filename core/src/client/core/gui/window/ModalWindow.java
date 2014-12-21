@@ -9,11 +9,10 @@ import client.core.Desktop;
 
 public class ModalWindow extends JDialog implements ComponentListener, WindowListener
 {
-
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -9310160341977448L;
 
 	private boolean closed = false;
-	private WindowManager manager = null;
+	private final WindowManager manager;
 
 	public ModalWindow(WindowManager manager)
 	{

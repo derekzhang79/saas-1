@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -24,14 +25,13 @@ import client.core.gui.FontStore;
 @SuppressWarnings("rawtypes")
 public class ExtendedComboBox extends JComboBox
 {
-	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5721444558358371563L;
 	
 	private static final int DEFAULT_HEIGHT = 22;
 	
 	private boolean hide_flag = false;
 	
-	private ArrayList<ExtendedComboBoxItem> items = new ArrayList<ExtendedComboBoxItem>();
+	private List<ExtendedComboBoxItem> items = new ArrayList<ExtendedComboBoxItem>();
 	
 	@SuppressWarnings("unchecked")
 	public ExtendedComboBox(int width)
@@ -323,10 +323,9 @@ public class ExtendedComboBox extends JComboBox
 		requestFocus();
 	}
 	
-	class ComboBoxRenderer extends JLabel implements ListCellRenderer
+	private class ComboBoxRenderer extends JLabel implements ListCellRenderer
 	{
-		
-		private static final long serialVersionUID = 1L;
+		private static final long serialVersionUID = -2223149637952673189L;
 		
 		public ComboBoxRenderer()
 		{

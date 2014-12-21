@@ -7,21 +7,20 @@ import client.core.Debug;
 
 public class ExtendedWindow extends JInternalFrame implements InternalFrameListener
 {
-
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4749953270722074967L;
 
 	private boolean closed = false;
 	private WindowManager manager = null;
-
+	
 	public ExtendedWindow(WindowManager manager)
 	{
 		super("", false, true, false, true);
-
+		
 		this.manager = manager;
-
+		
 		addInternalFrameListener(this);
 	}
-
+	
 	public void showWindow()
 	{
 		if (this.manager.isVisible())
@@ -30,12 +29,12 @@ public class ExtendedWindow extends JInternalFrame implements InternalFrameListe
 			setVisible(true);
 		}
 	}
-
+	
 	public void start()
 	{
 		this.manager.startTask();
 	}
-
+	
 	public void close()
 	{
 		try
@@ -48,17 +47,17 @@ public class ExtendedWindow extends JInternalFrame implements InternalFrameListe
 			Debug.setError(e);
 		}
 	}
-
+	
 	@Override
 	public void internalFrameActivated(InternalFrameEvent arg0)
 	{
 	}
-
+	
 	@Override
 	public void internalFrameClosed(InternalFrameEvent arg0)
 	{
 	}
-
+	
 	@Override
 	public void internalFrameClosing(InternalFrameEvent arg0)
 	{
@@ -67,22 +66,22 @@ public class ExtendedWindow extends JInternalFrame implements InternalFrameListe
 			this.manager.closing();
 		}
 	}
-
+	
 	@Override
 	public void internalFrameDeactivated(InternalFrameEvent arg0)
 	{
 	}
-
+	
 	@Override
 	public void internalFrameDeiconified(InternalFrameEvent arg0)
 	{
 	}
-
+	
 	@Override
 	public void internalFrameIconified(InternalFrameEvent arg0)
 	{
 	}
-
+	
 	@Override
 	public void internalFrameOpened(InternalFrameEvent arg0)
 	{

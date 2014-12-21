@@ -15,7 +15,7 @@ import share.core.conf.Configurator;
 import share.core.connection.Parameters;
 import share.core.resources.ResourceUtils;
 import client.core.Debug;
-import client.core.Main;
+import client.core.MainClient;
 import client.core.gui.Message;
 
 public class Transmission
@@ -25,7 +25,7 @@ public class Transmission
 	
 	public static void configure()
 	{
-		AppLocation location = Main.getLocation();
+		AppLocation location = MainClient.getLocation();
 		
 		if (location.equals(AppLocation.LOCAL))
 		{
@@ -38,7 +38,7 @@ public class Transmission
 		
 		if (location.equals(AppLocation.REMOTE))
 		{
-			Transmission.SERVER += "_" + Main.getEnvironment().toString().toLowerCase();
+			Transmission.SERVER += "_" + MainClient.getEnvironment().toString().toLowerCase();
 		}
 		
 		Transmission.SERVER += "/";

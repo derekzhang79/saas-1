@@ -12,8 +12,7 @@ import client.core.gui.ToolTipInterface;
 
 public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipInterface, TextCursorInterface
 {
-
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1993615537025247597L;
 
 	public ExtendedInputDecimal(int width, int length, int decimals, boolean positive)
 	{
@@ -72,12 +71,11 @@ public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipIn
 
 	private class DecimalTextDocument extends PlainDocument
 	{
+		private static final long serialVersionUID = -8435299560853331056L;
 
-		private static final long serialVersionUID = 1L;
-
-		private int length = 0;
-		private int decimals = 0;
-		private Pattern pattern = null;
+		private final int length;
+		private final int decimals;
+		private final Pattern pattern;
 
 		public DecimalTextDocument(int length, int decimals, boolean positive)
 		{

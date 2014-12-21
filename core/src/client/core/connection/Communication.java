@@ -8,14 +8,13 @@ import client.core.gui.Message;
 
 public class Communication<ResponseClass>
 {
-
-	private String target = "";
-	private String user = "";
+	private final String target;
+	private final String user;
 	private String pass = "";
-	private int clientID = 0;
-
-	private static String ticket = "";
-	private static String sessionId = "";
+	private final int clientID;
+	
+	private static String ticket;
+	private static String sessionId;
 
 	public Communication(String target, String user, int clientID)
 	{
@@ -35,7 +34,7 @@ public class Communication<ResponseClass>
 	}
 
 	@SuppressWarnings("unchecked")
-	public ResponseClass send(final Object... parameters)
+	public ResponseClass send(Object... parameters)
 	{
 		Desktop.getDesktop().restartTimer();
 		BackgroundWorker worker = new BackgroundWorker(this.target, this.user, this.clientID, Communication.sessionId, Communication.ticket, parameters);

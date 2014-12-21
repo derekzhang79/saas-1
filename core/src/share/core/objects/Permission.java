@@ -2,18 +2,18 @@ package share.core.objects;
 
 import share.core.Shareable;
 
-public class Permission extends Shareable {
+public class Permission extends Shareable
+{
+	private static final long serialVersionUID = 175181423876055737L;
 	
-	private static final long serialVersionUID = 1L;
+	public final int id;
+	public final int userGroup;
+	public final int task;
+	public final String taskName;
+	public final String taskPath;
 	
-	public int id = 0;
-	public int userGroup = 0;
-	public int task = 0;
-	
-	public String taskName = "";
-	public String taskPath = "";
-	
-	public Permission(int id, int userGroup, int task, String taskName, String taskPath) {
+	public Permission(int id, int userGroup, int task, String taskName, String taskPath)
+	{
 		this.id = id;
 		this.userGroup = userGroup;
 		this.task = task;

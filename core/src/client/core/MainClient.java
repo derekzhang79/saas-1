@@ -14,21 +14,20 @@ import client.core.connection.Communication;
 import client.core.gui.FontStore;
 import client.core.images.ImageStore;
 
-public class Main
+public class MainClient
 {
-
 	private static AppLocation LOCATION = null;
 	private static AppEnvironment ENVIRONMENT = null;
-
+	
 	public static void main(String[] args)
 	{
 		if (args.length == 2)
 		{
-			Main.LOCATION = AppLocation.valueOf(args[0].toUpperCase());
-			Main.ENVIRONMENT = AppEnvironment.valueOf(args[1].toUpperCase());
-
-			Main.configure();
-
+			MainClient.LOCATION = AppLocation.valueOf(args[0].toUpperCase());
+			MainClient.ENVIRONMENT = AppEnvironment.valueOf(args[1].toUpperCase());
+			
+			MainClient.configure();
+			
 			SwingUtilities.invokeLater(new Runnable()
 			{
 				@Override
@@ -40,7 +39,7 @@ public class Main
 					frame.setIconImage(ImageStore.getImage(Configurator.getDesktop().icon));
 					frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
-
+					
 					frame.addWindowListener(new WindowAdapter()
 					{
 						@Override
@@ -57,26 +56,26 @@ public class Main
 			System.out.println("Usage: client.jar [local|remote] [test|real]");
 		}
 	}
-
+	
 	public static AppLocation getLocation()
 	{
-		return Main.LOCATION;
+		return MainClient.LOCATION;
 	}
-
+	
 	public static AppEnvironment getEnvironment()
 	{
-		return Main.ENVIRONMENT;
+		return MainClient.ENVIRONMENT;
 	}
-
+	
 	public static void configure()
 	{
 		Environment.createApplicationPath();
 		Communication.configure();
 		FontStore.configure();
-
-		String url = Configurator.getDesktop().shortcut.base_url + Main.ENVIRONMENT.toString().toLowerCase() + Configurator.getDesktop().shortcut.file_url;
+		
+		String url = Configurator.getDesktop().shortcut.base_url + MainClient.ENVIRONMENT.toString().toLowerCase() + Configurator.getDesktop().shortcut.file_url;
 		Environment.setApplicationShortcut(Configurator.getDesktop().shortcut.name, Configurator.getDesktop().shortcut.icone, url);
-
+		
 		try
 		{
 			UIManager.setLookAndFeel(Configurator.getDesktop().laf);
