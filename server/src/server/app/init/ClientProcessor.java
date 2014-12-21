@@ -39,12 +39,12 @@ public class ClientProcessor implements Runnable
 
 			int read = -1;
 			
-			byte[] bytes = new byte[1024 * 1024 * 1]; // 1 MB
+			byte[] buffer = new byte[1024 * 1024 * 10]; // 10 MB buffer
 			
-			while ((read = inputStream.read(bytes)) != -1)
+			while ((read = inputStream.read(buffer)) != -1)
 			{
 				byte[] request = new byte[read];
-				System.arraycopy(bytes, 0, request, 0, read);
+				System.arraycopy(buffer, 0, request, 0, read);
 
 				byte[] response = new byte[0];
 				
@@ -63,7 +63,6 @@ public class ClientProcessor implements Runnable
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
 		}
 		finally
 		{
