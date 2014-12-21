@@ -12,7 +12,6 @@ import share.core.Crypt;
 import share.core.Encoding;
 import share.core.Resource;
 import share.core.connection.Parameters;
-import share.core.resources.ResourceUtils;
 import client.core.Debug;
 import client.core.gui.Message;
 
@@ -48,26 +47,41 @@ public class Transmission
 			byte[] serverKey = Encoding.base64DecodeByte(Resource.load(Constants.PUBLIC_KEY_PATH));
 
 			byte[] parameters = Crypt.encrypt(data.getData(), serverKey);
-			
-			// -----------------
 
 			InputStream inputStream = Transmission.socket.getInputStream();
 			OutputStream outputStream = Transmission.socket.getOutputStream();
 
-			// -----------------
-			
 			outputStream.write(parameters);
 			outputStream.flush();
 
-			// -----------------
-			
-			byte[] response = ResourceUtils.readInputStream(inputStream);
+			byte[] response = Transmission.readInputStream(inputStream);
 			result = Crypt.decrypt(response, privateKey.getEncoded());
 		}
 		catch (Exception e)
 		{
 			Message.communicationError();
 			Debug.setError(e);
+		}
+
+		return result;
+	}
+
+	private static byte[] readInputStream(InputStream inputStream)
+	{
+		byte[] result = new byte[0];
+		
+		try
+		{
+			byte[] bytes = new byte[1024 * 1024 * 10]; // 10 MB buffer
+
+			int read = inputStream.read(bytes);
+			result = new byte[read];
+			
+			System.arraycopy(bytes, 0, result, 0, read);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 
 		return result;
