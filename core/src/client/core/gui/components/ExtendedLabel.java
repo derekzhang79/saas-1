@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
-import client.core.gui.FontStore;
+import client.core.gui.fonts.FontStore;
 
 public class ExtendedLabel extends JLabel
 {

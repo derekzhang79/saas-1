@@ -1,4 +1,4 @@
-package client.core.gui;
+package client.core.gui.taks;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -9,16 +9,16 @@ import client.core.desktop.Desktop;
 import client.core.gui.components.ExtendedTable;
 import client.core.gui.export.Excel;
 import client.core.gui.export.PDF;
+import client.core.gui.messages.Message;
 import client.core.gui.window.WindowManager;
 import client.core.profile.Profile;
 
 public class OptionTask<T>
 {
-
 	private WindowManager manager = null;
 	private T result = null;
-	private TaskType type = null;
-	private boolean permission = false;
+	private final TaskType type;
+	private final boolean permission;
 
 	public enum Event
 	{
@@ -37,10 +37,8 @@ public class OptionTask<T>
 
 		if (this.permission)
 		{
-
 			switch (type)
 			{
-
 				case MODAL:
 				case SPECIAL:
 					this.manager = new WindowManager(this, guiName, true);
@@ -48,9 +46,6 @@ public class OptionTask<T>
 
 				case SINGLE:
 					this.manager = new WindowManager(this, guiName, false);
-					break;
-
-				default:
 					break;
 			}
 		}
@@ -150,7 +145,6 @@ public class OptionTask<T>
 
 	public void setGUI(Object gui)
 	{
-
 		if (this.permission)
 		{
 

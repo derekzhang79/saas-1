@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import client.core.gui.FontStore;
+import client.core.gui.fonts.FontStore;
 
 @SuppressWarnings("rawtypes")
 public class ExtendedComboBox extends JComboBox

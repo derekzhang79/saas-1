@@ -13,7 +13,7 @@ import share.core.Encoding;
 import share.core.Resource;
 import share.core.connection.Parameters;
 import client.core.debug.Debug;
-import client.core.gui.Message;
+import client.core.gui.messages.Message;
 
 public class Transmission
 {

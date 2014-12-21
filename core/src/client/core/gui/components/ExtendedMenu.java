@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import share.core.MapTable;
-import client.core.gui.FontStore;
+import client.core.gui.fonts.FontStore;
 import client.core.gui.window.WindowManager;
 import client.core.images.ImageStore;
 

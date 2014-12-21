@@ -35,9 +35,9 @@ import javax.swing.table.TableRowSorter;
 import share.core.Constants;
 import share.core.Date;
 import client.core.debug.Debug;
-import client.core.gui.DataFormatter;
-import client.core.gui.FontStore;
-import client.core.gui.Message;
+import client.core.gui.fonts.FontStore;
+import client.core.gui.format.DataFormatter;
+import client.core.gui.messages.Message;
 import client.core.gui.window.WindowManager;
 
 public class ExtendedTable extends JPanel implements ActionListener

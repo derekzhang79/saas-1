@@ -53,11 +53,6 @@ import share.core.MapTable;
 import share.core.xml.XMLUtils;
 import client.core.debug.Debug;
 import client.core.desktop.Desktop;
-import client.core.gui.FontStore;
-import client.core.gui.InputLimiter;
-import client.core.gui.OptionTask;
-import client.core.gui.TextCursorInterface;
-import client.core.gui.ToolTipInterface;
 import client.core.gui.components.ColumnType;
 import client.core.gui.components.ExtendedButton;
 import client.core.gui.components.ExtendedChartBar;
@@ -80,6 +75,11 @@ import client.core.gui.components.ExtendedRadioButton;
 import client.core.gui.components.ExtendedTab;
 import client.core.gui.components.ExtendedTable;
 import client.core.gui.components.ExtendedTextArea;
+import client.core.gui.components.InputLimiter;
+import client.core.gui.components.TextCursorInterface;
+import client.core.gui.components.ToolTipInterface;
+import client.core.gui.fonts.FontStore;
+import client.core.gui.taks.OptionTask;
 import client.core.images.ImageStore;
 
 @SuppressWarnings("rawtypes")

@@ -7,7 +7,6 @@ import java.awt.GridBagLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import client.core.gui.ToolTipInterface;
 
 public class ExtendedCheckBox extends JPanel implements ToolTipInterface
 {

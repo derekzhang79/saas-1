@@ -4,9 +4,9 @@ import java.lang.reflect.Field;
 import share.core.Constants;
 import share.core.Date;
 import client.core.debug.Debug;
-import client.core.gui.DataFormatter;
-import client.core.gui.Message;
 import client.core.gui.components.ColumnType;
+import client.core.gui.format.DataFormatter;
+import client.core.gui.messages.Message;
 
 public class Exporter {
 	

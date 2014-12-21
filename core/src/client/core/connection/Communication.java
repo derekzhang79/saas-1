@@ -8,7 +8,7 @@ import share.core.conf.communication.ConfCommunication;
 import share.core.connection.Response;
 import client.core.debug.Debug;
 import client.core.desktop.Desktop;
-import client.core.gui.Message;
+import client.core.gui.messages.Message;
 
 public class Communication<ResponseClass>
 {

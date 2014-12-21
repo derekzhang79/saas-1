@@ -2,8 +2,7 @@ package client.core.gui.components;
 
 import java.awt.Dimension;
 import javax.swing.JButton;
-import client.core.gui.FontStore;
-import client.core.gui.ToolTipInterface;
+import client.core.gui.fonts.FontStore;
 import client.core.images.ImageStore;
 
 public class ExtendedButton extends JButton implements ToolTipInterface

@@ -3,7 +3,7 @@ package client.core.gui.block;
 import java.util.TimerTask;
 import share.core.Constants;
 import share.core.Environment;
-import client.core.gui.OptionTask;
+import client.core.gui.taks.OptionTask;
 
 public class TaskTimer extends TimerTask
 {

@@ -1,4 +1,4 @@
-package client.core.gui;
+package client.core.gui.fonts;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;

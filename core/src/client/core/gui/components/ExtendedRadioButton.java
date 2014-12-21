@@ -2,7 +2,6 @@ package client.core.gui.components;
 
 import java.awt.Dimension;
 import javax.swing.JRadioButton;
-import client.core.gui.ToolTipInterface;
 
 public class ExtendedRadioButton extends JRadioButton implements ToolTipInterface
 {

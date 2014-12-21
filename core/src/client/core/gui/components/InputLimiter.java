@@ -1,4 +1,4 @@
-package client.core.gui;
+package client.core.gui.components;
 
 import java.util.regex.Pattern;
 import javax.swing.text.AttributeSet;

@@ -4,7 +4,7 @@ import java.awt.GridBagLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
-import client.core.gui.FontStore;
+import client.core.gui.fonts.FontStore;
 
 public class ExtendedGroupBox extends JPanel
 {

@@ -1,4 +1,4 @@
-package client.core.gui;
+package client.core.gui.components;
 
 public interface TextCursorInterface {
 }

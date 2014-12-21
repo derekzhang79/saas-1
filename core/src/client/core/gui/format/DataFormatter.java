@@ -1,10 +1,11 @@
-package client.core.gui;
+package client.core.gui.format;
 
 import java.text.DecimalFormat;
 
-public class DataFormatter {
-	
-	public static String formatDecimal(double value) {
+public class DataFormatter
+{
+	public static String formatDecimal(double value)
+	{
 		DecimalFormat df = new DecimalFormat("#,##0.00");
 		
 		return df.format(value);

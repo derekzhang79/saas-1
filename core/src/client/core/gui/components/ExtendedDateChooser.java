@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.LineBorder;
 import share.core.Date;
-import client.core.gui.FontStore;
+import client.core.gui.fonts.FontStore;
 import com.toedter.calendar.JDateChooser;
 
 public class ExtendedDateChooser extends JDateChooser

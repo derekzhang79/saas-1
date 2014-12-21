@@ -11,7 +11,7 @@ import share.core.Constants.AppLocation;
 import share.core.Environment;
 import share.core.conf.Configurator;
 import client.core.connection.Communication;
-import client.core.gui.FontStore;
+import client.core.gui.fonts.FontStore;
 import client.core.images.ImageStore;
 
 public class MainClient

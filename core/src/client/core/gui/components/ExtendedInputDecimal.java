@@ -7,8 +7,6 @@ import javax.swing.SwingConstants;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
-import client.core.gui.TextCursorInterface;
-import client.core.gui.ToolTipInterface;
 
 public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipInterface, TextCursorInterface
 {

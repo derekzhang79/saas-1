@@ -1,4 +1,4 @@
-package client.core.gui;
+package client.core.gui.messages;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import client.core.gui.fonts.FontStore;
 
 public class WaitMessage extends JDialog
 {

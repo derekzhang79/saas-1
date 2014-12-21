@@ -6,9 +6,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import client.core.gui.FontStore;
-import client.core.gui.TextCursorInterface;
-import client.core.gui.ToolTipInterface;
+import client.core.gui.fonts.FontStore;
 
 public class ExtendedInputText extends JTextField implements ToolTipInterface, TextCursorInterface
 {

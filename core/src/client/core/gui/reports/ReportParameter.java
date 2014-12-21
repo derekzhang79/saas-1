@@ -2,7 +2,7 @@ package client.core.gui.reports;
 
 import share.core.Date;
 import share.core.MapTable;
-import client.core.gui.DataFormatter;
+import client.core.gui.format.DataFormatter;
 
 public class ReportParameter {
 	

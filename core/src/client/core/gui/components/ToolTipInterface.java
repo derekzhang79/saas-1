@@ -1,8 +1,8 @@
-package client.core.gui;
+package client.core.gui.components;
 
-public interface ToolTipInterface {
-	
+public interface ToolTipInterface
+{
 	public void setTooltip(String tooltip);
-	
+
 	public String getTooltip();
 }
