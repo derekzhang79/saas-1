@@ -55,12 +55,12 @@
 	<target name = "build_client">
 		
 		<!-- COPY JAR LIBRARIES -->
-		<!--<copy file="${appcore.dir}/lib/client/itextpdf-5.3.2.jar"    todir="${dist.client.final}" />-->
-		<!--<copy file="${appcore.dir}/lib/client/jcalendar-1.4.jar"     todir="${dist.client.final}" />-->
-		<!--<copy file="${appcore.dir}/lib/client/jcommon-1.0.17.jar"    todir="${dist.client.final}" />-->
-		<!--<copy file="${appcore.dir}/lib/client/jfreechart-1.0.14.jar" todir="${dist.client.final}" />-->
-		<!--<copy file="${appcore.dir}/lib/client/poi-3.8.jar"           todir="${dist.client.final}" />-->
-		<!--<copy file="${appcore.dir}/lib/share/jdom-2.0.2.jar"         todir="${dist.client.final}" />-->
+		<copy file="${appcore.dir}/lib/client/itextpdf-5.3.2.jar"    todir="${dist.client.final}" />
+		<copy file="${appcore.dir}/lib/client/jcalendar-1.4.jar"     todir="${dist.client.final}" />
+		<copy file="${appcore.dir}/lib/client/jcommon-1.0.17.jar"    todir="${dist.client.final}" />
+		<copy file="${appcore.dir}/lib/client/jfreechart-1.0.14.jar" todir="${dist.client.final}" />
+		<copy file="${appcore.dir}/lib/client/poi-3.8.jar"           todir="${dist.client.final}" />
+		<copy file="${appcore.dir}/lib/share/jdom-2.0.2.jar"         todir="${dist.client.final}" />
 		
 		<!-- COPY CLIENT CLASSES -->
 		<copy todir="${dist.client.class}">
@@ -89,7 +89,7 @@
 					   **/*.prl,
 					   **/*.xml">
 			<manifest>
-				<attribute name="Main-Class" value="client.app.system.init.Start" />
+				<attribute name="Main-Class" value="client.app.init.Main" />
 				<attribute name="Class-Path" value="jcalendar-1.4.jar jcommon-1.0.17.jar jdom-2.0.2.jar jfreechart-1.0.14.jar itextpdf-5.3.2.jar poi-3.8.jar media.jar" />
 			</manifest>
 		</jar>
