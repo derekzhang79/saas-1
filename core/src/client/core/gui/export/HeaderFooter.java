@@ -16,9 +16,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class HeaderFooter extends PdfPageEventHelper
 {
-
-	private PdfPCell[] header = null;
-	private String title = "";
+	private final PdfPCell[] header;
+	private final String title;
 
 	public HeaderFooter(String title, PdfPCell[] header)
 	{
@@ -41,6 +40,7 @@ public class HeaderFooter extends PdfPageEventHelper
 	{
 		PdfContentByte cb = writer.getDirectContent();
 		cb.beginText();
+
 		try
 		{
 			cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 15);
@@ -49,6 +49,7 @@ public class HeaderFooter extends PdfPageEventHelper
 		{
 			Debug.setError(e);
 		}
+
 		cb.showTextAligned(PdfContentByte.ALIGN_CENTER, this.title, document.getPageSize().getWidth() / 2, document.getPageSize().getHeight() - 30, 0);
 		cb.endText();
 

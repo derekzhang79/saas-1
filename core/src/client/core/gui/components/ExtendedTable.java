@@ -124,7 +124,6 @@ public class ExtendedTable extends JPanel implements ActionListener
 		this.search.setFont(FontStore.getDefaultFont());
 		this.search.getDocument().addDocumentListener(new DocumentListener()
 		{
-			
 			@Override
 			public void changedUpdate(DocumentEvent event)
 			{
@@ -146,7 +145,6 @@ public class ExtendedTable extends JPanel implements ActionListener
 		
 		this.search.addFocusListener(new FocusListener()
 		{
-			
 			@Override
 			public void focusLost(FocusEvent e)
 			{
@@ -244,7 +242,6 @@ public class ExtendedTable extends JPanel implements ActionListener
 		
 		this.table.addKeyListener(new KeyListener()
 		{
-			
 			@Override
 			public void keyTyped(KeyEvent arg0)
 			{
@@ -403,7 +400,6 @@ public class ExtendedTable extends JPanel implements ActionListener
 					
 					default:
 						break;
-				
 				}
 			}
 			
@@ -415,21 +411,21 @@ public class ExtendedTable extends JPanel implements ActionListener
 		{
 			this.currentColumn = column;
 			
-			Component c = super.getTableCellRendererComponent(tableObject, value, isSelected, hasFocus, row, column);
+			Component component = super.getTableCellRendererComponent(tableObject, value, isSelected, hasFocus, row, column);
 			
 			if (!isSelected)
 			{
 				if ((row % 2) != 0)
 				{
-					c.setBackground(new Color(240, 240, 240));
+					component.setBackground(new Color(240, 240, 240));
 				}
 				else
 				{
-					c.setBackground(new Color(255, 255, 255));
+					component.setBackground(new Color(255, 255, 255));
 				}
 			}
 			
-			return c;
+			return component;
 		}
 	}
 	

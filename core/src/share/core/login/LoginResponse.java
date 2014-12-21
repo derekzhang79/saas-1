@@ -13,15 +13,17 @@ public class LoginResponse implements Serializable
 	public static final int CODE_USER_ERORR = 1;
 	public static final int CODE_PASS_ERROR = 2;
 
-	private int code = 0;
-
-	private User user = new User();
-	private Company company = new Company();
-	private Dictionary dictionary = new Dictionary();
+	private final int code;
+	private final User user;
+	private final Company company;
+	private final Dictionary dictionary;
 
 	public LoginResponse(int code)
 	{
 		this.code = code;
+		this.user = new User();
+		this.company = new Company();
+		this.dictionary = new Dictionary();
 	}
 
 	public LoginResponse(int code, User user, Company company, Dictionary dictionary)

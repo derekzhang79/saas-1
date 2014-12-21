@@ -22,51 +22,67 @@ import client.core.gui.components.ColumnType;
 import client.core.gui.format.DataFormatter;
 import client.core.gui.messages.Message;
 
-public class Excel {
-	
-	public static void export(String title, ColumnType[] columns, Object[] rows) {
+public class Excel
+{
+	public static void export(String title, ColumnType[] columns, Object[] rows)
+	{
 		HSSFWorkbook excelFile = new HSSFWorkbook();
 		HSSFSheet sheet = excelFile.createSheet(title);
 		
 		HSSFRow rowTitle = sheet.createRow(0);
 		Excel.getColumns(excelFile, rowTitle, columns);
 		
-		for (int i = 0; i < rows.length; i++) {
+		for (int i = 0; i < rows.length; i++)
+		{
 			Object row = rows[i];
 			Class<?> clazz = row.getClass();
 			HSSFRow currentRow = sheet.createRow(i + 1);
 			currentRow.setHeightInPoints((short)22);
 			
-			for (int j = 0; j < columns.length; j++) {
+			for (int j = 0; j < columns.length; j++)
+			{
 				ColumnType column = columns[j];
 				
-				try {
+				try
+				{
 					Field field = clazz.getField(column.getCode());
 					HSSFCell cell = currentRow.createCell(j);
 					CellStyle style = excelFile.createCellStyle();
 					
-					if (column.getRealType().equals(ColumnType.Type.STRING)) {
+					if (column.getRealType().equals(ColumnType.Type.STRING))
+					{
 						cell.setCellValue(field.get(row).toString());
-					} else if (column.getRealType().equals(ColumnType.Type.BOOLEAN)) {
+					}
+					else if (column.getRealType().equals(ColumnType.Type.BOOLEAN))
+					{
 						style.setAlignment(CellStyle.ALIGN_CENTER);
 						cell.setCellValue(Message.getBooleanString(field.getBoolean(row)));
-					} else if (column.getRealType().equals(ColumnType.Type.DATE)) {
+					}
+					else if (column.getRealType().equals(ColumnType.Type.DATE))
+					{
 						Date dateValue = (Date)field.get(row);
 						cell.setCellValue(dateValue.toString());
 						style.setAlignment(CellStyle.ALIGN_CENTER);
-					} else if (column.getRealType().equals(ColumnType.Type.INTEGER)) {
+					}
+					else if (column.getRealType().equals(ColumnType.Type.INTEGER))
+					{
 						cell.setCellValue(field.getLong(row));
-					} else if (column.getRealType().equals(ColumnType.Type.DECIMAL)) {
+					}
+					else if (column.getRealType().equals(ColumnType.Type.DECIMAL))
+					{
 						HSSFDataFormat df = excelFile.createDataFormat();
 						style.setDataFormat(df.getFormat("#,##0.00"));
 						cell.setCellValue(field.getDouble(row));
-					} else if (column.getRealType().equals(ColumnType.Type.MONEY)) {
+					}
+					else if (column.getRealType().equals(ColumnType.Type.MONEY))
+					{
 						double doubleValue = field.getDouble(row);
 						style.setAlignment(CellStyle.ALIGN_RIGHT);
 						cell.setCellValue(DataFormatter.formatDecimal(doubleValue) + " " + Constants.CURRENCY_EURO);
 					}
 					
-					if ((i % 2) != 0) {
+					if ((i % 2) != 0)
+					{
 						HSSFColor color = Excel.setColor(excelFile, HSSFColor.LAVENDER.index, (byte)0xF0, (byte)0xF0, (byte)0xF0);
 						style.setFillForegroundColor(color.getIndex());
 						style.setFillPattern(CellStyle.SOLID_FOREGROUND);
@@ -84,52 +100,61 @@ public class Excel {
 					
 					cell.setCellStyle(style);
 					
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					Debug.setError(e);
 				}
 			}
 		}
 		
-		for (int j = 0; j < columns.length; j++) {
+		for (int j = 0; j < columns.length; j++)
+		{
 			sheet.autoSizeColumn(j);
 		}
 		
-		try {
+		try
+		{
 			File file = Environment.createTempFile(".xls");
 			FileOutputStream fos = new FileOutputStream(file);
 			excelFile.write(fos);
 			fos.flush();
 			fos.close();
 			Resource.open(file);
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			Debug.setError(e);
 		}
-		
-		// excelFile.write(null);
-		// Resource.open(null);
-		// Environment.createExcel(result, Constants.EXCEL_EXTENSION);
 	}
 	
-	public static HSSFColor setColor(HSSFWorkbook workbook, short index, byte r, byte g, byte b) {
+	public static HSSFColor setColor(HSSFWorkbook workbook, short index, byte r, byte g, byte b)
+	{
 		HSSFColor hssfColor = null;
 		
-		try {
+		try
+		{
 			HSSFPalette palette = workbook.getCustomPalette();
 			hssfColor = palette.findColor(r, g, b);
 			
-			if (hssfColor == null) {
+			if (hssfColor == null)
+			{
 				palette.setColorAtIndex(index, r, g, b);
 				hssfColor = palette.getColor(index);
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			Debug.setError(e);
 		}
 		
 		return hssfColor;
 	}
 	
-	private static void getColumns(HSSFWorkbook excelFile, HSSFRow row, ColumnType[] columns) {
-		for (int i = 0; i < columns.length; i++) {
+	private static void getColumns(HSSFWorkbook excelFile, HSSFRow row, ColumnType[] columns)
+	{
+		for (int i = 0; i < columns.length; i++)
+		{
 			ColumnType column = columns[i];
 			
 			Font font = excelFile.createFont();

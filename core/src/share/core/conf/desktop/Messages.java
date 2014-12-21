@@ -1,7 +1,7 @@
 package share.core.conf.desktop;
 
-public class Messages {
-	
+public class Messages
+{
 	public String information = "";
 	public String confirm = "";
 	public String warning = "";

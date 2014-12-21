@@ -1,7 +1,7 @@
 package share.core.conf.desktop;
 
-public class Shortcut {
-	
+public class Shortcut
+{
 	public String name = "";
 	public String icone = "";
 	public String base_url = "";

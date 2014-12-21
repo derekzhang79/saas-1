@@ -10,7 +10,7 @@ public class InputLimiter extends PlainDocument
 	private static final long serialVersionUID = 7505741956984468940L;
 
 	private Pattern pattern = null;
-	private int limit = 0;
+	private final int limit;
 	private boolean toUppercase = false;
 
 	public InputLimiter(int limit, String regex)

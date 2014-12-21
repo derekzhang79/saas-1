@@ -1,7 +1,7 @@
 package share.core.conf.desktop;
 
-public class ConfDesktop {
-	
+public class ConfDesktop
+{
 	public String title = "";
 	public String icon = "";
 	public String laf = "";
@@ -12,5 +12,4 @@ public class ConfDesktop {
 	
 	public Shortcut shortcut = new Shortcut();
 	public Messages messages = new Messages();
-	
 }

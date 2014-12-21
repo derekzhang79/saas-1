@@ -16,25 +16,23 @@ import client.core.desktop.Desktop;
 
 public class ChartViewer implements ComponentListener
 {
-	
 	private JDialog dialog = null;
-	
+
 	public ChartViewer()
 	{
 	}
-	
+
 	public void run(final ChartPanel panel)
 	{
 		final ChartViewer viewer = this;
-		
+
 		panel.addMouseListener(new MouseListener()
 		{
-			
 			@Override
 			public void mouseReleased(MouseEvent event)
 			{
 			}
-			
+
 			@Override
 			public void mousePressed(MouseEvent event)
 			{
@@ -45,53 +43,53 @@ public class ChartViewer implements ComponentListener
 					ChartViewer.this.dialog.setLocationRelativeTo(null);
 					ChartViewer.this.dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 					ChartViewer.this.dialog.add(new ChartPanel(panel.getChart()));
-					
+
 					Toolkit kit = Toolkit.getDefaultToolkit();
 					Dimension dim = kit.getScreenSize();
 					GraphicsConfiguration config = ChartViewer.this.dialog.getGraphicsConfiguration();
 					Insets insets = kit.getScreenInsets(config);
 					Dimension newDimension = new Dimension(dim.width - insets.left - insets.right, dim.height - insets.top - insets.bottom);
 					ChartViewer.this.dialog.setPreferredSize(newDimension);
-					
+
 					ChartViewer.this.dialog.addComponentListener(viewer);
-					
+
 					ChartViewer.this.dialog.pack();
 					ChartViewer.this.dialog.setVisible(true);
 				}
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent event)
 			{
 			}
-			
+
 			@Override
 			public void mouseEntered(MouseEvent event)
 			{
 			}
-			
+
 			@Override
 			public void mouseClicked(MouseEvent event)
 			{
 			}
 		});
 	}
-	
+
 	@Override
 	public void componentHidden(ComponentEvent event)
 	{
 	}
-	
+
 	@Override
 	public void componentMoved(ComponentEvent event)
 	{
 	}
-	
+
 	@Override
 	public void componentResized(ComponentEvent event)
 	{
 	}
-	
+
 	@Override
 	public void componentShown(ComponentEvent event)
 	{
