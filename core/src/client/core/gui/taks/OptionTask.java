@@ -47,6 +47,9 @@ public class OptionTask<T>
 				case SINGLE:
 					this.manager = new WindowManager(this, guiName, false);
 					break;
+
+				default:
+					break;
 			}
 		}
 		else
@@ -104,7 +107,7 @@ public class OptionTask<T>
 		}
 	}
 	
-	public void event(Event event)
+	public void event(@SuppressWarnings("unused") Event event)
 	{
 	}
 	

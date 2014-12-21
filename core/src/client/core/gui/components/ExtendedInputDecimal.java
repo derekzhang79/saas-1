@@ -8,20 +8,20 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipInterface, TextCursorInterface
+public class ExtendedInputDecimal extends ExtendedInputText
 {
 	private static final long serialVersionUID = 1993615537025247597L;
-
+	
 	public ExtendedInputDecimal(int width, int length, int decimals, boolean positive)
 	{
 		super(width);
-
+		
 		setHorizontalAlignment(SwingConstants.RIGHT);
 		setDocument(new DecimalTextDocument(length, decimals, positive));
-
+		
 		addFocusListener(new FocusListener()
 		{
-
+			
 			@Override
 			public void focusLost(FocusEvent arg0)
 			{
@@ -37,14 +37,14 @@ public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipIn
 					}
 				}
 			}
-
+			
 			@Override
 			public void focusGained(FocusEvent arg0)
 			{
 			}
 		});
 	}
-
+	
 	public double getValue()
 	{
 		try
@@ -56,30 +56,30 @@ public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipIn
 			return 0;
 		}
 	}
-
+	
 	public void set(double value)
 	{
 		setText(String.valueOf(value).replace(".", ","));
 	}
-
+	
 	public boolean equals(double number)
 	{
 		return (getValue() == number);
 	}
-
+	
 	private class DecimalTextDocument extends PlainDocument
 	{
 		private static final long serialVersionUID = -8435299560853331056L;
-
+		
 		private final int length;
 		private final int decimals;
 		private final Pattern pattern;
-
+		
 		public DecimalTextDocument(int length, int decimals, boolean positive)
 		{
 			this.length = length;
 			this.decimals = decimals;
-
+			
 			if (positive)
 			{
 				this.pattern = Pattern.compile("\\d+(\\,\\d+)?$");
@@ -89,11 +89,11 @@ public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipIn
 				this.pattern = Pattern.compile("^[\\-]?\\d+(\\,\\d+)?$");
 			}
 		}
-
+		
 		private String getIntPart(String str)
 		{
 			String[] parts = str.split(",");
-
+			
 			if (parts.length > 0)
 			{
 				return parts[0].replace("-", "");
@@ -103,11 +103,11 @@ public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipIn
 				return str.replace("-", "");
 			}
 		}
-
+		
 		private String getDecimalPart(String str)
 		{
 			String[] parts = str.split(",");
-
+			
 			if (parts.length > 1)
 			{
 				return parts[1];
@@ -117,14 +117,14 @@ public class ExtendedInputDecimal extends ExtendedInputText implements ToolTipIn
 				return "";
 			}
 		}
-
+		
 		@Override
 		public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException
 		{
 			String newStr = new StringBuffer(getText(0, getLength())).insert(offset, str).toString();
 			String intPart = getIntPart(newStr);
 			String decimalPart = getDecimalPart(newStr);
-
+			
 			if (!this.pattern.matcher(newStr + "0").matches())
 			{
 				return;

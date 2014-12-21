@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -64,11 +65,14 @@ public class Table
 	
 	private void setPrimaryKey()
 	{
+		PreparedStatement statement = null;
+		ResultSet result = null;
+
 		try
 		{
 			String query = "SELECT INDEX_NAME,COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE table_schema = '" + this.database + "' AND table_name = '" + this.name + "'";
-			PreparedStatement statement = createStatement(query);
-			ResultSet result = statement.executeQuery();
+			statement = createStatement(query);
+			result = statement.executeQuery();
 			
 			while (result.next())
 			{
@@ -77,11 +81,36 @@ public class Table
 					this.primary.add(result.getString("COLUMN_NAME"));
 				}
 			}
-			
 		}
 		catch (Exception e)
 		{
 			ServerError.setError(e);
+		}
+		finally
+		{
+			if (statement != null)
+			{
+				try
+				{
+					statement.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+
+			if (result != null)
+			{
+				try
+				{
+					result.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
@@ -444,11 +473,13 @@ public class Table
 	public int getTableRows()
 	{
 		int rows = 0;
+		PreparedStatement statement = null;
+		ResultSet result = null;
 		
 		try
 		{
-			PreparedStatement statement = createStatement("SELECT COUNT(*) FROM " + getTableName());
-			ResultSet result = statement.executeQuery();
+			statement = createStatement("SELECT COUNT(*) FROM " + getTableName());
+			result = statement.executeQuery();
 			setLastQuery(statement);
 			result.absolute(1);
 			rows = result.getInt(1);
@@ -457,23 +488,64 @@ public class Table
 		{
 			ServerError.setError(e);
 		}
-		
+		finally
+		{
+			if (statement != null)
+			{
+				try
+				{
+					statement.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+
+			if (result != null)
+			{
+				try
+				{
+					result.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+
 		return rows;
 	}
 	
 	public void execute(String query)
 	{
 		long initTime = initQueryTime();
-		
+		PreparedStatement statement = null;
+
 		try
 		{
-			PreparedStatement statement = createStatement(query);
+			statement = createStatement(query);
 			statement.execute();
 			setLastQuery(statement);
 		}
 		catch (Exception e)
 		{
 			ServerError.setError(e);
+		}
+		finally
+		{
+			if (statement != null)
+			{
+				try
+				{
+					statement.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		finishQueryTime(initTime);

@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import share.core.debug.AppError;
+import share.core.resources.ResourceUtils;
 
 public class Resource
 {
@@ -23,16 +24,17 @@ public class Resource
 	public static byte[] load(String path)
 	{
 		byte[] result = new byte[0];
+		InputStream inputStream = null;
 		
 		try
 		{
-			InputStream is = Resource.get(path);
+			inputStream = Resource.get(path);
 			ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 			
 			int nRead = 0;
 			byte[] data = new byte[1024];
 			
-			while ((nRead = is.read(data, 0, data.length)) != -1)
+			while ((nRead = inputStream.read(data, 0, data.length)) != -1)
 			{
 				buffer.write(data, 0, nRead);
 			}
@@ -44,6 +46,10 @@ public class Resource
 		catch (Exception e)
 		{
 			AppError.setError(e);
+		}
+		finally
+		{
+			ResourceUtils.close(inputStream);
 		}
 		
 		return result;
