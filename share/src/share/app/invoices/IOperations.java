@@ -1,6 +1,6 @@
 package share.app.invoices;
 
-import share.core.Date;
+import share.core.objects.Date;
 
 public interface IOperations
 {

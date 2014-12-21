@@ -1,7 +1,7 @@
 package share.app.invoices;
 
-import share.core.Date;
-import share.core.Shareable;
+import share.core.objects.Date;
+import share.core.utils.Shareable;
 
 public class Invoice extends Shareable
 {

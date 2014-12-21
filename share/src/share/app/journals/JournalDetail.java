@@ -1,6 +1,6 @@
 package share.app.journals;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class JournalDetail extends Shareable
 {

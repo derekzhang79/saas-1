@@ -1,7 +1,7 @@
 package share.app.cashcount;
 
-import share.core.Date;
-import share.core.Shareable;
+import share.core.objects.Date;
+import share.core.utils.Shareable;
 
 public class CashCount extends Shareable
 {

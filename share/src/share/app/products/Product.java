@@ -1,6 +1,6 @@
 package share.app.products;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class Product extends Shareable
 {

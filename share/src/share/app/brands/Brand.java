@@ -1,6 +1,6 @@
 package share.app.brands;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class Brand extends Shareable
 {

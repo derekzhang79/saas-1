@@ -1,6 +1,6 @@
 package share.app.workshop;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class FixOrderDetail extends Shareable
 {

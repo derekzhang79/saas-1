@@ -1,6 +1,6 @@
 package share.app.contacts;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class Contact extends Shareable
 {

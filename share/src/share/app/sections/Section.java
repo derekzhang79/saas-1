@@ -1,6 +1,6 @@
 package share.app.sections;
 
-import share.core.Shareable;
+import share.core.utils.Shareable;
 
 public class Section extends Shareable
 {

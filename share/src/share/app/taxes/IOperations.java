@@ -1,6 +1,6 @@
 package share.app.taxes;
 
-import share.core.Date;
+import share.core.objects.Date;
 
 public interface IOperations
 {
