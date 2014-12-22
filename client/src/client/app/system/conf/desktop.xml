@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <desktop>
     
-	<title>Gestión de Mercería</title>
+	<title>Haberdashery Management</title>
 	<icon>icon/icon.png</icon>
 	<laf>com.sun.java.swing.plaf.windows.WindowsLookAndFeel</laf>
 	<bgcolor>230</bgcolor>
 	<login>system.tasks.Login</login>
 	<exit>system.tasks.Exit</exit>
-	<blocker_time>10</blocker_time>
+	<blocker_time>10</blocker_time> <!-- in minutes -->
 	
 	<shortcut>
-		<name>Gestion de Merceria</name>
+		<name>Haberdashery Management</name>
 		<icone>icon/icon.ico</icone>
-		<base_url>http://SERVER/store/</base_url>
+		<base_url>http://SERVER_URL/</base_url>
 		<file_url>/application.jnlp</file_url>
 	</shortcut>
 	
 	<messages>
-		<information>Aviso</information>
-		<confirm>Advertencia</confirm>
-		<warning>Advertencia</warning>
+		<information>Information</information>
+		<confirm>Confirmation</confirm>
+		<warning>Warning</warning>
 		<error>Error</error>
-		<no_permission>El usuario no tiene permisos para realizar esta operación</no_permission>
-		<communication_error>Se ha producido un error en la comunicación</communication_error>
-		<wait>Por favor, espere...</wait>
-		<true_string>Sí</true_string>
+		<no_permission>The user does not have permissions to perform this operation</no_permission>
+		<communication_error>Communication error</communication_error>
+		<wait>Please, wait...</wait>
+		<true_string>Yes</true_string>
 		<false_string>No</false_string>
 	</messages>
 	
