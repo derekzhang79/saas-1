@@ -18,10 +18,12 @@ import share.core.utils.Crypt;
 public class ClientProcessor implements Runnable
 {
 	private final Socket socket;
+	private final String dbEnvironment;
 
-	public ClientProcessor(Socket socket)
+	public ClientProcessor(Socket socket, String dbEnvironment)
 	{
 		this.socket = socket;
+		this.dbEnvironment = dbEnvironment;
 	}
 
 	@Override
@@ -79,7 +81,7 @@ public class ClientProcessor implements Runnable
 
 		Object result = null;
 		
-		CommunicationManager manager = new CommunicationManager(parameters.getDBEnvironment());
+		CommunicationManager manager = new CommunicationManager(this.dbEnvironment);
 		
 		if (parameters.isLogin())
 		{

@@ -13,36 +13,37 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		if (args.length > 0)
+		if (args.length == 2)
 		{
-			Integer port = Integer.parseInt(args[0]);
-
+			String dbEnvironment = args[0];
+			Integer port = Integer.parseInt(args[1]);
+			
 			Main main = new Main();
-			main.start(port);
+			main.start(dbEnvironment, port);
 		}
 		else
 		{
-			System.err.println("Usage: server.jar [port]");
+			System.err.println("Usage: server.jar DDBB_ENVIRONMENT PORT");
 		}
 	}
-	
-	private void start(int port)
+
+	private void start(String dbEnvironment, int port)
 	{
 		ServerSocket serverSocket = null;
-		
+
 		try
 		{
 			serverSocket = new ServerSocket(port);
-
-			System.out.println("LISTENING: " + InetAddress.getLocalHost().getHostAddress() + ":" + port);
-
+			
+			System.out.println("LISTENING: " + InetAddress.getLocalHost().getHostAddress() + ":" + port + "/" + dbEnvironment);
+			
 			while (true)
 			{
 				Socket clientSocket = serverSocket.accept();
-
+				
 				try
 				{
-					this.clientPool.submit(new ClientProcessor(clientSocket));
+					this.clientPool.submit(new ClientProcessor(clientSocket, dbEnvironment));
 				}
 				catch (Exception e)
 				{
