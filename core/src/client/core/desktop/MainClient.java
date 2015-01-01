@@ -20,7 +20,7 @@ public class MainClient
 		{
 			String serverIP = args[0];
 			int serverPort = Integer.parseInt(args[1]);
-			
+
 			MainClient mainClient = new MainClient();
 			mainClient.start(serverIP, serverPort);
 		}
@@ -29,21 +29,18 @@ public class MainClient
 			System.out.println("Usage: client.jar SERVER_IP SERVER_PORT");
 		}
 	}
-	
+
 	private void start(String serverIP, int serverPort)
 	{
 		configure(serverIP, serverPort);
 		startDesktop();
 	}
-
+	
 	private void configure(String serverIP, int serverPort)
 	{
 		Environment.createApplicationPath();
 		Communication.configure(serverIP, serverPort);
 		FontStore.configure();
-		
-		String url = Configurator.getDesktop().shortcut.base_url + Configurator.getDesktop().shortcut.file_url;
-		Environment.setApplicationShortcut(Configurator.getDesktop().shortcut.name, Configurator.getDesktop().shortcut.icone, url);
 		
 		try
 		{
@@ -53,7 +50,7 @@ public class MainClient
 		{
 		}
 	}
-	
+
 	private void startDesktop()
 	{
 		SwingUtilities.invokeLater(new Runnable()
@@ -67,7 +64,7 @@ public class MainClient
 				frame.setIconImage(ImageStore.getImage(Configurator.getDesktop().icon));
 				frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
-				
+
 				frame.addWindowListener(new WindowAdapter()
 				{
 					@Override

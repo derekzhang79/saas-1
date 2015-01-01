@@ -8,11 +8,8 @@ import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Calendar;
 import javax.swing.filechooser.FileSystemView;
@@ -31,8 +28,6 @@ public class Environment
 	
 	private static final String APPLICATION_PATH = System.getProperty("user.home") + Constants.APPLICATION_FOLDER;
 	private static final String LAST_USER_PATH = Environment.APPLICATION_PATH + Constants.LAST_USER_FILE;
-	private static final String ICON_CREATED_PATH = Environment.APPLICATION_PATH + Constants.ICON_CREATED_FILE;
-	private static final String APP_ICON_PATH = Environment.APPLICATION_PATH + Constants.APP_ICON_FILE;
 	
 	private static final String OS_WINDOWS = "windows";
 	private static final String OS_LINUX = "linux";
@@ -185,35 +180,6 @@ public class Environment
 		return lastUser;
 	}
 	
-	private static boolean isIconCreated()
-	{
-		File file = new File(Environment.ICON_CREATED_PATH);
-		
-		return file.exists();
-	}
-	
-	private static void createIconFlag()
-	{
-		File file = new File(Environment.ICON_CREATED_PATH);
-		
-		try
-		{
-			FileWriter fstream = new FileWriter(file);
-			BufferedWriter out = new BufferedWriter(fstream);
-			out.flush();
-			out.close();
-		}
-		catch (Exception e)
-		{
-			AppError.setError(e);
-		}
-	}
-	
-	private static String getJavaDir()
-	{
-		return System.getProperty("java.home");
-	}
-	
 	public static String getDesktopPath()
 	{
 		FileSystemView filesys = FileSystemView.getFileSystemView();
@@ -228,79 +194,6 @@ public class Environment
 		if (!dir.exists())
 		{
 			dir.mkdir();
-		}
-	}
-	
-	private static boolean saveImage(String icon)
-	{
-		boolean valid = false;
-		
-		try
-		{
-			InputStream inputStream = Resource.get(Constants.IMAGE_PATH + icon);
-			OutputStream out = new FileOutputStream(Environment.APP_ICON_PATH);
-			byte buf[] = new byte[1024];
-			int length = 0;
-			
-			while ((length = inputStream.read(buf)) > 0)
-			{
-				out.write(buf, 0, length);
-			}
-			
-			out.close();
-			inputStream.close();
-			valid = true;
-		}
-		catch (Exception e)
-		{
-			AppError.setError(e);
-		}
-		
-		return valid;
-	}
-	
-	public static void createShortcutWindows(String sourceDir, String sourceArguments, String target, String icon)
-	{
-		try
-		{
-			String script = "";
-			script += "Set sh = CreateObject(\"WScript.Shell\")";
-			script += "\nSet shortcut = sh.CreateShortcut(\"" + target + ".lnk\")";
-			script += "\nshortcut.TargetPath = \"" + sourceDir + "\"";
-			script += "\nshortcut.Arguments = \"" + sourceArguments + "\"";
-			
-			if (Environment.saveImage(icon))
-			{
-				script += "\nshortcut.IconLocation = \"" + Environment.APP_ICON_PATH + "\"";
-			}
-			
-			script += "\nshortcut.Save";
-			
-			File file = new File(System.getProperty("java.io.tmpdir") + "/temp.vbs");
-			FileOutputStream fo = new FileOutputStream(file);
-			fo.write(script.getBytes(Encoding.UTF8));
-			fo.close();
-			Runtime.getRuntime().exec("wscript.exe " + file.getAbsolutePath());
-		}
-		catch (Exception e)
-		{
-			AppError.setError(e);
-		}
-	}
-	
-	public static void setApplicationShortcut(String name, String icon, String url)
-	{
-		if (!Environment.isIconCreated())
-		{
-			if (Environment.isWindows())
-			{
-				String sourceDir = Environment.getJavaDir() + "/bin/javaws.exe";
-				String target = Environment.getDesktopPath() + name;
-				
-				Environment.createShortcutWindows(sourceDir, url, target, icon);
-			}
-			
-			Environment.createIconFlag();
 		}
 	}
 	
