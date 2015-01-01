@@ -12,11 +12,10 @@ public class BackgroundWorker extends SwingWorker<String, String>
 	private final int clientID;
 	private final String ticket;
 	private final String sessionId;
-	private final String databaseEnvironment;
 	private final String target;
 	private final Object[] parameters;
-
-	public BackgroundWorker(String target, String user, int clientID, String sessionId, String ticket, String databaseEnvironment, Object... parameters)
+	
+	public BackgroundWorker(String target, String user, int clientID, String sessionId, String ticket, Object... parameters)
 	{
 		this.user = user;
 		this.clientID = clientID;
@@ -24,32 +23,31 @@ public class BackgroundWorker extends SwingWorker<String, String>
 		this.ticket = ticket;
 		this.target = target;
 		this.parameters = parameters;
-		this.databaseEnvironment = databaseEnvironment;
 	}
-
+	
 	public void setPass(String value)
 	{
 		this.pass = value;
 	}
-
+	
 	@Override
 	protected String doInBackground()
 	{
 		long init = System.currentTimeMillis();
-		Parameters params = new Parameters(this.target, this.user, this.pass, this.clientID, this.sessionId, this.ticket, this.databaseEnvironment, this.parameters);
+		Parameters params = new Parameters(this.target, this.user, this.pass, this.clientID, this.sessionId, this.ticket, this.parameters);
 		String response = Transmission.send(params);
 		long time = System.currentTimeMillis() - init;
-
+		
 		if (!params.isLogin())
 		{
 			Debug.setInfo("››› " + this.target + " → " + time + " ms");
 		}
-
+		
 		Debug.setTimeRequest(time);
-
+		
 		return response;
 	}
-
+	
 	@Override
 	protected void done()
 	{

@@ -5,27 +5,16 @@ public class Constants
 	private Constants()
 	{
 	}
-	
+
 	public enum AppDatabase
 	{
 		SYSTEM, APPLICATION
-	}
-	
-	public enum AppEnvironment
-	{
-		TEST, REAL
-	}
-	
-	public enum AppLocation
-	{
-		LOCAL, REMOTE
 	}
 	
 	public static final String CONF_DDBB = "/server/app/database/conf/ddbb";
 	public static final String CONF_DESKTOP = "/client/app/system/conf/desktop";
 	public static final String CONF_TOOLBAR = "/client/app/system/conf/toolbar";
 	public static final String CONF_MENUBAR = "/client/app/system/conf/menubar";
-	public static final String CONF_COMMUNICATION = "/client/app/system/conf/communication";
 	
 	public static final String BASE_OPTION_TASK = "client.app.";
 	public static final String SYSTEM_BLOCKER = "system.tasks.Blocker";

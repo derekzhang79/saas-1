@@ -1,10 +1,6 @@
 package client.core.connection;
 
-import share.core.conf.Configurator;
-import share.core.conf.communication.ConfCommunication;
 import share.core.connection.Response;
-import share.core.constants.Constants.AppEnvironment;
-import share.core.constants.Constants.AppLocation;
 import share.core.utils.Serializer;
 import client.core.debug.Debug;
 import client.core.desktop.Desktop;
@@ -19,7 +15,6 @@ public class Communication<ResponseClass>
 
 	private static String ticket;
 	private static String sessionId;
-	private static String databaseEnvironment;
 	
 	public Communication(String target, String user, int clientID)
 	{
@@ -28,26 +23,9 @@ public class Communication<ResponseClass>
 		this.clientID = clientID;
 	}
 	
-	public static void configure(AppLocation location, AppEnvironment environment)
+	public static void configure(String ip, int port)
 	{
-		Communication.databaseEnvironment = environment.toString();
-		
-		ConfCommunication cofCommunication = Configurator.getCommunication();
-
-		if (location.equals(AppLocation.LOCAL))
-		{
-			String ip = cofCommunication.getIp(true);
-			int port = cofCommunication.getPort(true);
-			
-			Transmission.configure(ip, port);
-		}
-		else if (location.equals(AppLocation.REMOTE))
-		{
-			String ip = cofCommunication.getIp(false);
-			int port = cofCommunication.getPort(false);
-			
-			Transmission.configure(ip, port);
-		}
+		Transmission.configure(ip, port);
 	}
 	
 	public void setPass(String value)
@@ -59,7 +37,7 @@ public class Communication<ResponseClass>
 	public ResponseClass send(Object... parameters)
 	{
 		Desktop.getDesktop().restartTimer();
-		BackgroundWorker worker = new BackgroundWorker(this.target, this.user, this.clientID, Communication.sessionId, Communication.ticket, Communication.databaseEnvironment, parameters);
+		BackgroundWorker worker = new BackgroundWorker(this.target, this.user, this.clientID, Communication.sessionId, Communication.ticket, parameters);
 		
 		if (!this.pass.isEmpty())
 		{

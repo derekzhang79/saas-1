@@ -7,8 +7,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import share.core.conf.Configurator;
-import share.core.constants.Constants.AppEnvironment;
-import share.core.constants.Constants.AppLocation;
 import share.core.utils.Environment;
 import client.core.connection.Communication;
 import client.core.gui.fonts.FontStore;
@@ -20,33 +18,33 @@ public class MainClient
 	{
 		if (args.length == 2)
 		{
-			AppLocation location = AppLocation.valueOf(args[0].toUpperCase());
-			AppEnvironment environment = AppEnvironment.valueOf(args[1].toUpperCase());
-
+			String serverIP = args[0];
+			int serverPort = Integer.parseInt(args[1]);
+			
 			MainClient mainClient = new MainClient();
-			mainClient.start(location, environment);
+			mainClient.start(serverIP, serverPort);
 		}
 		else
 		{
-			System.out.println("Usage: client.jar [local|remote] [test|real]");
+			System.out.println("Usage: client.jar SERVER_IP SERVER_PORT");
 		}
 	}
-
-	private void start(AppLocation location, AppEnvironment environment)
+	
+	private void start(String serverIP, int serverPort)
 	{
-		configure(location, environment);
+		configure(serverIP, serverPort);
 		startDesktop();
 	}
-	
-	private void configure(AppLocation location, AppEnvironment environment)
+
+	private void configure(String serverIP, int serverPort)
 	{
 		Environment.createApplicationPath();
-		Communication.configure(location, environment);
+		Communication.configure(serverIP, serverPort);
 		FontStore.configure();
-
-		String url = Configurator.getDesktop().shortcut.base_url + environment.toString().toLowerCase() + Configurator.getDesktop().shortcut.file_url;
+		
+		String url = Configurator.getDesktop().shortcut.base_url + Configurator.getDesktop().shortcut.file_url;
 		Environment.setApplicationShortcut(Configurator.getDesktop().shortcut.name, Configurator.getDesktop().shortcut.icone, url);
-
+		
 		try
 		{
 			UIManager.setLookAndFeel(Configurator.getDesktop().laf);
@@ -55,7 +53,7 @@ public class MainClient
 		{
 		}
 	}
-
+	
 	private void startDesktop()
 	{
 		SwingUtilities.invokeLater(new Runnable()
@@ -69,7 +67,7 @@ public class MainClient
 				frame.setIconImage(ImageStore.getImage(Configurator.getDesktop().icon));
 				frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
-
+				
 				frame.addWindowListener(new WindowAdapter()
 				{
 					@Override
