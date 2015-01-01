@@ -3,15 +3,15 @@ package client.app.brands.tasks;
 import share.app.brands.Brand;
 import client.app.brands.gui.def.GUIBrowseBrands;
 import client.app.brands.operations.OperationsBrands;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseBrands extends OptionTask<Void>
+public class BrowseBrands extends Activity<Void>
 {
 	private final GUIBrowseBrands gui = new GUIBrowseBrands();
 	
 	public BrowseBrands()
 	{
-		super(GUIBrowseBrands.PATH, TaskType.SINGLE);
+		super(GUIBrowseBrands.PATH, Type.SINGLE);
 	}
 	
 	@Override

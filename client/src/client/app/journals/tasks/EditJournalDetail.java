@@ -3,16 +3,16 @@ package client.app.journals.tasks;
 import share.app.journals.JournalDetail;
 import client.app.journals.gui.def.GUIEditJournalDetail;
 import client.app.journals.operations.OperationsJournals;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class EditJournalDetail extends OptionTask<Boolean>
+public class EditJournalDetail extends Activity<Boolean>
 {
 	private final JournalDetail original;
 	private final GUIEditJournalDetail gui = new GUIEditJournalDetail();
 
 	public EditJournalDetail(JournalDetail original)
 	{
-		super(GUIEditJournalDetail.PATH, TaskType.MODAL);
+		super(GUIEditJournalDetail.PATH, Type.MODAL);
 
 		this.original = original;
 	}

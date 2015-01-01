@@ -2,15 +2,15 @@ package client.app.sections.tasks;
 
 import java.awt.Color;
 import client.app.sections.gui.def.GUIEditSection;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseSection<ResultType> extends OptionTask<ResultType>
+public abstract class BaseSection<ResultType> extends Activity<ResultType>
 {
 	protected GUIEditSection gui = new GUIEditSection();
 
 	public BaseSection()
 	{
-		super(GUIEditSection.PATH, TaskType.MODAL);
+		super(GUIEditSection.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

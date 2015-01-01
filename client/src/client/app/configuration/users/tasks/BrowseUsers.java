@@ -3,15 +3,15 @@ package client.app.configuration.users.tasks;
 import share.core.objects.User;
 import client.app.configuration.users.gui.def.GUIBrowseUsers;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseUsers extends OptionTask<Void>
+public class BrowseUsers extends Activity<Void>
 {
 	private final GUIBrowseUsers gui = new GUIBrowseUsers();
 	
 	public BrowseUsers()
 	{
-		super(GUIBrowseUsers.PATH, TaskType.SINGLE);
+		super(GUIBrowseUsers.PATH, Type.SINGLE);
 	}
 	
 	@Override

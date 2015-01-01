@@ -4,9 +4,9 @@ import java.awt.Color;
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.tasks.SearchClient;
 import client.app.invoices.gui.def.GUIEditInvoice;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseInvoice<ResultType> extends OptionTask<ResultType>
+public abstract class BaseInvoice<ResultType> extends Activity<ResultType>
 {
 	protected int clientID = 0;
 
@@ -14,7 +14,7 @@ public abstract class BaseInvoice<ResultType> extends OptionTask<ResultType>
 
 	public BaseInvoice()
 	{
-		super(GUIEditInvoice.PATH, TaskType.MODAL);
+		super(GUIEditInvoice.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

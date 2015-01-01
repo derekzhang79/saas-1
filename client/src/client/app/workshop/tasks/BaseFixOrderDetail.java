@@ -2,15 +2,15 @@ package client.app.workshop.tasks;
 
 import java.awt.Color;
 import client.app.workshop.gui.def.GUIEditFixOrderDetail;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseFixOrderDetail extends OptionTask<Boolean>
+public abstract class BaseFixOrderDetail extends Activity<Boolean>
 {
 	protected GUIEditFixOrderDetail gui = new GUIEditFixOrderDetail();
 
 	public BaseFixOrderDetail()
 	{
-		super(GUIEditFixOrderDetail.PATH, TaskType.MODAL);
+		super(GUIEditFixOrderDetail.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

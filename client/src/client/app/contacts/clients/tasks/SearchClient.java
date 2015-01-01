@@ -3,15 +3,15 @@ package client.app.contacts.clients.tasks;
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.gui.def.GUISearchClient;
 import client.app.contacts.clients.operations.OperationsClients;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class SearchClient extends OptionTask<Client>
+public class SearchClient extends Activity<Client>
 {
 	private final GUISearchClient gui = new GUISearchClient();
 	
 	public SearchClient()
 	{
-		super(GUISearchClient.PATH, TaskType.MODAL);
+		super(GUISearchClient.PATH, Type.MODAL);
 	}
 	
 	@Override

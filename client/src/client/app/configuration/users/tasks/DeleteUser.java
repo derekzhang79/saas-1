@@ -3,15 +3,15 @@ package client.app.configuration.users.tasks;
 import share.core.objects.User;
 import client.app.configuration.users.gui.def.GUIDeleteUser;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteUser extends OptionTask<Boolean>
+public class DeleteUser extends Activity<Boolean>
 {
 	private final User user;
 
 	public DeleteUser(User user)
 	{
-		super(GUIDeleteUser.PATH, TaskType.SINGLE);
+		super(GUIDeleteUser.PATH, Type.SINGLE);
 
 		this.user = user;
 	}

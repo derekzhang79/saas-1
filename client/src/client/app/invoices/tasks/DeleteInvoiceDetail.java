@@ -3,15 +3,15 @@ package client.app.invoices.tasks;
 import share.app.invoices.InvoiceDetail;
 import client.app.invoices.gui.def.GUIDeleteInvoiceDetail;
 import client.app.invoices.operations.OperationsInvoices;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteInvoiceDetail extends OptionTask<Boolean>
+public class DeleteInvoiceDetail extends Activity<Boolean>
 {
 	private final InvoiceDetail invoiceDetail;
 
 	public DeleteInvoiceDetail(InvoiceDetail invoiceDetail)
 	{
-		super(GUIDeleteInvoiceDetail.PATH, TaskType.SINGLE);
+		super(GUIDeleteInvoiceDetail.PATH, Type.SINGLE);
 
 		this.invoiceDetail = invoiceDetail;
 	}

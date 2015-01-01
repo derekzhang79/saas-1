@@ -3,15 +3,15 @@ package client.app.sections.tasks;
 import share.app.sections.Section;
 import client.app.sections.gui.def.GUIDeleteSection;
 import client.app.sections.operations.OperationsSections;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteSection extends OptionTask<Boolean>
+public class DeleteSection extends Activity<Boolean>
 {
 	private final Section section;
 	
 	public DeleteSection(Section section)
 	{
-		super(GUIDeleteSection.PATH, TaskType.SINGLE);
+		super(GUIDeleteSection.PATH, Type.SINGLE);
 		
 		this.section = section;
 	}

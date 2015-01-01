@@ -3,15 +3,15 @@ package client.app.system.tasks;
 import share.core.utils.Environment;
 import client.app.system.gui.def.GUILogInfo;
 import client.core.debug.Debug;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class LogInfo extends OptionTask<Void>
+public class LogInfo extends Activity<Void>
 {
 	private final GUILogInfo gui = new GUILogInfo();
 	
 	public LogInfo()
 	{
-		super(GUILogInfo.PATH, TaskType.MODAL, true);
+		super(GUILogInfo.PATH, Type.MODAL, true);
 	}
 	
 	@Override

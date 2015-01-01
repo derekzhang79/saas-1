@@ -4,9 +4,9 @@ import java.awt.Color;
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.tasks.SearchClient;
 import client.app.workshop.gui.def.GUIEditFixOrder;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseFixOrder<ResultType> extends OptionTask<ResultType>
+public abstract class BaseFixOrder<ResultType> extends Activity<ResultType>
 {
 	protected int clientID = 0;
 
@@ -14,7 +14,7 @@ public abstract class BaseFixOrder<ResultType> extends OptionTask<ResultType>
 
 	public BaseFixOrder()
 	{
-		super(GUIEditFixOrder.PATH, TaskType.MODAL);
+		super(GUIEditFixOrder.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

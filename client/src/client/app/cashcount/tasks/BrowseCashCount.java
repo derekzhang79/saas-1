@@ -7,15 +7,15 @@ import share.core.utils.Environment;
 import client.app.cashcount.gui.def.GUIBrowseCashCount;
 import client.app.cashcount.operations.OperationsCashCount;
 import client.app.system.dictionary.DictionaryManager;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseCashCount extends OptionTask<Void>
+public class BrowseCashCount extends Activity<Void>
 {
 	private final GUIBrowseCashCount gui = new GUIBrowseCashCount();
 	
 	public BrowseCashCount()
 	{
-		super(GUIBrowseCashCount.PATH, TaskType.SINGLE);
+		super(GUIBrowseCashCount.PATH, Type.SINGLE);
 	}
 	
 	@Override

@@ -6,15 +6,15 @@ import share.app.support.Support;
 import client.app.support.gui.def.GUIBrowseSupports;
 import client.app.support.operations.OperationsSupports;
 import client.app.system.dictionary.DictionaryManager;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseSupports extends OptionTask<Void>
+public class BrowseSupports extends Activity<Void>
 {
 	private final GUIBrowseSupports gui = new GUIBrowseSupports();
 	
 	public BrowseSupports()
 	{
-		super(GUIBrowseSupports.PATH, TaskType.SINGLE);
+		super(GUIBrowseSupports.PATH, Type.SINGLE);
 	}
 	
 	@Override

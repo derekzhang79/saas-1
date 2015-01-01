@@ -2,15 +2,15 @@ package client.app.contacts.clients.tasks;
 
 import java.awt.Color;
 import client.app.contacts.clients.gui.def.GUIEditClient;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseClient<ResultType> extends OptionTask<ResultType>
+public abstract class BaseClient<ResultType> extends Activity<ResultType>
 {
 	protected GUIEditClient gui = new GUIEditClient();
 
 	public BaseClient()
 	{
-		super(GUIEditClient.PATH, TaskType.MODAL);
+		super(GUIEditClient.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

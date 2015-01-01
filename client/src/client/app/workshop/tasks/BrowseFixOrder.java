@@ -11,9 +11,9 @@ import client.app.system.dictionary.DictionaryManager;
 import client.app.workshop.gui.def.GUIBrowseFixOrder;
 import client.app.workshop.operations.OperationsWorkshop;
 import client.app.workshop.reports.PrintFixOrder;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseFixOrder extends OptionTask<Void>
+public class BrowseFixOrder extends Activity<Void>
 {
 	private final GUIBrowseFixOrder gui = new GUIBrowseFixOrder();
 	
@@ -21,7 +21,7 @@ public class BrowseFixOrder extends OptionTask<Void>
 	
 	public BrowseFixOrder()
 	{
-		super(GUIBrowseFixOrder.PATH, TaskType.SINGLE);
+		super(GUIBrowseFixOrder.PATH, Type.SINGLE);
 	}
 	
 	@Override

@@ -2,15 +2,15 @@ package client.app.brands.tasks;
 
 import java.awt.Color;
 import client.app.brands.gui.def.GUIEditBrand;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseBrand<ResultType> extends OptionTask<ResultType>
+public abstract class BaseBrand<ResultType> extends Activity<ResultType>
 {
 	protected GUIEditBrand gui = new GUIEditBrand();
 
 	public BaseBrand()
 	{
-		super(GUIEditBrand.PATH, TaskType.MODAL);
+		super(GUIEditBrand.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

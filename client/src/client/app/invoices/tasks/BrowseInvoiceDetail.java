@@ -4,9 +4,9 @@ import share.app.invoices.Invoice;
 import share.app.invoices.InvoiceDetail;
 import client.app.invoices.gui.def.GUIBrowseInvoiceDetail;
 import client.app.invoices.operations.OperationsInvoices;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseInvoiceDetail extends OptionTask<Void>
+public class BrowseInvoiceDetail extends Activity<Void>
 {
 	private final GUIBrowseInvoiceDetail gui = new GUIBrowseInvoiceDetail();
 
@@ -14,7 +14,7 @@ public class BrowseInvoiceDetail extends OptionTask<Void>
 
 	public BrowseInvoiceDetail(Invoice invoice)
 	{
-		super(GUIBrowseInvoiceDetail.PATH, TaskType.MODAL);
+		super(GUIBrowseInvoiceDetail.PATH, Type.MODAL);
 
 		this.invoice = invoice;
 	}

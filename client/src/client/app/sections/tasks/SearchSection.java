@@ -3,15 +3,15 @@ package client.app.sections.tasks;
 import share.app.sections.Section;
 import client.app.sections.gui.def.GUISearchSection;
 import client.app.sections.operations.OperationsSections;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class SearchSection extends OptionTask<Section>
+public class SearchSection extends Activity<Section>
 {
 	private final GUISearchSection gui = new GUISearchSection();
 	
 	public SearchSection()
 	{
-		super(GUISearchSection.PATH, TaskType.MODAL);
+		super(GUISearchSection.PATH, Type.MODAL);
 	}
 	
 	@Override

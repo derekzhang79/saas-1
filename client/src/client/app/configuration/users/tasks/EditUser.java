@@ -7,10 +7,10 @@ import share.core.utils.Encoding;
 import client.app.configuration.usergroups.tasks.SearchUserGroup;
 import client.app.configuration.users.gui.def.GUIEditUser;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 import client.core.profile.Profile;
 
-public class EditUser extends OptionTask<Boolean>
+public class EditUser extends Activity<Boolean>
 {
 	private final GUIEditUser gui = new GUIEditUser();
 	
@@ -20,7 +20,7 @@ public class EditUser extends OptionTask<Boolean>
 	
 	public EditUser(User original)
 	{
-		super(GUIEditUser.PATH, TaskType.MODAL);
+		super(GUIEditUser.PATH, Type.MODAL);
 		this.original = original;
 	}
 	

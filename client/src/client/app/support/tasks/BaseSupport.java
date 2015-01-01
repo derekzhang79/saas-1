@@ -2,15 +2,15 @@ package client.app.support.tasks;
 
 import java.awt.Color;
 import client.app.support.gui.def.GUIEditSupport;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseSupport extends OptionTask<Boolean>
+public abstract class BaseSupport extends Activity<Boolean>
 {
 	protected GUIEditSupport gui = new GUIEditSupport();
 
 	public BaseSupport()
 	{
-		super(GUIEditSupport.PATH, TaskType.MODAL);
+		super(GUIEditSupport.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

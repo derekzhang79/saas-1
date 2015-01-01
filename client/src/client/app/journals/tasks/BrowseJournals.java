@@ -9,15 +9,15 @@ import client.app.journals.gui.def.GUIBrowseJournals;
 import client.app.journals.operations.OperationsJournals;
 import client.app.system.dictionary.DictionaryManager;
 import client.core.gui.format.DataFormatter;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseJournals extends OptionTask<Void>
+public class BrowseJournals extends Activity<Void>
 {
 	private final GUIBrowseJournals gui = new GUIBrowseJournals();
 	
 	public BrowseJournals()
 	{
-		super(GUIBrowseJournals.PATH, TaskType.SINGLE);
+		super(GUIBrowseJournals.PATH, Type.SINGLE);
 	}
 	
 	@Override

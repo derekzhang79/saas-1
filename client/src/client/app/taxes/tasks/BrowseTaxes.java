@@ -3,18 +3,18 @@ package client.app.taxes.tasks;
 import share.app.taxes.Tax;
 import client.app.taxes.gui.def.GUIBrowseTaxes;
 import client.app.taxes.operations.OperationsTaxes;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseTaxes extends OptionTask<Void>
+public class BrowseTaxes extends Activity<Void>
 {
 	private final GUIBrowseTaxes gui = new GUIBrowseTaxes();
 	
 	public BrowseTaxes()
 	{
-		super(GUIBrowseTaxes.PATH, TaskType.SINGLE);
+		super(GUIBrowseTaxes.PATH, Type.SINGLE);
 	}
 	
-	public BrowseTaxes(TaskType type)
+	public BrowseTaxes(Type type)
 	{
 		super(GUIBrowseTaxes.PATH, type);
 	}

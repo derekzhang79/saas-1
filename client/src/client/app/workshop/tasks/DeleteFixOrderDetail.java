@@ -3,15 +3,15 @@ package client.app.workshop.tasks;
 import share.app.workshop.FixOrderDetail;
 import client.app.workshop.gui.def.GUIDeleteFixOrderDetail;
 import client.app.workshop.operations.OperationsWorkshop;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteFixOrderDetail extends OptionTask<Boolean>
+public class DeleteFixOrderDetail extends Activity<Boolean>
 {
 	private final FixOrderDetail fixOrderDetail;
 	
 	public DeleteFixOrderDetail(FixOrderDetail fixOrderDetail)
 	{
-		super(GUIDeleteFixOrderDetail.PATH, TaskType.SINGLE);
+		super(GUIDeleteFixOrderDetail.PATH, Type.SINGLE);
 		
 		this.fixOrderDetail = fixOrderDetail;
 	}

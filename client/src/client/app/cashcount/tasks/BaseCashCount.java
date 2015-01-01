@@ -4,15 +4,15 @@ import java.awt.Color;
 import share.core.constants.Constants;
 import client.app.cashcount.gui.def.GUIEditCashCount;
 import client.core.gui.format.DataFormatter;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseCashCount extends OptionTask<Boolean>
+public abstract class BaseCashCount extends Activity<Boolean>
 {
 	protected GUIEditCashCount gui = new GUIEditCashCount();
 
 	public BaseCashCount()
 	{
-		super(GUIEditCashCount.PATH, TaskType.MODAL);
+		super(GUIEditCashCount.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

@@ -3,15 +3,15 @@ package client.app.contacts.clients.tasks;
 import share.app.contacts.clients.Client;
 import client.app.contacts.clients.gui.def.GUIDeleteClient;
 import client.app.contacts.clients.operations.OperationsClients;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteClient extends OptionTask<Boolean>
+public class DeleteClient extends Activity<Boolean>
 {
 	private final Client client;
 
 	public DeleteClient(Client client)
 	{
-		super(GUIDeleteClient.PATH, TaskType.SINGLE);
+		super(GUIDeleteClient.PATH, Type.SINGLE);
 
 		this.client = client;
 	}

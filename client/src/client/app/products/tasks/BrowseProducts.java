@@ -7,9 +7,9 @@ import client.app.brands.tasks.SearchBrand;
 import client.app.products.gui.def.GUIBrowseProducts;
 import client.app.products.operations.OperationsProducts;
 import client.app.sections.tasks.SearchSection;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseProducts extends OptionTask<Void>
+public class BrowseProducts extends Activity<Void>
 {
 	private final GUIBrowseProducts gui = new GUIBrowseProducts();
 	
@@ -18,7 +18,7 @@ public class BrowseProducts extends OptionTask<Void>
 	
 	public BrowseProducts()
 	{
-		super(GUIBrowseProducts.PATH, TaskType.SINGLE);
+		super(GUIBrowseProducts.PATH, Type.SINGLE);
 	}
 	
 	@Override

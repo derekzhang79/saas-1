@@ -2,15 +2,15 @@ package client.app.contacts.suppliers.tasks;
 
 import java.awt.Color;
 import client.app.contacts.suppliers.gui.def.GUIEditSupplier;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseSupplier extends OptionTask<Boolean>
+public abstract class BaseSupplier extends Activity<Boolean>
 {
 	protected GUIEditSupplier gui = new GUIEditSupplier();
 
 	public BaseSupplier()
 	{
-		super(GUIEditSupplier.PATH, TaskType.MODAL);
+		super(GUIEditSupplier.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

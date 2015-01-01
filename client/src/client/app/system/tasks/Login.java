@@ -8,16 +8,16 @@ import client.app.system.dictionary.DictionaryManager;
 import client.app.system.gui.def.GUILogin;
 import client.app.system.operations.OperationsLogin;
 import client.core.desktop.Desktop;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 import client.core.profile.Profile;
 
-public class Login extends OptionTask<Void>
+public class Login extends Activity<Void>
 {
 	private final GUILogin gui = new GUILogin();
 	
 	public Login()
 	{
-		super(GUILogin.PATH, TaskType.MODAL, true);
+		super(GUILogin.PATH, Type.MODAL, true);
 	}
 	
 	@Override

@@ -3,15 +3,15 @@ package client.app.contacts.suppliers.tasks;
 import share.app.contacts.suppliers.Supplier;
 import client.app.contacts.suppliers.gui.def.GUIBrowseSuppliers;
 import client.app.contacts.suppliers.operations.OperationsSuppliers;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseSuppliers extends OptionTask<Void>
+public class BrowseSuppliers extends Activity<Void>
 {
 	private final GUIBrowseSuppliers gui = new GUIBrowseSuppliers();
 	
 	public BrowseSuppliers()
 	{
-		super(GUIBrowseSuppliers.PATH, TaskType.SINGLE);
+		super(GUIBrowseSuppliers.PATH, Type.SINGLE);
 	}
 	
 	@Override

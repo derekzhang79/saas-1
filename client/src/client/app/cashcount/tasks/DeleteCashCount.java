@@ -3,15 +3,15 @@ package client.app.cashcount.tasks;
 import share.app.cashcount.CashCount;
 import client.app.cashcount.gui.def.GUIDeleteCashCount;
 import client.app.cashcount.operations.OperationsCashCount;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteCashCount extends OptionTask<Boolean>
+public class DeleteCashCount extends Activity<Boolean>
 {
 	private CashCount cashCount = null;
 	
 	public DeleteCashCount(CashCount cashCount)
 	{
-		super(GUIDeleteCashCount.PATH, TaskType.SINGLE);
+		super(GUIDeleteCashCount.PATH, Type.SINGLE);
 		
 		this.cashCount = cashCount;
 	}

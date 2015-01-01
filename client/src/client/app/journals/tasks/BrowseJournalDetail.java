@@ -4,16 +4,16 @@ import share.app.journals.Journal;
 import share.app.journals.JournalDetail;
 import client.app.journals.gui.def.GUIBrowseJournalDetail;
 import client.app.journals.operations.OperationsJournals;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseJournalDetail extends OptionTask<Void>
+public class BrowseJournalDetail extends Activity<Void>
 {
 	private final GUIBrowseJournalDetail gui = new GUIBrowseJournalDetail();
 	private Journal journal = null;
 	
 	public BrowseJournalDetail(Journal journal)
 	{
-		super(GUIBrowseJournalDetail.PATH, TaskType.MODAL);
+		super(GUIBrowseJournalDetail.PATH, Type.MODAL);
 		
 		this.journal = journal;
 	}

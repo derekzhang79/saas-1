@@ -2,15 +2,15 @@ package client.app.taxes.tasks;
 
 import java.awt.Color;
 import client.app.taxes.gui.def.GUIEditTax;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseTax extends OptionTask<Boolean>
+public abstract class BaseTax extends Activity<Boolean>
 {
 	protected GUIEditTax gui = new GUIEditTax();
 
 	public BaseTax()
 	{
-		super(GUIEditTax.PATH, TaskType.MODAL);
+		super(GUIEditTax.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

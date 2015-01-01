@@ -3,15 +3,15 @@ package client.app.system.tasks;
 import share.core.utils.Environment;
 import client.app.system.gui.def.GUILogError;
 import client.core.debug.Debug;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class LogError extends OptionTask<Void>
+public class LogError extends Activity<Void>
 {
 	private final GUILogError gui = new GUILogError();
 	
 	public LogError()
 	{
-		super(GUILogError.PATH, TaskType.MODAL, true);
+		super(GUILogError.PATH, Type.MODAL, true);
 	}
 	
 	@Override

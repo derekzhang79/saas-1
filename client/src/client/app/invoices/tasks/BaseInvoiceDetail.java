@@ -6,9 +6,9 @@ import share.core.constants.Constants;
 import client.app.invoices.gui.def.GUIEditInvoiceDetail;
 import client.app.products.tasks.SearchProduct;
 import client.core.gui.format.DataFormatter;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseInvoiceDetail extends OptionTask<Boolean>
+public abstract class BaseInvoiceDetail extends Activity<Boolean>
 {
 	protected int productID = 0;
 	protected double taxValue = 0;
@@ -17,7 +17,7 @@ public abstract class BaseInvoiceDetail extends OptionTask<Boolean>
 
 	public BaseInvoiceDetail()
 	{
-		super(GUIEditInvoiceDetail.PATH, TaskType.MODAL);
+		super(GUIEditInvoiceDetail.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

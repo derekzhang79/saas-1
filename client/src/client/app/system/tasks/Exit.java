@@ -1,13 +1,13 @@
 package client.app.system.tasks;
 
 import client.app.system.gui.def.GUIExit;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class Exit extends OptionTask<Void>
+public class Exit extends Activity<Void>
 {
 	public Exit()
 	{
-		super(GUIExit.PATH, TaskType.SINGLE, true);
+		super(GUIExit.PATH, Type.SINGLE, true);
 	}
 
 	@Override

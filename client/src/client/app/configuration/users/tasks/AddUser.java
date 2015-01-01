@@ -7,9 +7,9 @@ import share.core.utils.Encoding;
 import client.app.configuration.usergroups.tasks.SearchUserGroup;
 import client.app.configuration.users.gui.def.GUIAddUser;
 import client.app.configuration.users.operations.OperationsUsers;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class AddUser extends OptionTask<Boolean>
+public class AddUser extends Activity<Boolean>
 {
 	private final GUIAddUser gui = new GUIAddUser();
 
@@ -17,7 +17,7 @@ public class AddUser extends OptionTask<Boolean>
 
 	public AddUser()
 	{
-		super(GUIAddUser.PATH, TaskType.MODAL);
+		super(GUIAddUser.PATH, Type.MODAL);
 	}
 
 	@Override

@@ -4,15 +4,15 @@ import share.app.taxes.Tax;
 import client.app.taxes.gui.def.GUIDeleteTax;
 import client.app.taxes.operations.OperationsTaxes;
 import client.core.gui.format.DataFormatter;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteTax extends OptionTask<Boolean>
+public class DeleteTax extends Activity<Boolean>
 {
 	private final Tax tax;
 	
 	public DeleteTax(Tax tax)
 	{
-		super(GUIDeleteTax.PATH, TaskType.SINGLE);
+		super(GUIDeleteTax.PATH, Type.SINGLE);
 		
 		this.tax = tax;
 	}

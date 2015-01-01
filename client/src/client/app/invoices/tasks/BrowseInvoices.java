@@ -10,9 +10,9 @@ import client.app.invoices.gui.def.GUIBrowseInvoices;
 import client.app.invoices.operations.OperationsInvoices;
 import client.app.invoices.reports.PrintInvoice;
 import client.app.taxes.operations.OperationsTaxes;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseInvoices extends OptionTask<Void>
+public class BrowseInvoices extends Activity<Void>
 {
 	private final GUIBrowseInvoices gui = new GUIBrowseInvoices();
 	
@@ -20,7 +20,7 @@ public class BrowseInvoices extends OptionTask<Void>
 	
 	public BrowseInvoices()
 	{
-		super(GUIBrowseInvoices.PATH, TaskType.SINGLE);
+		super(GUIBrowseInvoices.PATH, Type.SINGLE);
 	}
 	
 	@Override

@@ -9,9 +9,9 @@ import share.core.objects.Task;
 import share.core.objects.UserGroup;
 import client.app.configuration.usergroups.gui.def.GUIEditUserGroupPermissions;
 import client.app.configuration.usergroups.operations.OperationsPermissions;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class EditUserGroupPermissions extends OptionTask<Void>
+public class EditUserGroupPermissions extends Activity<Void>
 {
 	private final UserGroup userGroup;
 	private final List<Task> generalList = new ArrayList<Task>();
@@ -20,7 +20,7 @@ public class EditUserGroupPermissions extends OptionTask<Void>
 
 	public EditUserGroupPermissions(UserGroup userGroup)
 	{
-		super(GUIEditUserGroupPermissions.PATH, TaskType.MODAL);
+		super(GUIEditUserGroupPermissions.PATH, Type.MODAL);
 
 		this.userGroup = userGroup;
 	}

@@ -2,15 +2,15 @@ package client.app.journals.tasks;
 
 import java.awt.Color;
 import client.app.journals.gui.def.GUIEditJournal;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseJournal<ResultType> extends OptionTask<ResultType>
+public abstract class BaseJournal<ResultType> extends Activity<ResultType>
 {
 	protected GUIEditJournal gui = new GUIEditJournal();
 
 	public BaseJournal()
 	{
-		super(GUIEditJournal.PATH, TaskType.MODAL);
+		super(GUIEditJournal.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

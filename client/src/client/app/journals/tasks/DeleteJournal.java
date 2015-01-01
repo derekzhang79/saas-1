@@ -3,15 +3,15 @@ package client.app.journals.tasks;
 import share.app.journals.Journal;
 import client.app.journals.gui.def.GUIDeleteJournal;
 import client.app.journals.operations.OperationsJournals;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteJournal extends OptionTask<Boolean>
+public class DeleteJournal extends Activity<Boolean>
 {
 	private final Journal journal;
 
 	public DeleteJournal(Journal journal)
 	{
-		super(GUIDeleteJournal.PATH, TaskType.SINGLE);
+		super(GUIDeleteJournal.PATH, Type.SINGLE);
 
 		this.journal = journal;
 	}

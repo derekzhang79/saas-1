@@ -3,16 +3,16 @@ package client.app.system.tasks;
 import java.awt.Color;
 import share.core.utils.Encoding;
 import client.app.system.gui.def.GUIBlocker;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 import client.core.profile.Profile;
 
-public class Blocker extends OptionTask<Void>
+public class Blocker extends Activity<Void>
 {
 	private final GUIBlocker gui = new GUIBlocker();
 
 	public Blocker()
 	{
-		super(GUIBlocker.PATH, TaskType.SPECIAL, true);
+		super(GUIBlocker.PATH, Type.SPECIAL, true);
 	}
 
 	@Override

@@ -4,9 +4,9 @@ import share.app.workshop.FixOrder;
 import share.app.workshop.FixOrderDetail;
 import client.app.workshop.gui.def.GUIBrowseFixOrderDetail;
 import client.app.workshop.operations.OperationsWorkshop;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseFixOrderDetail extends OptionTask<Void>
+public class BrowseFixOrderDetail extends Activity<Void>
 {
 	private final GUIBrowseFixOrderDetail gui = new GUIBrowseFixOrderDetail();
 	
@@ -14,7 +14,7 @@ public class BrowseFixOrderDetail extends OptionTask<Void>
 	
 	public BrowseFixOrderDetail(FixOrder fixOrder)
 	{
-		super(GUIBrowseFixOrderDetail.PATH, TaskType.MODAL);
+		super(GUIBrowseFixOrderDetail.PATH, Type.MODAL);
 		
 		this.fixOrder = fixOrder;
 	}

@@ -6,9 +6,9 @@ import share.app.sections.Section;
 import client.app.brands.tasks.SearchBrand;
 import client.app.products.gui.def.GUIEditProduct;
 import client.app.sections.tasks.SearchSection;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public abstract class BaseProduct<ResultType> extends OptionTask<ResultType>
+public abstract class BaseProduct<ResultType> extends Activity<ResultType>
 {
 	protected GUIEditProduct gui = new GUIEditProduct();
 
@@ -17,7 +17,7 @@ public abstract class BaseProduct<ResultType> extends OptionTask<ResultType>
 
 	public BaseProduct()
 	{
-		super(GUIEditProduct.PATH, TaskType.MODAL);
+		super(GUIEditProduct.PATH, Type.MODAL);
 		setGUI(this.gui);
 	}
 

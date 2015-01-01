@@ -3,15 +3,15 @@ package client.app.products.tasks;
 import share.app.products.Product;
 import client.app.products.gui.def.GUIDeleteProduct;
 import client.app.products.operations.OperationsProducts;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class DeleteProduct extends OptionTask<Boolean>
+public class DeleteProduct extends Activity<Boolean>
 {
 	private final Product product;
 	
 	public DeleteProduct(Product product)
 	{
-		super(GUIDeleteProduct.PATH, TaskType.SINGLE);
+		super(GUIDeleteProduct.PATH, Type.SINGLE);
 		
 		this.product = product;
 	}

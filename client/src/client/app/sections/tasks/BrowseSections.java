@@ -3,15 +3,15 @@ package client.app.sections.tasks;
 import share.app.sections.Section;
 import client.app.sections.gui.def.GUIBrowseSections;
 import client.app.sections.operations.OperationsSections;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 
-public class BrowseSections extends OptionTask<Void>
+public class BrowseSections extends Activity<Void>
 {
 	private final GUIBrowseSections gui = new GUIBrowseSections();
 	
 	public BrowseSections()
 	{
-		super(GUIBrowseSections.PATH, TaskType.SINGLE);
+		super(GUIBrowseSections.PATH, Type.SINGLE);
 	}
 	
 	@Override
