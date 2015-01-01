@@ -5,10 +5,10 @@
 	<target name="begin">
 		
 		<!-- SET ENVIRONMENT -->
-		<input message      = "Environment to deploy:"
+		<!-- <input message      = "Environment to deploy:"
 		       validargs    = "test,real"
 		       addproperty  = "environment"
-			   defaultvalue = "test" />
+			   defaultvalue = "test" /> -->
 		
 		<!-- SET PROJECTS PROPERTIES -->
 		<property name="appclient.dir" location="${basedir}/Client" />
@@ -79,7 +79,7 @@
 		</copy>
 		
 		<!-- COPY JNLP -->
-		<copy file="${appcore.dir}/build/${environment}/application.jnlp" todir="${dist.client.final}" />
+		<copy file="${appcore.dir}/build/jnlp/application.jnlp" todir="${dist.client.final}" />
 		
 		<!-- CREATE JAR CLIENT -->
 		<jar jarfile="${dist.client.final}/client.jar" basedir="${dist.client.class}" 
