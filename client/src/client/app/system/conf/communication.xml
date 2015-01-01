@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<communication>
-	<local>localhost:7777</local>
-	<remote>SERVER_IP:PORT</remote>
-</communication>
