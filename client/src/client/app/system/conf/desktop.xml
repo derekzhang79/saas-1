@@ -9,13 +9,6 @@
 	<exit>system.tasks.Exit</exit>
 	<blocker_time>10</blocker_time> <!-- in minutes -->
 	
-	<shortcut>
-		<name>Haberdashery Management</name>
-		<icone>icon/icon.ico</icone>
-		<base_url>http://SERVER_URL/</base_url>
-		<file_url>/application.jnlp</file_url>
-	</shortcut>
-	
 	<messages>
 		<information>Information</information>
 		<confirm>Confirmation</confirm>
