@@ -79,14 +79,14 @@ import client.core.gui.components.InputLimiter;
 import client.core.gui.components.TextCursorInterface;
 import client.core.gui.components.ToolTipInterface;
 import client.core.gui.fonts.FontStore;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 import client.core.images.ImageStore;
 
 @SuppressWarnings("rawtypes")
 public class WindowManager implements ActionListener, MouseListener
 {
 	private Container container = null;
-	private OptionTask task = null;
+	private Activity task = null;
 	
 	private ExtendedWindow internal = null;
 	private ModalWindow dialog = null;
@@ -133,7 +133,7 @@ public class WindowManager implements ActionListener, MouseListener
 		left, right, center
 	}
 	
-	public WindowManager(OptionTask task, String guiName, boolean modal)
+	public WindowManager(Activity task, String guiName, boolean modal)
 	{
 		this.task = task;
 		
@@ -1543,7 +1543,7 @@ public class WindowManager implements ActionListener, MouseListener
 		layout.insets = new Insets(node.getIntValue(Attribute.margin_top), node.getIntValue(Attribute.margin_left), node.getIntValue(Attribute.margin_bottom), node.getIntValue(Attribute.margin_right));
 		parent.add(pane, layout);
 		
-		final OptionTask taskOption = this.task;
+		final Activity taskOption = this.task;
 		
 		pane.addChangeListener(new ChangeListener()
 		{

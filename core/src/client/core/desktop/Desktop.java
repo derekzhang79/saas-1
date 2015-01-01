@@ -29,7 +29,7 @@ import share.core.xml.XMLUtils;
 import client.core.debug.Debug;
 import client.core.gui.block.BlockTimer;
 import client.core.gui.fonts.FontStore;
-import client.core.gui.taks.OptionTask;
+import client.core.gui.taks.Activity;
 import client.core.gui.window.ExtendedWindow;
 import client.core.images.ImageStore;
 import client.core.profile.Profile;
@@ -40,8 +40,8 @@ public class Desktop extends JFrame implements ActionListener
 	
 	private static Desktop self = null;
 	
-	private final MapTable<String, OptionTask<?>> singleTasks = new MapTable<String, OptionTask<?>>();
-	private final List<OptionTask<?>> tasksList = new ArrayList<OptionTask<?>>();
+	private final MapTable<String, Activity<?>> singleTasks = new MapTable<String, Activity<?>>();
+	private final List<Activity<?>> tasksList = new ArrayList<Activity<?>>();
 	
 	private BlockTimer blockTimer = null;
 	private Boolean appBlocked = false;
@@ -278,14 +278,14 @@ public class Desktop extends JFrame implements ActionListener
 	
 	public void callOptionTask(String path)
 	{
-		OptionTask<?> task = (OptionTask<?>)Environment.instanceClass(Constants.BASE_OPTION_TASK + path);
+		Activity<?> task = (Activity<?>)Environment.instanceClass(Constants.BASE_OPTION_TASK + path);
 		
 		if (task.isSingle())
 		{
 			if (isSingleTaskActive(task))
 			{
 				task.closeSpecial();
-				OptionTask<?> oldTask = this.singleTasks.get(task.getClass().getCanonicalName());
+				Activity<?> oldTask = this.singleTasks.get(task.getClass().getCanonicalName());
 				oldTask.toFront();
 			}
 			else
@@ -300,7 +300,7 @@ public class Desktop extends JFrame implements ActionListener
 		}
 	}
 
-	public void closeTask(OptionTask<?> task)
+	public void closeTask(Activity<?> task)
 	{
 		if (task.isSingle())
 		{
@@ -311,7 +311,7 @@ public class Desktop extends JFrame implements ActionListener
 		}
 	}
 
-	private boolean isSingleTaskActive(OptionTask<?> task)
+	private boolean isSingleTaskActive(Activity<?> task)
 	{
 		return this.singleTasks.containsKey(task.getClass().getCanonicalName());
 	}
@@ -322,12 +322,12 @@ public class Desktop extends JFrame implements ActionListener
 		callOptionTask(event.getActionCommand());
 	}
 	
-	public void addTask(OptionTask<?> task)
+	public void addTask(Activity<?> task)
 	{
 		this.tasksList.add(task);
 	}
 	
-	public void removeTask(OptionTask<?> task)
+	public void removeTask(Activity<?> task)
 	{
 		this.tasksList.remove(task);
 	}

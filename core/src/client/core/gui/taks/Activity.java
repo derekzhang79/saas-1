@@ -13,11 +13,11 @@ import client.core.gui.messages.Message;
 import client.core.gui.window.WindowManager;
 import client.core.profile.Profile;
 
-public class OptionTask<T>
+public class Activity<T>
 {
 	private WindowManager manager = null;
 	private T result = null;
-	private final TaskType type;
+	private final Type type;
 	private final boolean permission;
 	
 	public enum Event
@@ -25,12 +25,12 @@ public class OptionTask<T>
 		ADD, EDIT, DELETE, CLEAR, CLEAR_IN, CLEAR_OUT, SAVE, PRINT, ACCEPT, SEARCH, CLEAR_SEARCH_CLIENT, CLEAR_SEARCH_SECTION, CLEAR_SEARCH_PRODUCT, CLEAR_SEARCH_BRAND, CANCEL, EXIT, COPY, LOGIN, EXCEL, PDF, REFRESH, SELECT, DETAIL, SEARCH_CLIENT, SEARCH_SECTION, SEARCH_PRODUCT, SEARCH_BRAND, SEARCH_USER_GROUP
 	}
 	
-	protected enum TaskType
+	protected enum Type
 	{
 		SINGLE, MODAL, SPECIAL
 	}
 	
-	public OptionTask(String guiName, TaskType type, boolean permission)
+	public Activity(String guiName, Type type, boolean permission)
 	{
 		this.type = type;
 		this.permission = permission || Profile.hasPermission(getClass().getCanonicalName());
@@ -60,7 +60,7 @@ public class OptionTask<T>
 		Desktop.getDesktop().restartTimer();
 	}
 	
-	public OptionTask(String guiName, TaskType type)
+	public Activity(String guiName, Type type)
 	{
 		this(guiName, type, false);
 	}
@@ -72,12 +72,12 @@ public class OptionTask<T>
 	
 	public boolean isSpecial()
 	{
-		return this.type.equals(TaskType.SPECIAL);
+		return this.type.equals(Type.SPECIAL);
 	}
 	
 	public boolean isSingle()
 	{
-		return this.type.equals(TaskType.SINGLE);
+		return this.type.equals(Type.SINGLE);
 	}
 	
 	public void toFront()
